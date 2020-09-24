@@ -1,0 +1,49 @@
+<!--pages/more/visits/evaluation/index.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+    <view class="yh-visits-card">
+      <view class="yh-visits-items">
+        <view class="yh-visits-com">
+          <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=153086019,155710187&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="yh-visits-coms">
+          <view class="yh-visits-lc">
+            <text>王华建</text>
+            <text class="yh-visits-titles"> 内分泌科 · 主任医师</text>
+          </view>
+          <view class="yh-visits-le">
+            <text>复旦大学附属中山医院厦门医院</text>
+            <text>三甲</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="yh-visits-card">
+      <view class="yh-evalu-star">
+        <text>服务评分</text>
+        <i-cell-group class="yh-evalu-stars">
+          <i-rate bind:change="onChange2" value="{{starIndex2}}">
+            {{starIndex2}}分
+          </i-rate>
+        </i-cell-group>
+      </view>
+      <view class="yh-evalu-star fl">填写评价</view>
+      <view class="yh-evalu-tex">
+        <textarea placeholder-class="place-holder" placeholder="快来写下您的评价吧… " name="introduction" maxlength='300' bindinput='limit' value="{{text}}" style="font-size: 14px;" />
+
+        <text>{{current}} / {{max}}</text>
+      </view>
+      <view class="yh-evalu-fo">
+        <view class="yh-evalu-left">
+          <i-radio value="{{animal}}" disabled="{{disabled}}" checked="{{checked}}" bindchange="handleAnimalChange">
+          </i-radio>
+          <text>匿名评价</text>
+        </view>
+        <view class="yh-evalu-right">评价奖励8星币</view>
+      </view>
+    </view>
+    <view style="padding:22rpx 0;">
+      <button class="grace-button" style="line-height:80rpx;" formType="submit" type="primary">提交评价</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,118 @@
+<view>
+  <map id="map" longitude="{{centre.longitude}}" latitude="{{centre.latitude}}" scale="{{scale}}" markers="{{markers}}" bindmarkertap="markertap" enable-satellite="{{enableSatellite}}" enable-traffic="{{enableTraffic}}" enable-3D="{{enable3D}}" show-location  show-scale="true">
+  </map>
+  <cover-view class="gn-map-menu-wrap {{showDetailModal==true?'gn-map-modal-active':''}}">
+    <cover-image src="{{imgChangeUser}}" wx:if="{{change}}" mode="aspectFit" class="gn-map-change-user" bindtap="onclickGetMyFamily"></cover-image>
+    <cover-image src="{{imgMenu}}" mode="aspectFit" class="gn-map-menu" bindtap='showMenu'></cover-image>
+  </cover-view>
+  <cover-view class="gn-map-location-refresh-wrap {{showDetailModal==true?'gn-map-modal-active':''}}">
+    <cover-view class="gn-map-location-wrap" bindtap='getLocation'>
+      <cover-image src="{{imgLocation}}" mode="aspectFit" class="gn-map-location"></cover-image>
+    </cover-view>
+    <cover-view class="gn-map-refresh-wrap" bindtap='refreshLocation'>
+      <cover-image src="{{imgRefresh}}" mode="aspectFit" class="gn-map-refresh "></cover-image>
+    </cover-view>
+  </cover-view>
+  <cover-view class="gn-map-operate-wrap">
+    <cover-view class="gn-map-change-wrap" bindtap='showMapChoices'>
+      <cover-image src="{{imgChange}}" mode="aspectFit" class="gn-map-change"></cover-image>
+    </cover-view>
+    <cover-view class="gn-map-operate-items-wrap">
+      <cover-image src="{{imgLightUnselected}}" mode="aspectFit" class="gn-map-light" wx:if="{{!light}}" bindtap='changeLightStatus'></cover-image>
+      <cover-image src="{{imgLight}}" mode="aspectFit" class="gn-map-light" wx:if="{{light}}" bindtap='changeLightStatus'></cover-image>
+      <cover-image src="{{imgDots}}" mode="aspectFit" class="gn-map-dots"></cover-image>
+      <cover-image src="{{imgSingle}}" mode="aspectFit" class="gn-map-location-single" wx:if="{{single}}"></cover-image>
+      <cover-image src="{{imgSingleUnseletced}}" mode="aspectFit" class="gn-map-location-single" wx:if="{{!single}}" bindtap='showSingle'></cover-image>
+      <cover-image src="{{imgDots}}" mode="aspectFit" class="gn-map-dots"></cover-image>
+      <cover-image src="{{imgLoactionsUn}}" mode="aspectFit" class="gn-map-locations" wx:if="{{single}}" bindtap='showLocations'></cover-image>
+      <cover-image src="{{imgLocations}}" mode="aspectFit" class="gn-map-locations" wx:if="{{!single}}"></cover-image>
+      <cover-image src="{{imgDots}}" mode="aspectFit" class="gn-map-dots"></cover-image>
+      <cover-image src="{{imgVistaUn}}" mode="aspectFit" class="gn-map-vista" wx:if="{{!vista}}" bindtap='changeVistaStatus'></cover-image>
+      <cover-image src="{{imgVista}}" mode="aspectFit" class="gn-map-vista" wx:if="{{vista}}" bindtap='changeVistaStatus'></cover-image>
+    </cover-view>
+  </cover-view>
+  <!-- 菜单及地图样式modal -->
+  <cover-view class="gn-mask-detail-wrap" wx:if="{{showDetailModal}}">
+    <cover-view class="gn-detial-wrap gn-app-fs24">
+      <cover-view class="gn-detial-items-wrap">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgSpeed}}" mode="aspectFit" class="gn-map-speed-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.speed}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgBattery}}" mode="aspectFit" class="gn-map-high-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.battery}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap gn-detial-items-wrap-bg">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgSpeed}}" mode="aspectFit" class="gn-map-speed-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.mileage}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgDirection}}" mode="aspectFit" class="gn-map-direction-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.direction}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgClock}}" mode="aspectFit" class="gn-map-clock-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.lastConnectTime}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgClock}}" mode="aspectFit" class="gn-map-clock-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.lastConnectTime}}</cover-view>
+
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap gn-detial-items-wrap-bg">
+        <cover-image src="{{imgStatus}}" mode="aspectFit" class="gn-map-status-icon"></cover-image>
+        <cover-view class="gn-detial-content gn-detial-content-address">{{details.status}}</cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap">
+        <cover-image src="{{imgAddress}}" mode="aspectFit" class="gn-map-address-icon"></cover-image>
+        <cover-view class="gn-detial-content gn-detial-content-address">{{details.address}}</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class="gn-mask-wrap" wx:if="{{showChangeMapStatus}}">
+    <cover-view bindtap="onClickHide" class="gn-map-mask" catchtouchmove="preventTouchMove"></cover-view>
+    <cover-view class="gn-change-map-buttons">
+      <cover-view class="gn-map-change-buttons">
+        <cover-view class="gn-map-status {{mapStatus==1?'.gn-map-status-active':''}}" bindtap='onMapStatus'>地图</cover-view>
+        <cover-view class="gn-map-line"></cover-view>
+        <cover-view class="gn-map-status {{mapStatus==2?'.gn-map-status-active':''}}" bindtap='onSatelliteStatus'>卫星</cover-view>
+        <cover-view class="gn-map-line"></cover-view>
+        <cover-view class="gn-map-status {{mapStatus==3?'.gn-map-status-active':''}}" bindtap='onThreeDStatus'>三维</cover-view>
+      </cover-view>
+      <cover-view class="gn-map-button-change">
+        <cover-image src="{{imgChange}}" mode="aspectFit" class="gn-map-change" bindtap='closeMapChoices'></cover-image>
+      </cover-view>
+    </cover-view>
+
+  </cover-view>
+  <cover-view class="gn-mask-wrap" wx:if="{{showMenu}}">
+    <cover-view bindtap="hideMenu" class="gn-map-mask"></cover-view>
+    <cover-view class="gn-map-menu-list {{showDetailModal==true?'gn-map-menu-list-active':''}}">
+      <cover-image src="{{imgIcon1}}" mode="aspectFit" class="gn-map-menu-icon" bindtap='getPlayback'></cover-image>
+      <cover-image src="{{imgIcon2}}" mode="aspectFit" class="gn-map-menu-icon" bindtap='getDetail'></cover-image>
+      <cover-image src="{{imgIcon3}}" mode="aspectFit" class="gn-map-menu-icon" bindtap='goInstruct'></cover-image>
+      <cover-image src="{{imgIcon4}}" mode="aspectFit" class="gn-map-menu-icon" bindtap='hideMenu'></cover-image>
+    </cover-view>
+  </cover-view>
+  <!-- 切换用户浮层 -->
+  <cover-view class='gn-health-front' wx:if="{{showUserList}}">
+    <cover-view bindtap="onClickHide" class="gn-health-mask" catchtouchmove="preventTouchMove"></cover-view>
+    <cover-view class="gn-change-user {{showDetailModal==true?'gn-change-user-active':''}}" bindtap="onClickHide" scroll-top="1">
+      <cover-view wx:for="{{myDevices}}" class="gn-health-user" bindtap="onClickChangeDevice" data-id="{{index}}">
+        <cover-view class="gn-change-name">{{item.relationship}}-{{item.toMemberName}}</cover-view>
+        <cover-image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-user-photo"></cover-image>
+      </cover-view>
+      <cover-view wx:for="{{myWatches}}" class="gn-health-user" bindtap="onClickChangeWatch" data-id="{{index}}">
+        <cover-view class="gn-change-name">{{item.relationship}}-{{item.toMemberName}}</cover-view>
+        <cover-image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-user-photo"></cover-image>
+      </cover-view>
+    </cover-view>
+    <cover-image src="{{imgHideUser}}" class="gn-hide-icon {{showDetailModal==true?'gn-hide-icon-active':''}}" mode="aspectFit" bindtap="onClickHide"></cover-image>
+  </cover-view>
+</view>

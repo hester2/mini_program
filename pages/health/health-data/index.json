@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "健康数据",
+  "usingComponents": {
+    "ec-canvas": "../../../ec-canvas/ec-canvas",
+    "i-tabs": "../../../../dist/tabs/index",
+    "i-tab": "../../../../dist/tab/index",
+    "i-panel": "../../../../dist/panel/index"
+  }
+}

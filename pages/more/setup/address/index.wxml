@@ -1,0 +1,33 @@
+<!--pages/more/setup/address/index.wxml-->
+<view class="container">
+  <view class="yh-chives-main">
+    <view class="grace-form-item grace-border-b">
+      <view class="yh-address-desc">王华健</view>
+      <view class="yh-address-desc yh-address-desc-size">吉林省长春市朝阳区2054栋201号</view>
+    </view>
+    <view class="grace-form-items ">
+      <view class="grace-form-col">
+        <i-radio value="{{animal}}" disabled="{{disabled}}" checked="{{checked}}" bindchange="handleAnimalChange">
+        </i-radio>
+      </view>
+      <view class="grace-form-col">
+        <view class="yh-form-icon" bindtap="handleEdit">
+          <i-icon type="editor" size="22" color="#4EA3FF"></i-icon>
+          <text>编辑</text>
+        </view>
+        <view class="yh-form-icon">
+          <i-icon type="trash" size="22" color="#4EA3FF"></i-icon>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{false}}">
+    <image src="{{imgServer}}icon-address_1.png"></image>
+    <view class="yh-address-fo">您还没有收货地址</view>
+  </view>
+</view>
+<view class="grace-null" bindtap="handleAdd">
+  <image src="{{imgServer}}icon-address_2.png"></image>
+</view>

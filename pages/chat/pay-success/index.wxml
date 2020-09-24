@@ -1,0 +1,27 @@
+<!--pages/chat/pay-success/index.wxml-->
+<view class="yh-pay-main">
+  <view class="yh-pay-col">
+    <image src="{{imgServer}}icon-evaluation_1.png"></image>
+    <text>支付成功</text>
+  </view>
+  <view class="yh-pay-col yh-pay-cols">
+    <button bindtap="handleCancel">取消订单</button>
+    <button>查看订单</button>
+  </view>
+</view>
+<button class="yh-pay-btn" bindtap="handleHome">返回首页</button>
+
+<!--弹窗-->
+<view class="yh-modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="yh-modal-dialog" wx:if="{{showModal}}">
+  <view class="yh-modal-title">添加数量</view>
+  <view class="yh-modal-content">
+    <view class="yh-modal-input">
+      确认取消订单
+    </view>
+    <view class="yh-modal-footer">
+      <view class="yh-btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="yh-btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,201 @@
+//index.js
+//获取应用实例
+var app = getApp()
+const config = require('../../utils/config.js')
+
+Page({
+  data: {
+    list: [
+      'https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2852083094,372235004&fm=26&gp=0.jpg',
+      'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3595140452,1077552905&fm=26&gp=0.jpg',
+      'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'],
+    indicatorDots: false,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500,
+    starIndex4: 4,
+    hiddenName: true,
+    hiddenNamet:false,
+    hide:true,
+    hiden:false,
+    hiddenHo:false,
+    // 
+    indicatorDots: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500,
+    answer:[],//精品推荐
+    adept:'',
+    doctor:[],
+    sectionList:[],
+    carousel:[],
+    title_j:[],
+    recom:[]
+  },
+  stopTouchMove() {
+    return false;
+  },
+  onLoad: function () {
+    console.log(app.globalData.userId)
+    app.http.postRequest(config.getHotDoctor, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        this.setData({
+          adept: res.data.data.adept,
+          doctor: res.data.data.doctorList
+
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+    app.http.postRequest(config.getEightSectionList, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        this.setData({
+          sectionList: res.data.data
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+    app.http.postRequest(config.getCarousel, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        console.log(res.data.data)
+        this.setData({
+          carousel: res.data.data.imgs
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+    app.http.postRequest(config.getYiHaoNotice, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        console.log(res.data.data)
+        this.setData({
+          title_j: res.data.data
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+    app.http.postRequest(config.getHotGoods, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        console.log(res.data.data)
+        this.setData({
+          recom: res.data.data
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+  },
+  handleClick(e){
+    wx.navigateTo({
+      url: '../chat/doctor-home/index?daId=' + e.currentTarget.dataset.id,
+    })
+  },
+  handleCop(){
+    wx.navigateTo({
+      url: 'visits/index',
+    })
+  },
+  handleScan(){
+    wx.navigateTo({
+      url: '../health/scan-type/index',
+    })
+  },
+  handleCancle(){
+    this.setData({
+      hiddenName: true,
+      hiddenNamet: false,
+      hide: true,
+      hiden: false,
+      hiddenHo: false,
+    })
+  },
+inputFocus(){
+  this.setData({
+    hiddenName: false,
+    hiddenNamet: true,
+    hide:false,
+    hiden:true,
+    hiddenHo:true,
+  })
+},
+
+  searchNow(){
+    this.setData({
+      hiddenName: true,
+      hiddenNamet: false,
+      hide: true,
+      hiden: false,
+      hiddenHo: false,
+    })
+  },
+
+  clearKey: function () {
+    console.log('fff')
+    this.setData({
+      hiddenName: true
+    })
+    this.setData({
+      searchClose: false,
+      searchKey: ""
+    });
+  },
+})

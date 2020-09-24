@@ -1,0 +1,44 @@
+.gn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #49a0ff;
+  background:#fff;
+  width:694rpx;
+  height:614rpx;
+  margin:50rpx auto;
+}
+.gn-scan-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:82rpx;
+}
+
+.gn-scan-icon {
+  width: 194rpx;
+  height: 194rpx;
+  margin-bottom:18rpx;
+}
+
+.gn-enter-code {
+  width: 633rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin-top:142rpx;
+}
+
+.input-placeholder {
+  color: #4d4d4e;
+}
+
+.gn-button {
+  width: 300rpx;
+  height: 81rpx;
+  text-align: center;
+  line-height: 81rpx;
+  background: #49a0ff;
+  border-radius: 32rpx;
+  margin: 56rpx auto;
+  color:#fff;
+}

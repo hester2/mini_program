@@ -1,0 +1,88 @@
+<view class="gn-page">
+  <view class="gn-new-timing-reminder gn-app-fs28">
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">标题</text>
+      <input class="gn-reminder-time-title gn-long-input" placeholder="{{clock.title}}" bindinput="entertitle" maxlength="10" />
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">内容</text>
+      <view class="gn-reminder-content-wrap1">
+        <view class="gn-reminder-record-content-wrap" bindtap="doRecordWay" bindtouchstart="mytouchstart" bindtouchend="mytouchend" wx:if="{{record}}">
+          <view class="gn-reminder-record-content">
+            <image src="{{imgRecordFile}}" mode="aspectFit" class="gn-record-content-icon"></image>
+            <text>{{voiceLen}}"</text>
+          </view>
+        </view>
+        <!-- <input wx:if="{{!contentType}}" class="gn-reminder-time-title" placeholder="{{clock.content}}" bindinput="enterContent" maxlength="10" /> -->
+        <image src="{{imgRecord}}" mode="aspectFit" class="gn-record-icon" bindtap="showRecord"></image>
+      </view>
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">时间</text>
+      <view class="gn-time">
+        <picker mode="time" value="{{clock.nextDatetime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+          {{clock.nextDatetime}}
+        </picker>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">结束日期</text>
+      <view class="gn-time">
+        <picker mode="date" value=" {{clock.endDatetime}}" start="1995-01-01" end="2050-12-01" bindchange="bindDateChange">
+          {{clock.endDatetime}}
+        </picker>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+    <view class="gn-reminder-time gn-reminder-time-last-item" bindtap="showRegular">
+      <text class="gn-reminder-time-title">重复</text>
+      <view class="gn-time">
+        {{clock.weekName}}
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+  </view>
+  <text class="gn-new-timing-reminder-button" bindtap='doChangeSingleDistanceClock'>修改</text>
+
+  <!--录音 -->
+  <view>
+    <view bindtap="hideModal" class="gn-mask" wx:if="{{recordStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{recordStatus}}">
+      <view class="gn-modal-buttons" wx:if="{{buttons}}">
+        <view bindtap="reStartRecord">重录</view>
+        <view class="gn-modal-button-2" bindtap="confirmRecord">确定</view>
+      </view>
+      <view class="gn-modal-title">{{title}}</view>
+      <image src="{{imgRecordStart}}" mode="aspectFit" class="gn-record-modal-icon {{play===1?'':'gn-hide'}}" bindtap="doRecord"></image>
+      <image src="{{imgRecordmiddle}}" mode="aspectFit" class="gn-record-modal-icon {{play===2?'':'gn-hide'}}" bindtap="stopRecord"></image>
+      <image src="{{imgRecordEnd}}" mode="aspectFit" class="gn-record-modal-icon {{play===3?'':'gn-hide'}}" bindtap="completeRecord"></image>
+      <image src="{{imgRecordPlay}}" mode="aspectFit" class="gn-record-modal-icon {{play===4?'':'gn-hide'}}"></image>
+    </view>
+  </view>
+  <!-- 删除录音 -->
+  <view>
+    <view bindtap="hideDeleteRecord" class="gn-mask" wx:if="{{showDeleteRecord}}"></view>
+    <view class="gn-record-modal gn-app-fs28" wx:if="{{showDeleteRecord}}">
+      <view>提示</view>
+      <view class="gn-record-modal-content">切换为“文字提醒”后将删除已有录音</view>
+      <view class="gn-record-modal-button" bindtap="deleteRecord">确定</view>
+    </view>
+  </view>
+  <!-- 重复时间 -->
+  <view>
+    <view bindtap="hideRegularModal" class="gn-mask" wx:if="{{showRegular}}"></view>
+    <view class="gn-user-info-modal gn-regular gn-app-fs28" wx:if="{{showRegular}}">
+      重复
+      <checkbox-group bindchange="checkboxChange" class="gn-regular-wrap">
+        <label class="gn-regular-checkbox" wx:for="{{items}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+      <view class="gn-regular-buttons">
+        <view bindtap="cancelRegular">取消</view>
+        <view bindtap="hideRegularModal">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

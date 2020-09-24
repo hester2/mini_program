@@ -1,0 +1,29 @@
+<!--pages/more/visits/my-evaluation/index.wxml-->
+    <view class="yh-visits-card">
+      <view class="yh-visits-items">
+        <view class="yh-visits-com">
+          <image src="{{commen.doctorInfo.avatar}}"></image>
+        </view>
+        <view class="yh-visits-coms">
+          <view class="yh-visits-lc">
+            <text>{{commen.doctorInfo.firstName}}{{commen.doctorInfo.lastName}}</text>
+            <text class="yh-visits-titles"> {{commen.doctorInfo.section}} · {{commen.doctorInfo.title}}</text>
+          </view>
+          <view class="yh-visits-le">
+            <text>{{commen.doctorInfo.organizationName}}</text>
+            <text>{{commen.doctorInfo.organizationTitle}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="yh-evalu-star">
+        <text>服务评分</text>
+        <i-cell-group class="yh-evalu-stars">
+          <i-rate 
+            disabled="{{true}}"
+            value="{{commen.score}}">
+            {{commen.score}}分
+        </i-rate>
+        </i-cell-group>
+      </view>
+      <view class="yh-evalu-star fl">{{commen.content}}</view>
+    </view>

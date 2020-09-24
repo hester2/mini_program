@@ -1,0 +1,75 @@
+/* pages/more/collectibles/index.wxss */
+.yh-colle-main{
+  background-color: #49A0FF;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.yh-colle-main image{
+  width: 81rpx;
+  height: 82rpx;
+}
+.yh-colle-main view{
+  color: #fff;
+}
+.yh-colle-lr{
+margin-top: 10rpx;
+margin-bottom: 30rpx;
+}
+.yh-colle-lr text{
+  font-size: 46rpx;
+  font-weight: bold
+}
+.yh-colle-tab{
+  width: 538rpx;
+  height: 75rpx;
+  background-color: #fff;
+  color: #49A0FF;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 0px;
+  border-radius: 30rpx;
+}
+.yh-colle-tab view{
+  width: 50%;
+  border-right: 1px solid #49A0FF;
+  font-size: 36rpx;
+  text-align: center;
+  color: #49A0FF;
+  line-height: 34rpx;
+}
+.yh-colle-tab view:last-of-type{
+  border-right: 0px solid #49A0FF;
+}
+.yh-colle-row{
+  margin: 28rpx 28rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  box-sizing: border-box;
+  padding: 28rpx 28rpx;
+}
+.grace-list-arrow-right{
+  display: flex;
+  color: #4D4D4D;
+  font-size: 28rpx !important;
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grace-list-arrow-right image{
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+.grace-border-b{
+  display: flex;
+}
+.grace-list-title-text{
+  font-size: 28rpx !important;
+}
+.grace-border-b:last-of-type{
+  border:none;
+}

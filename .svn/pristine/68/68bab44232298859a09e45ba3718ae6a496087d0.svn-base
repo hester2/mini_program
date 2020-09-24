@@ -1,0 +1,16 @@
+<view class="gn-page">
+  <view class="gn-scan-container">
+    <text class="gn-scan-bind-device-num gn-app-fs28">设备号：{{imei}}</text>
+    <text class="gn-app-fs28 gn-scan-bind-info">请先完善佩戴者基础信息</text>
+    <input placeholder="姓名" class="gn-scan-input gn-app-fs28" placeholder-class='gn-app-placeholder' type='text' name="toMemberName" bindinput="enterToMemberName"></input>
+    <picker bindchange="bindPickerChange"  class="gn-scan-input gn-app-fs28 gn-app-placeholder"  value="{{index}}" range="{{array}}">
+      {{toMemberSex}}
+    </picker>
+    <input placeholder="手机" class="gn-scan-input gn-app-fs28" placeholder-class='gn-app-placeholder' type='number' name="toMemberPhone" bindinput="enterToMemberPhone" maxlength="13"></input>
+  </view>
+  <view class="gn-scan-container gn-scan-relation">
+    <text class="gn-app-fs28 gn-scan-bind-info">请完善佩戴者与您的关系</text>
+    <input placeholder="请完善佩戴者与您的关系" class="gn-scan-input gn-app-fs28" placeholder-class='gn-app-placeholder' type='text' name="relation" bindinput="enterRelation" maxlength="6"></input>
+  </view>
+  <button bindtap='onClickBindDevice' class="gn-scan-bind-button gn-app-fs36">绑定</button>
+</view>

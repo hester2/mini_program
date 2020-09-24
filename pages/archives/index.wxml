@@ -1,0 +1,241 @@
+<view class='container'>
+  <view class="yh-chives-lp">
+    <view class="yh-chives-left" bindtap="handleGo">
+      <i-icon type="return" size="20" color="#4D4D4D" />
+    </view>
+    <view class="yh-chives-center">档案管理：{{name}}</view>
+    <view class="yh-chives-right"></view>
+  </view>
+  <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <!--Tab布局-->
+    <view class='yh-visits-title' id="grace-filter-header">
+      <view class="yh-visits-nav" class="{{0 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='0'>
+        <text>基本信息</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{1 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}} yh-visits-nav" bindtap='titleClick' data-idx='1'>
+        <text>健康信息</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{2 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='2'>
+        <text>病例信息</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{3 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='3'>
+        <text>处方记录</text>
+        <hr class="line-style" />
+      </view>
+    </view>
+    <!--内容布局-->
+    <swiper bindchange='pagechange' current='{{currentIndex}}' style="height:{{filterHeight}}; width:100%" class='yh-swiper'>
+      <swiper-item class='yh-swiper'>
+        <view class="yh-chives-main">
+          <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">头像</text>
+              <view class="grace-form-body">
+                <image src="{{avatar}}"></image>
+                <image src="{{imgServer}}icon-archives_2.png"></image>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">姓名</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" value="{{name}}" class="grace-form-input" name="nickname" placeholder="请输入真实姓名"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">性别</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker" bindchange="handlePicker" value="{{genderIndex}}"  range="{{gender}}" name="gender" >
+                  <text class="grace-text">{{gender[genderIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">年龄</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入" value="{{age}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">联系方式</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入" value="{{phone}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">婚姻状况</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker" bindchange="handleMarriage" value="{{marriageIndex}}" range="{{marriage}}" name="marriage">
+                  <text class="grace-text">{{marriage[marriageIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b" bindtap="handleCation">
+              <text class="grace-form-label">实名认证</text>
+              <view class="grace-form-body">
+                <text class="text">{{certificationType}}</text>
+                <image class="img" src="{{imgServer}}icon-archives_2.png"></image>
+              </view>
+            </view>
+          </form>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class="yh-chives-main">
+          <form bindsubmit="formSubmits" class="grace-form grace-margin-top">
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">身高（cm）</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入" value="{{height}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">体重（kg）</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入" value="{{weight}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">BML（kg/㎡）</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="自动计算（非必填）" value="{{bmi}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">职业</text>
+              <view class="grace-form-body">
+                <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入（非必填）"  value="{{occupation}}"></input>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">血型</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker"  bindchange="handlePl" value="{{plIndex}}" range="{{pl}}" name="pl">
+                  <text class="grace-text">{{pl[plIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b" bindtap="handleHistory">
+              <text class="grace-form-label">既往史</text>
+              <view class="grace-form-body">
+                {{pastMedicalHistory}}
+                <image class="img" src="{{imgServer}}icon-archives_2.png"></image>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">过敏史</text>
+              <view class="grace-form-body">
+                {{allergicHistory}}
+                <image class="img" src="{{imgServer}}icon-archives_2.png"></image>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">生育状况</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker" bindchange="handleFer" value="{{ferIndex}}" range="{{fer}}" name="fer">
+                  <text class="grace-text">{{fer[ferIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">吸烟状况</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker" bindchange="handleSmoking" value="{{smokingIndex}}" range="{{smoking}}" name="smoking">
+                  <text class="grace-text">{{smoking[smokingIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+            <view class="grace-form-item grace-border-b">
+              <text class="grace-form-label">饮酒状况</text>
+              <view class="grace-form-body">
+                <picker class="grace-form-picker" bindchange="handleDrinking" value="{{drinkingIndex}}" range="{{drinking}}" name="drinking">
+                  <text class="grace-text">{{drinking[drinkingIndex]}}</text>
+                  <text class="grace-icons icon-arrow-right" style="margin-left:5px;"></text>
+                </picker>
+              </view>
+            </view>
+          </form>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class="grace-card-view" bindtap="handleClick" data-id="{{item.emrId}}" wx:for="{{cases}}" wx:key="index">
+          <view class="grace-card-body grace-border-b">
+            <view class="grace-card-desc">
+              <view class="grace-card-title">
+                <view>
+                  <text class="grace-card-name">{{item.firstName}}{{item.lastName}}</text>
+                  <text class="grace-card-name grace-text-small grace-blue">{{item.section}}</text>
+                </view>
+                <text class="text">{{item.orderNo}}</text>
+              </view>
+              <text class="grace-card-text">就诊医院：<text>{{item.organizationName}}</text></text>
+              <text class="grace-card-text">初步诊断：<text>{{item.diagnose}}</text></text>
+            </view>
+          </view>
+          <view class="grace-card-footer">
+            <text class="grace-icons grace-card-footer-item">{{item.realDate}}</text>
+            <view class="grace-icons grace-card-footer-item ko">
+              <view class="yh-icons">
+                <i-icon type="trash" size="20" color="#4DA2FF" />
+              </view>
+              删除</view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class="grace-card-view" bindtap="handlePresc" wx:for="{{prescription}}" wx:key="index" data-id="{{item.empId}}" data-idx="{{item.emrId}}">
+          <view class="grace-card-body grace-border-b">
+            <view class="grace-card-desc">
+              <view class="grace-card-title">
+                <view>
+                  <text class="grace-card-name">{{item.firstName}}{{item.lastName}}</text>
+                  <text class="grace-card-name grace-text-small grace-blue">{{item.section}}</text>
+                </view>
+                <text class="text">{{item.orderNo}}</text>
+              </view>
+              <text class="grace-card-text">初步诊断：<text>{{item.diagnose}}</text></text>
+            </view>
+          </view>
+          <view class="grace-card-footer">
+            <text class="grace-icons grace-card-footer-item">{{item.realDate}}</text>
+            <view class="grace-icons grace-card-footer-item ko">
+              <view class="yh-icons">
+                <i-icon type="trash" size="20" color="#4DA2FF" />
+              </view>
+              删除</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </scroll-view>
+  <!-- <view class="yh-arch-null">
+    <image src="../../assets/icon-arch_1.png" ></image>
+  </view> -->
+  <cover-view class='gn-health-opt' wx:if="{{!showUserList}}">
+    <cover-view>
+      <cover-image src="{{imgServer}}icon-arch_9.png" bindtap='handleDeviceAdd' class="gn-scan-icon"></cover-image>
+      <cover-image src="{{imgServer}}icon-arch_1.png" bindtap='handleDeviceCode' class="gn-scan-icon"></cover-image>
+    </cover-view>
+    <cover-view>
+      <cover-image src="" mode="aspectFit" class="gn-open-icon" catchtap="getMyFamily"></cover-image>
+    </cover-view>
+  </cover-view>
+
+  <cover-view class='gn-health-front' wx:if="{{showUserList}}">
+    <cover-view bindtap="onClickHide" class="gn-health-mask" catchtouchmove="preventTouchMove"></cover-view>
+    <cover-view class="gn-change-user" scroll-top="1">
+      <cover-view wx:for="{{myDevices}}" class="gn-health-user" bindtap="onClickChangeDevice" data-id="{{item.id}}">
+        <cover-view class="gn-change-name">{{item.tips}}--{{item.name}}</cover-view>
+        <cover-image src="{{item.avatar}}" mode="aspectFit" class="gn-user-photo"></cover-image>
+      </cover-view>
+    </cover-view>
+    <cover-image src="{{imgServer}}icon-arch_2.png" class="gn-hide-icon" mode="aspectFit" bindtap="onClickHide"></cover-image>
+  </cover-view>
+</view>

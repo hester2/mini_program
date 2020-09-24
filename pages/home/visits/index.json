@@ -1,0 +1,11 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#49A0FF",
+    "navigationBarTitleText": "专家问诊",
+    "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "i-icon": "../../dist/icon/index",
+    "i-rate": "../../dist/rate/index",
+    "i-cell-group": "../../dist/cell-group/index"
+  }
+}

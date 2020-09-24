@@ -1,0 +1,152 @@
+.gn-new-timing-reminder {
+  margin: 52rpx 28rpx 341rpx 28rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  padding: 76rpx 36rpx;
+  color: #808080;
+  background: #fff;
+}
+
+input {
+  border: none;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding-bottom: 51rpx;
+  margin-bottom: 49rpx;
+  background: #fff;
+}
+
+.gn-right-icon {
+  width: 16rpx;
+  height: 29rpx;
+  margin-left: 21rpx;
+}
+
+.gn-reminder-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding-bottom: 51rpx;
+  margin-bottom: 50rpx;
+}
+
+.gn-reminder-time-title {
+  color: #4d4d4d;
+}
+
+input.gn-reminder-time-title {
+  border: none;
+  margin: 0;
+  background: #fff;
+  padding: 0;
+  width: 450rpx;
+}
+input.gn-reminder-time-title.gn-long-input{
+  width:540rpx;
+}
+.gn-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gn-reminder-time-last-item {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0rpx;
+}
+
+.gn-new-timing-reminder-button {
+  color: #fff;
+  background: #49a0ff;
+  padding: 23rpx 116rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  text-align: center;
+  margin: 0 221rpx 295rpx 221rpx;
+  display: block;
+}
+
+.gn-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.gn-user-info-modal {
+  width: 100%;
+  height: 445rpx;
+  background: #fff;
+  z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #808080;
+}
+
+.gn-modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #4d4d4d;
+  width: 666rpx;
+  position: absolute;
+  top: 33rpx;
+  left: 44rpx;
+}
+
+.gn-modal-button-2 {
+  color: #49a0ff;
+}
+
+.gn-regular.gn-user-info-modal {
+  height: 750rpx;
+}
+
+.gn-regular-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+}
+
+.gn-regular-checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 10rpx;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #f2f2f2;
+  padding-bottom: 14rpx;
+  padding-top: 14rpx;
+}
+
+.gn-regular-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  color: #49a0ff;
+  margin-top: 20rpx;
+}
+
+.gn-reminder-content-wrap1 {
+  display: flex;
+  align-items: center;
+}
+picker{
+  width:480rpx;
+  text-align: right;
+}

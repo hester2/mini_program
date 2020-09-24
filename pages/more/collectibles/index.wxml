@@ -1,0 +1,80 @@
+<!--pages/more/collectibles/index.wxml-->
+<view class="yh-colle-main">
+  <image src="{{imgServer}}icon-colle_1.png"></image>
+  <view class="yh-colle-lr">
+    <text>1031</text>星币</view>
+  <view class="yh-colle-tab">
+    <view>礼品兑换</view>
+    <view>星币充值</view>
+  </view>
+</view>
+<view class="yh-colle-row">
+  <view class="grace-list">
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+    <view class="grace-list-items grace-border-b">
+      <view class="grace-list-body">
+        <view class="grace-list-title">
+          <text class="grace-list-title-text">登录</text>
+        </view>
+        <view class="grace-list-body-desc">2019-05-01</view>
+      </view>
+      <view class="grace-list-arrow-right">+10
+        <image src="{{imgServer}}icon-colle_2.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+<view class="gn-page">
+<view class="gn-info-header" bindtap='goDetail'>
+  <image src="{{userInfo.avatarUrl}}" mode="aspectFit" class="gn-info-photo"></image>
+  <view class="gn-header-user">
+      <text class="gn-app-fs36 gn-header-user-name">{{userInfo.relationShip}}-{{userInfo.name}}</text>
+      <view class="gn-header-user-map">
+        <image src="{{imgMap}}" mode="aspectFit " class="gn-map-icon"></image>
+        <text class="gn-app-fs20 gn-user-address">{{userInfo.localAddr}}</text>
+      </view>
+  </view>
+</view>
+
+<view class="gn-info-main">
+  <!-- <view class="gn-info-item gn-app-fs28" bindtap="goToMedicalHistory" data-id='1'>
+    <view class="gn-item-name">
+      <image src="{{imgRecord}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>病历卡</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+  <view class="gn-info-item gn-app-fs28" bindtap="goToMedicalHistory" data-id='2'>
+    <view class="gn-item-name">
+      <image src="{{imgReport}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>报告单</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+  <view class="gn-info-item gn-app-fs28" style="border: 0;" bindtap="goToMedicalHistory" data-id='3'>
+    <view class="gn-item-name">
+      <image src="{{imgHistory}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>过往病史</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view> -->
+    <view class="gn-info-item gn-app-fs28" style="border: 0;" bindtap="goToMedicalDa" data-id='3'>
+    <view class="gn-item-name">
+      <image src="{{imgServer}}icon-more_6.png" mode="aspectFit" class="gn-info-icon"></image>
+      <text>档案管理</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+</view>
+<view class="gn-info-main gn-family-info-member">
+  <view class="gn-info-item gn-app-fs28" bindtap="goToAboutEquiment">
+    <view class="gn-item-name">
+      <image src="{{imgSetting}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>关于设备</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+  <view class="gn-info-item gn-app-fs28" style="border: 0;" bindtap='goToManage'>
+    <view class="gn-item-name">
+      <image src="{{imgMember}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>成员管理</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+</view>
+<view class="gn-info-main gn-family-info-member" bindtap="goToTelecontrol">
+  <view class="gn-info-item gn-app-fs28" style="border: 0;">
+    <view class="gn-item-name">
+      <image src="{{imgTelecontrol}}" mode="aspectFit" class="gn-info-icon"></image>
+      <text>远程设置</text>
+    </view>
+    <image src="{{imgRight}}" mode="aspectFit" class="gn-info-icon-right"></image>
+  </view>
+</view>
+</view>

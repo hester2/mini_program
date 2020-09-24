@@ -1,0 +1,13 @@
+<view class="gn-page">
+<view class="gn-app-fs28" class="gn-identification-wrap">
+  <view class="gn-id-wrap" bindtap='usingCameraForOne' data-id="1">
+    <image src="{{imgIdOne}}" mode="aspectFit" class="gn-id-icon"></image>
+    <text class="gn-more-id-content">拍摄身份证正面</text>
+  </view>
+  <view class="gn-id-wrap" bindtap='usingCameraForTwo' data-id="2">
+    <image src="{{imgIdTwo}}" mode="aspectFit" class="gn-id-icon"></image>
+    <text class="gn-more-id-content">拍摄身份证反面</text>
+  </view>
+</view>
+<view class="gn-more-id-upload" bindtap='doUploadCard'>上传</view>
+</view>

@@ -1,0 +1,103 @@
+<view class="gn-page">
+  <view class="gn-user-info-detail-container gn-app-fs28">
+    <view class="gn-info-detail-wrap">
+      <text class="gn-info-detail-title">基本信息</text>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item" data-id="1" bindtap='doGetId'>
+          <view class="gn-user-detail-center">真实姓名</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.name}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="2" bindtap='doGetId'>
+          <view>Email</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.email}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item">
+          <view>证件类型</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.licenseType}}</view>
+        </view>
+        <view class="gn-info-detail-item">
+          <view>证件号码</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.licenseIdNum}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item" data-id="3" bindtap='doGetId'>
+          <view>文化水平</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.eduLevel}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="4" bindtap='doGetId'>
+          <view>单位</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.company}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items" style="border:none;">
+        <view class="gn-info-detail-item" data-id="5" bindtap='doGetId'>
+          <view>职业</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.occupation}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="6" bindtap='doGetId'>
+          <view>籍贯</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.nativePlace}}</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="gn-info-detail-wrap">
+      <text class="gn-info-detail-title">健康信息</text>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item" data-id="7" bindtap='doGetId'>
+          <view>年龄</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.age}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="8" bindtap='doGetId'>
+          <view>性别</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.sex}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item" data-id="9" bindtap='doGetId'>
+          <view>身高</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.stature}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="10" bindtap='doGetId'>
+          <view>体重</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.weight}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items">
+        <view class="gn-info-detail-item" data-id="11" bindtap='doGetId'>
+          <view>血型</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.bloodType}}</view>
+        </view>
+        <view class="gn-info-detail-item" data-id="12" bindtap='doGetId'>
+          <view>SOS联系电话</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.sosPhone}}</view>
+        </view>
+      </view>
+      <view class="gn-info-detail-items" style="border:none;">
+        <view class="gn-info-detail-item" data-id="13" bindtap='doGetId'>
+          <view>备注信息</view>
+          <view class="gn-app-fs24 gn-info-detail-item-content">{{userInfo.remark}}</view>
+        </view>
+        <view class="gn-info-detail-item">
+          <view></view>
+          <view class="gn-app-fs24 gn-info-detail-item-content"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view bindtap="hideModal" class="gn-mask" wx:if="{{modalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{modalStatus}}">
+      <view class="gn-modal-title">修改</view>
+      <input placeholder='{{update}}' placeholder-class="gn-app-placeholder" type="text" name="updateUserInfo" bindinput="doGetNewInfo" class="gn-name-modal-input" wx:if="{{!sex}}"></input>
+      <picker bindchange="bindPickerChange" class="gn-name-modal-input" placeholder-class="gn-app-placeholder" value="{{index}}" range="{{array}}" wx:if="{{sex}}">
+          {{array[index]}}
+      </picker>
+      <view class="gn-name-modal-button gn-app-fs36" bindtap='doChangeInfo'>确定</view>
+    </view>
+  </view>
+</view>

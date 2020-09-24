@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#49a0ff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "反馈与帮助",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {}
+}

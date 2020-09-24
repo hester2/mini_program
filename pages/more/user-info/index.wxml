@@ -1,0 +1,78 @@
+<view class="gn-page">
+<view class="gn-user-info-container gn-app-fs28">
+  <view class="gn-user-info-header">
+    <!--头像 -->
+    <view class="gn-user-item-wrap" data-id="14" bindtap='onClickAvatar'>
+      <text>头像</text>
+      <view class="gn-user-item-right-part">
+        <image src="{{userInfo.avatarUrl}}" mode="aspectFit" class="gn-user-photo"></image>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-user-info-right-icon"></image>
+      </view>
+    </view>
+    <!--昵称 -->
+    <view class="gn-user-item-wrap" data-id="1" bindtap='toGetNickNameId'>
+      <text>昵称</text>
+      <view class="gn-user-item-right-part">
+        <text>{{userInfo.nickName}}</text>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-user-info-right-icon"></image>
+      </view>
+    </view>
+    <!--手机号 -->
+    <view class="gn-user-item-wrap" style="border: none;">
+      <text>手机</text>
+      <view class="gn-user-item-right-part">
+        <text>{{userInfo.phone}}</text>
+        <image src="{{imgRight}} " mode="aspectFit " class="gn-user-info-right-icon"></image>
+      </view>
+    </view>
+  </view>
+  <!--身份证 -->
+  <view class="gn-user-info-authentication" bindtap='doCertification'>
+    <text>身份认证</text>
+    <view class="gn-user-item-right-part">
+      <text class="gn-app-fs24" class="gn-authentication-item-borders">{{userInfo.isCertification}}</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-user-info-right-icon"></image>
+    </view>
+  </view>
+  <!--信息明细 -->
+  <view class="gn-user-info-info-detail" bindtap="gonToDetail">
+    <text>信息明细</text>
+    <view class="gn-user-item-right-part">
+      <image src="{{imgDots}}" class="gn-info-detail-icon" mode="aspectFit"></image>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-user-info-right-icon"></image>
+    </view>
+  </view>
+</view>
+<!--更换头像遮罩 -->
+<view>
+  <view bindtap="hideAvatarModal" class="gn-mask" wx:if="{{showAvatarModalStatus}}"></view>
+  <view class="gn-user-info-modal gn-app-fs28" wx:if="{{showAvatarModalStatus}}">
+    <view class="gn-modal-title">更换头像</view>
+    <view class="gn-avatar-modal-camera">
+      <text bindtap="usingCamera">拍照</text>
+    </view>
+    <view bindtap="usingAlbum">相册</view>
+  </view>
+</view>
+<!--更换昵称遮罩 -->
+<view>
+  <view bindtap="hideNameModal" class="gn-mask" wx:if="{{showNameModalStatus}}"></view>
+  <view class="gn-user-info-modal gn-app-fs28" wx:if="{{showNameModalStatus}}">
+    <view class="gn-modal-title">编辑昵称</view>
+    <input placeholder='{{userInfo.nickName}}' placeholder-class="gn-app-placeholder" type="text" name="changeName" bindinput="toGetNewName" class="gn-name-modal-input"></input>
+    <view class="gn-name-modal-button gn-app-fs36" bindtap='onClickChangeName'>确定</view>
+  </view>
+</view>
+<!--身份认证遮罩 -->
+<view>
+  <view bindtap="hideCertificationMoadl" class="gn-mask" wx:if="{{showCertificationMoadlstatus}}"></view>
+  <view class="gn-user-info-modal gn-app-fs28" wx:if="{{showCertificationMoadlstatus}}">
+    <view class="gn-modal-title">身份验证</view>
+    <view class="gn-certification-modal-main">
+      <input placeholder='请输入验证码' placeholder-class="gn-app-placeholder" type="number" name="changeCertificationSms" bindinput="toGetUserSms" class="gn-certification-modal-input"></input>
+        <button disable="{{disable}}" class="gn-certification-modal-code-button gn-app-fs20" bindtap='onClickGetSms'>{{time}}</button>
+    </view>
+    <view class="gn-name-modal-button gn-app-fs36" bindtap='goCertification'>确定</view>
+  </view>
+</view>
+</view>

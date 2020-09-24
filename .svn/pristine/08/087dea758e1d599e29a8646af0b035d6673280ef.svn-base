@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#49a0ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "轨迹查看",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    
+  }
+}

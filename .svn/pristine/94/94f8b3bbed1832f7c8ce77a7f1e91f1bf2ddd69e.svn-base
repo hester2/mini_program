@@ -1,0 +1,157 @@
+<view class="gn-page">
+  <view class="gn-medical-record-taps gn-app-fs28">
+    <view class="gn-medical-record-tap {{currentTab==0?'gn-medical-record-tap-active':''}}" data-current="1" bindtap="goToSOSLinkman" data-id="0">
+      <text>联系人</text>
+      <view class="gn-medical-record-tap-line {{currentTab==0?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==1?'gn-medical-record-tap-active':''}}" data-current="1" bindtap="goToDistanceClock" data-id="1">
+      <text>定时提醒</text>
+      <view class="gn-medical-record-tap-line {{currentTab==1?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==2?'gn-medical-record-tap-active':''}}" data-current="2" bindtap="goToSOSLinkman" data-id="2">
+      <text>SOS设置</text>
+      <view class="gn-medical-record-tap-line {{currentTab==2?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==3?'gn-medical-record-tap-active':''}}" data-current="2" bindtap="goToDistanceClock" data-id="3">
+      <text>定时测量</text>
+      <view class="gn-medical-record-tap-line {{currentTab==3?'gn-line-active':''}}"></view>
+    </view>
+  </view>
+  <view class="{{currentTab == 0 ? 'show':'hidden'}}">
+    <view class="gn-telecontrol-contacts">
+
+      <!--<view class="gn-contacts-search gn-app-fs28">  <image src="../../../icon/icon-search.png" mode="aspectFit" class="gn-contacts-search-icon"></image>搜索联系人</view> -->
+
+      <view class="gn-telecontrol-contacts-main">
+        <i-index height="100%" bind:change="onChange">
+          <i-index-item i-class="gn-contacts-wrap" wx:for="{{contacts}}" wx:for-index="contactIndex" wx:key="{{index}}" wx:for-item="item" name="{{item.key}}" class="{{item.list.length>0?'':'noshow'}}">
+            <view class="gn-contacts-item" wx:for="{{item.list}}" wx:for-index="in" wx:key="{{in}}" wx:for-item="it" bindtap="dochangeContact" bindtouchstart="mytouchstart" bindtouchend="mytouchend" data-id="{{contactIndex}}" data-current="{{in}}">
+              <image src="{{it.avatar}}" mode="aspectFit" class="gn-contacts-photo"></image>
+              <view class="gn-contact-info">
+                <text class="gn-app-fs28 gn-contact-name">{{it.name}}</text>
+                <text class="gn-app-fs22 gn-contact-number">{{it.number}}</text>
+              </view>
+            </view>
+          </i-index-item>
+        </i-index>
+      </view>
+    </view>
+    <image src="{{imgAdd}}" mode="aspectFit" class="gn-telecontrol-add-icon" bindtap='openAddcontactModal'></image>
+  </view>
+  <view class="{{currentTab == 1 ? 'show':'hidden'}}">
+    <view class="gn-telecontrol-reminder gn-app-fs22" wx:for="{{clocks}}" wx:for-index="clocksIndex">
+      <view class="gn-reminder-item" data-id="{{clocksIndex}}" bindtap='doChangeDistanceClock' bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+        <text class="gn-reminder-item-content gn-app-fs28">{{item.title}}</text>
+        <view class="gn-reminder-item-main">
+          <view>
+            <view class="gn-reminder-item-time">
+              <image src="{{imgClock}}" mode="aspect" class="gn-telecontrol-time-icon"></image>
+              <text>{{item.nextDatetime}} {{item.weekName}}</text>
+            </view>
+            <view class="gn-reminder-item-time">
+              <image src="{{imgPerson}}" mode="aspect" class="gn-telecontrol-person-icon"></image>
+              <text>{{item.creater}}（创建者）</text>
+            </view>
+          </view>
+          <i-cell i-class="gn-telecontrol-switch">
+            <i-switch value="{{isOpen[item.onOff]}}" slot="footer" data-id="{{clocksIndex}}" bindtap='changeSwitch'></i-switch>
+          </i-cell>
+        </view>
+      </view>
+    </view>
+    <image src="{{imgAdd}}" mode="aspectFit" class="gn-telecontrol-add-icon" bindtap="goToAddTiming"></image>
+
+  </view>
+
+  <view class="{{currentTab == 2 ? 'show':'hidden'}}">
+    <view class="gn-telecontrol-sos" wx:for="{{contacts}}" wx:for-index="SosIndex">
+      <view data-id="{{SosIndex}}" bindtap="dochangeContact" bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+        <view class="gn-sos-title gn-app-fs28">第 {{item.sosLevel}} 联系人</view>
+        <view class="gn-sos-phone-number">
+          <image src="{{imgPhone}}" mode="aspectFit" class="gn-telecontrol-phone-icon"></image>
+          <text class="gn-app-fs22">{{item.phone}}</text>
+        </view>
+        <view class="gn-sos-person-name">
+          <image src="{{imgPerson}}" mode="aspectFit" class="gn-telecontrol-person-icon"></image>
+          <text class="gn-app-fs22">{{item.nickname}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="{{currentTab == 3 ? 'show':'hidden'}}">
+    <view class="gn-telecontrol-reminder gn-app-fs22" wx:for="{{clocks}}" wx:for-index="measureIndex">
+      <view class="gn-reminder-item" data-id="{{measureIndex}}" bindtap='doChangeDistanceClock' bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+        <text class="gn-reminder-item-content gn-app-fs28">{{item.title}}</text>
+        <view class="gn-reminder-item-main">
+          <view>
+            <view class="gn-reminder-item-time">
+              <image src="{{imgClock}}" mode="aspect" class="gn-telecontrol-time-icon"></image>
+              <text>{{item.nextDatetime}} {{regular[item.repetitionType]}}</text>
+            </view>
+            <view class="gn-reminder-item-time">
+              <image src="{{imgPerson}}" mode="aspect" class="gn-telecontrol-person-icon"></image>
+              <text>{{item.creater}}（创建者）</text>
+            </view>
+          </view>
+          <i-cell i-class="gn-telecontrol-switch">
+            <i-switch value="{{isOpen[item.onOff]}}" slot="footer" data-id="{{measureIndex}}" bindtap='changeSwitch'></i-switch>
+          </i-cell>
+        </view>
+      </view>
+    </view>
+    <image src="{{imgAdd}}" mode="aspectFit" class="gn-telecontrol-add-icon" bindtap="goToAddTiming"></image>
+
+  </view>
+  <!-- 删除提醒遮罩 -->
+  <view>
+    <view bindtap="hideUpdatecontactModal" class="gn-mask" wx:if="{{deleteDistanceClockStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{deleteDistanceClockStatus}}">
+      <view class="gn-modal-title">提示</view>
+      <view class="gn-modal-content">确定删除该内容吗？</view>
+      <view class="gn-mask-link-button" bindtap="doDeleteDistanceClock">删除</view>
+    </view>
+  </view>
+  <!-- 删除联系人遮罩 -->
+  <view>
+    <view bindtap="hideUpdatecontactModal" class="gn-mask" wx:if="{{deleteContactModalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{deleteContactModalStatus}}">
+      <view class="gn-modal-title">提示</view>
+      <view class="gn-modal-content">确定删除该联系人吗？</view>
+      <view class="gn-mask-link-button" bindtap="doDelete">删除</view>
+    </view>
+  </view>
+  <!-- 修改联系人遮罩 -->
+  <view>
+    <view bindtap="hideUpdatecontactModal" class="gn-mask" wx:if="{{updateContactModalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{updateContactModalStatus}}">
+      <view class="gn-modal-title">修改联系人信息</view>
+      <input placeholder='{{linkInfo.phone}}' class="gn-link-modal-input" placeholder-class="gn-app-placeholder" type="number" maxlength="13" name="Phone" bindinput="enterPhone"></input>
+      <input placeholder='{{linkInfo.name}}' class="gn-link-modal-input" placeholder-class="gn-app-placeholder" type="text" name="name" bindinput="enterName"></input>
+      <view class="gn-mask-link-button" bindtap='doUpdateContact'>确定</view>
+    </view>
+  </view>
+  <!-- 修改SOS联系人遮罩 -->
+  <view>
+    <view bindtap="hideUpdatecontactModal" class="gn-mask" wx:if="{{updateSosModalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{updateSosModalStatus}}">
+      <view class="gn-modal-title">修改 SOS 联系人信息</view>
+      <view class="gn-link-modal-input">第 {{linkInfo.level}} 联系人</view>
+      <input placeholder='{{linkInfo.phone}}' class="gn-link-modal-input" placeholder-class="gn-app-placeholder" type="number" maxlength="13" name="Phone" bindinput="enterPhone"></input>
+      <input placeholder='{{linkInfo.name}}' class="gn-link-modal-input" placeholder-class="gn-app-placeholder" type="text" name="name" bindinput="enterName"></input>
+      <view class="gn-mask-link-button" bindtap='doSosContact'>确定</view>
+    </view>
+  </view>
+
+  <!-- 添加联系人遮罩 -->
+  <view>
+    <view bindtap="hideAddcontactModal" class="gn-mask" wx:if="{{addContactModalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{addContactModalStatus}}">
+      <view class="gn-modal-title">添加联系人</view>
+      <input placeholder='手机：' class="gn-link-modal-input" placeholder-class="input-placeholder" type="number" maxlength="13" name="Phone" bindinput="enterPhone"></input>
+      <input placeholder='姓名' class="gn-link-modal-input" placeholder-class="input-placeholder" type="text" name="name" bindinput="enterName"></input>
+      <view class="gn-mask-link-button" bindtap='toAddcontact'>确定</view>
+    </view>
+  </view>
+</view>

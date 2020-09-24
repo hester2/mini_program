@@ -1,0 +1,42 @@
+.gn-identification-wrap {
+  margin-top: 100rpx;
+}
+
+.gn-id-wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 54rpx 81rpx 33rpx 81rpx;
+  align-items: flex-start;
+  color: #fff;
+  position: relative;
+  width:588rpx;
+  height:343rpx;
+}
+
+.gn-id-icon {
+  width: 588rpx;
+  height: 343rpx;
+}
+
+.gn-more-id-content{
+  position: absolute;
+  bottom: 1rpx;
+  left: 5rpx;
+  width:565rpx;
+  text-align: center;
+  background:#49a0ff;
+  height:60rpx;
+  line-height:60rpx;
+}
+
+.gn-more-id-upload {
+  width: 300rpx;
+  height: 81rpx;
+  background: #46a0ff;
+  margin: 200rpx auto;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 81rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}

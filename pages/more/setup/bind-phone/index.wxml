@@ -1,0 +1,22 @@
+<!--pages/more/setup/bindPhone/index.wxml-->
+<form bindsubmit="formSubmit" class="grace-form ">
+<view class="grace-form-colors">已绑定手机号  <text class="grace-form-color">152****4222</text></view>
+  <view class="yh-chives-main">
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">手机号</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">验证账号密码</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="验证账号密码"></input>
+      </view>
+    </view>
+
+  </view>
+  <view style="padding:22rpx 0;">
+    <button class="grace-button" formType="submit" type="primary">下一步</button>
+  </view>
+</form>

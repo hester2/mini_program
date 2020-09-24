@@ -1,0 +1,8 @@
+{
+"enablePullDownRefresh": true,
+"backgroundTextStyle": "dark",
+"onReachBottomDistance": 1,
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

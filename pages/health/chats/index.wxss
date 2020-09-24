@@ -1,0 +1,151 @@
+/* ::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+} */
+.clearfix:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  clear: both;
+  display: block;
+  visibility: hidden;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.gn-scroll {
+  width: 100%;
+  height: 100%;
+}
+
+.gn-srcoll-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 56rpx;
+  margin-top:20rpx;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.gn-srcoll-time {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 36rpx;
+  color: #cbcbd3;
+  font-size: 20rpx;
+}
+
+.gn-srcoll-user-wrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+.gn-srcoll-user-wrap.float-right {
+  flex-direction: row-reverse;
+}
+
+.gn-srcoll-avatar {
+  width: 75rpx;
+  height: 75rpx;
+  border: 1rpx solid #49a0ff;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.float-right > .gn-srcoll-avatar {
+  margin-left: 20rpx;
+}
+
+.gn-srcoll-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #cbcbd3;
+}
+
+.float-right > .gn-srcoll-user {
+  align-items: flex-end;
+}
+
+.gn-srcoll-paly {
+  width: 200rpx;
+  height: 75rpx;
+  border: 1rpx solid #a6d6fc;
+  border-radius: 10rpx;
+  display: flex;
+  margin-top: 6rpx;
+  background-color: #fafdff;
+  padding-left: 36rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.float-right  .gn-srcoll-paly {
+  padding-right: 36rpx;
+  flex-direction: row-reverse;
+}
+.gn-srcoll-paly > view{
+  color:#A6D6FC;
+  font-size: 28rpx;
+  margin-left:12rpx;
+  margin-right:12rpx;
+}
+.gn-srcoll-paly-icon {
+  width: 24rpx;
+  height: 32rpx;
+  margin: auto 0;
+}
+
+.gn-chat-button-wrap {
+  width: 100%;
+  border-top: 2rpx solid #f2f2f2;
+  height: 152rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gn-chat-button {
+  width: 586rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  background: #fafdff;
+  border-radius: 10rpx;
+  border: 2rpx solid #a6d6fc;
+  text-align: center;
+  color: #4d4d4d;
+  font-size: 28rpx;
+}
+.gn-chat-button.active{
+  color:#ffffff;
+  background:#49a0ff;
+}
+.gn-chat-wrap{
+  width:300rpx;
+  height:300rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 120rpx;
+  color:#fff;
+  background: #49a0ff;
+  border-radius: 10rpx;
+  position: fixed;
+  left:224rpx;
+  top:448rpx;
+  z-index:3;
+}
+.gn-hide{
+  display: none;
+}

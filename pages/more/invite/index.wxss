@@ -1,0 +1,129 @@
+page {
+  background: linear-gradient(to bottom, #46a0ff 0%, #2989d8 40%, #bf64ff 100%);
+}
+
+.gn-invite-header {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  line-height: 0.6;
+  padding-top: 94rpx;
+}
+
+.gn-header-text {
+  padding-bottom: 20rpx;
+}
+
+.gn-invite-main {
+  width: 588rpx;
+  background: #fff;
+  margin: 82rpx auto;
+  margin-bottom: 60rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  padding-top: 65rpx;
+  padding-bottom: 65rpx;
+}
+
+.gn-main-title {
+  color: #333;
+  padding-left: 78rpx;
+  padding-right: 78rpx;
+}
+
+.gn-main-invite-share-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64rpx;
+}
+
+.gn-invite-share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gn-invite-icon {
+  width: 95rpx;
+  height: 95rpx;
+  margin-bottom: 21rpx;
+}
+
+.gn-invite-way {
+  color: #808080;
+}
+
+.gn-invite-footer {
+  width: 588rpx;
+  background: #fff;
+  margin: 0 auto;
+  margin-bottom: 24rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 43rpx;
+}
+
+.gn-footer-title {
+  padding-top: 77rpx;
+  padding-bottom: 26rpx;
+  font-weight: bold;
+}
+
+.gn-footer-content {
+  font-size: 20rpx;
+  margin-bottom: 41rpx;
+}
+
+.gn-footer-content-number {
+  color: #46a0ff;
+}
+
+.gn-footer-user-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 34rpx;
+}
+
+.gn-footer-user {
+  display: flex;
+  flex-direction: row;
+  margin-right: 216rpx;
+}
+
+.gn-footer-user-photo {
+  width: 73rpx;
+  height: 73rpx;
+}
+
+.gn-footer-user-name-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24rpx;
+}
+
+.gn-footer-user-name {
+  margin-bottom: 17rpx;
+}
+
+.gn-footer-invite-money {
+  display: flex;
+  align-items: center;
+}
+
+.gn-footer-money {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 17rpx;
+}

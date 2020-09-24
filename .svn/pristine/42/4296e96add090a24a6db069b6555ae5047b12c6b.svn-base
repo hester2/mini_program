@@ -1,0 +1,137 @@
+<view class="gn-page">
+  <!-- 顶部轮播图区域 -->
+  <view class="gn-swiper-wrap">
+    <view class='gn-swiper'>
+      <swiper autoplay="true" interval="2000" duration="500" circular="true" bindchange="swiperChange">
+        <block wx:for="{{swiperImgs}}">
+          <swiper-item>
+            <image src="{{item.imgUrl}}" class="gn-swiper-images" bindtap='onClickGoDetail' />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="gn-swiper-dots">
+        <block wx:for="{{swiperImgs}}" wx:key="unique">
+          <view class="gn-swiper-dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+        </block>
+      </view>
+    </view>
+    <!-- 顶部轮播公告区域 -->
+    <view class="gn-notice-wrap gn-app-center">
+      <swiper style="width: 650rpx; height: 100%;" vertical="true" autoplay="ture" circular="true" interval="3000" duration="500">
+        <swiper-item wx:for="{{notices}}">
+          <view class="gn-notice" bindtap='showNotice'>
+            <image src="{{imgAnnouncement}}" mode="aspectFit" class="gn-notice-icon"></image>
+            <text class="gn-notice-text gn-app-fs24">{{item.title}}</text>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- 链接跳转区域 -->
+  <view class="gn-links-wrap">
+    <image src="{{imgBind1}}" class="gn-home-link-icon" bindtap="bindDevice"></image>
+    <image src="{{imgLocationCurrent1}}" class="gn-home-link-icon" bindtap="goMap"></image>
+    <!-- <view class="gn-link" bindtap="bindDevice">
+      <image src="{{imgBind}}" class="gn-link-icon"></image>
+      <text class="gn-link-text gn-app-fs28">快捷绑定</text>
+    </view>
+    <view class="gn-link" bindtap="goMap">
+      <image src="{{imgLocationCurrent}}" class="gn-link-icon"></image>
+      <text class="gn-link-text gn-app-fs28">实时位置</text>
+    </view>
+    <view class="gn-link" bindtap="showModal">
+      <image src="{{imgOnlineAppointment}}" class="gn-link-icon"></image>
+      <text class="gn-link-text gn-app-fs28">线上预约</text>
+    </view>
+    <view class="gn-link" bindtap="showModal">
+      <image src="{{imgDoctor}}" class="gn-link-icon"></image>
+      <text class="gn-link-text gn-app-fs28">专家直播</text>
+    </view> -->
+  </view>
+  <!-- 资讯 + 圈子 -->
+  <view class="gn-circle-news-wrap">
+    <view class="gn-circle-news-name">
+      <view class="gn-news-name" data-current="0" bindtap="onClickGoHotNews">
+        <text class="gn-app-fs28 {{currentTab==0?'gn-news-text-active':''}}">家庭医生</text>
+        <text class="gn-line {{currentTab==0?'gn-line-active':''}}"></text>
+      </view>
+      <view class="gn-circle-name" data-current="1" bindtap="onClickGoCircle">
+        <text class="gn-app-fs28 {{currentTab==1?'gn-news-text-active':''}}">健康资讯</text>
+        <text class="gn-line {{currentTab==1?'gn-line-active':''}}"></text>
+      </view>
+    </view>
+    <view class="gn-news-wrap {{currentTab == 0 ? 'show':'hidden'}}">
+      <scroll-view>
+        <block wx:for="{{articles}}" wx:for-item="articlesItem">
+          <view class="gn-news-item-wrap gn-news-item-wrap{{articlesItem.status}}" bindtap='goNews' data-id="{{articlesItem.id}}">
+            <text class="gn-news-one-title gn-app-fs28">{{articlesItem.title}}</text>
+            <view class="gn-news-one-pictures {{articlesItem.status==0 ? 'hidden':''}}">
+              <image wx:for="{{articlesItem.imgUrls}}" src="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" mode="aspectFit" class="gn-news-one-picture"></image>
+            </view>
+            <view class="gn-news-history-wrap">
+              <view class="gn-news-history">
+                <image src="{{imgTime}}" mode="aspectFit" class="gn-news-history-time-icon"></image>
+                <text class="gn-news-history-text gn-app-fs20">{{articlesItem.createTime}}</text>
+              </view>
+              <view class="gn-news-history">
+                <image src="{{imgReading}}" mode="aspectFit" class="gn-news-history-reading-icon"></image>
+                <text class="gn-news-history-text gn-app-fs20">{{articlesItem.quality}} 阅读</text>
+              </view>
+            </view>
+          </view>
+        </block>
+
+      </scroll-view>
+    </view>
+    <view class="gn-news-wrap {{currentTab == 1 ? 'show':'hidden'}}">
+      <scroll-view>
+        <block wx:for="{{articles}}" wx:for-item="articlesItem">
+          <view class="gn-news-item-wrap gn-news-item-wrap{{articlesItem.status}}" bindtap='goNews' data-id="{{articlesItem.id}}">
+            <text class="gn-news-one-title gn-app-fs28">{{articlesItem.title}}</text>
+            <view class="gn-news-one-pictures {{articlesItem.status==0 ? 'hidden':''}}">
+              <image wx:for="{{articlesItem.imgUrls}}" src="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" mode="aspectFit" class="gn-news-one-picture"></image>
+            </view>
+            <view class="gn-news-history-wrap">
+              <view class="gn-news-history">
+                <image src="{{imgTime}}" mode="aspectFit" class="gn-news-history-time-icon"></image>
+                <text class="gn-news-history-text gn-app-fs20">{{articlesItem.createTime}}</text>
+              </view>
+              <view class="gn-news-history">
+                <image src="{{imgReading}}" mode="aspectFit" class="gn-news-history-reading-icon"></image>
+                <text class="gn-news-history-text gn-app-fs20">{{articlesItem.quality}} 阅读</text>
+              </view>
+            </view>
+          </view>
+        </block>
+
+      </scroll-view>
+    </view>
+
+  </view>
+  <!-- 公告详情遮罩 -->
+  <view>
+    <view bindtap="hideNotice" class="gn-mask" wx:if="{{noticeStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs36" wx:if="{{noticeStatus}}">
+      <view class="gn-modal-title">星联守护上线啦！</view>
+      <view class="gn-app-fs28 gn-notice-detail-content">
+        <view>
+          主题：上线体验活动
+        </view>
+        <view>
+          日期：8月23号
+        </view>
+        <view>
+          地址：湖里槟榔门诊部
+        </view>
+        <view class="gn-notice-detail-active">
+          我们将提供20套健康手表（市场价1299元），用户可享受为期3个月的VIP体验。 数量有限，先到先得，欢迎大家踊跃参与。
+        </view>
+        <view>
+          本次活动真实有效，最终解释权归厦门金网科技有限公司所有。
+        </view>
+      </view>
+      <view bindtap="hideNotice" class="gn-notice-detail-button">确定</view>
+    </view>
+  </view>
+</view>

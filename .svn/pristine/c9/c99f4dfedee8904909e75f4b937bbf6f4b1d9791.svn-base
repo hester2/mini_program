@@ -1,0 +1,29 @@
+<!--pages/home/scan/scan_to/index.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="yh-figure-main">
+      <view class="yh-figure-ma">设备号：100229845146</view>
+      <view class="yh-figure-card">
+        <view class="yh-figure-item {{index==idx?'_left':'left'}}" bindtap='goIndex' data-index="{{index}}" wx:for="{{list}}" wx:key="list">
+          <image src="{{item.avatar}}"></image>
+          <view class="yh-figure-te {{index==idx?'_left':'left'}}" data-index="{{index}}">{{item.name}}</view>
+          <view class="yh-figure-su {{index==idx?'_left':'left'}}" data-index="{{index}}">{{item.sex}} {{item.age}}</view>
+        </view>
+        <view class="yh-figure-item" bindtap="handleAdd">
+          <image class="img" src="../../../../assets/icon-figure_3.png"></image>
+        </view>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="grace-form-item">
+        <text class="grace-form-label">请完善佩戴者与您的关系</text>
+        <view class="grace-form-body">
+          <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+        </view>
+      </view>
+      <view style="padding:22rpx 0;">
+        <button class="grace-button" formType="submit" type="primary">绑定</button>
+      </view>
+    </form>
+  </form>
+</view>

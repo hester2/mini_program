@@ -1,0 +1,24 @@
+<view class="gn-page">
+<view class="gn-wallet-header gn-app-fs36">
+  <view class="gn-header-money">
+    <image src="{{imgMoneyBig}}" mode="aspectFit" class="gn-header-icon"></image>
+    <text><text class="gn-app-fs46">1031</text> 星币</text>
+  </view>
+  <view class="gn-header-use-of-money">
+    <text class="gn-header-use-of-money-text" bindtap="showModal">礼品兑换</text>
+    <text bindtap="showModal">获取星币</text>
+  </view>
+</view>
+<view class="gn-wallet-login-wrap gn-app-fs28">
+  <view class="gn-login-wrap" wx:for="{{addCoins}}">
+    <view class="gn-login-info">
+      <text class="gn-login-info-load-text">{{item.title}}</text>
+      <text class="gn-app-fs20 gn-login-info-load-date">{{item.date}}</text>
+    </view>
+    <view>
+      <text class="gn-login-add-ten">{{item.num}}</text>
+      <image src="{{imgMoneySmall}}" mode="aspectFit" class="gn-login-add-ten-icon"></image>
+    </view>
+  </view>
+</view>
+</view>

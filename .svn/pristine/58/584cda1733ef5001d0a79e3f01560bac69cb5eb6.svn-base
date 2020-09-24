@@ -1,0 +1,92 @@
+<!--pages/archives/PrescDetail/index.wxml-->
+<view class="container">
+  <view class="yh-presc-header">
+    <view class="yh-presc-flc">伊好物联网医院 （处方筏）</view>
+    <view class="yh-presc-fle">{{prescription.prescriptionType}}</view>
+  </view>
+  <view class="yh-presc-main">
+    <view class="yh-presc-items">
+      <view class="yh-presc-desc">NO.248420261625</view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">姓名：
+          <text>{{prescription.name}}</text>
+        </view>
+        <view class="yh-presc-left">性别：
+          <text>{{prescription.name}}</text>
+        </view>
+        <view class="yh-presc-left">年龄：
+          <text>{{prescription.age}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">费别：
+          <text>{{prescription.payingWay}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">门诊病历号：
+          <text>{{prescription.emrNo}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">初步诊断：
+          <text>{{prescription.diagnoseVal}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">医生：
+          <text>{{prescription.doctorName}} · {{prescription.doctorTitle}}</text>
+        </view>
+        <view class="yh-presc-left">科室：
+          <text>{{prescription.section}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="yh-presc-items" style="padding-bottom:55rpx;">
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">指定药店：
+          <text>{{prescription.appoint}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left yh-presc-sizes">RP：
+        </view>
+      </view>
+      <view wx:for="{{prescription.detail}}" class="yh-presc-desc-s">
+      <view class="yh-presc-desc yh-presc-desc-b">
+        <view class="yh-presc-left yh-presc-size">{{item.name}}
+        </view>
+        <view class="yh-presc-left ">处方量：{{item.num}}
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">药品规格：
+          <text>{{item.specification}}</text>
+        </view>
+      </view>
+      <view class="yh-presc-desc">
+        <view class="yh-presc-left">用法用量：
+          <text class="texts">{{item.usage}}</text>
+        </view>
+      </view>
+      </view>
+    </view>
+    <view class="yh-presc-items">
+      <view class="yh-presc-descs">
+        <view class="yh-presc-col"> 
+          <view>医生签名：<text></text></view>
+          <view class="yh-presc-title">2019-10-26  21:10:56</view>
+        </view>
+        <view class="yh-presc-col"> 
+          <view>复核药师签名：<text></text></view>
+          <view class="yh-presc-title">2019-10-26  21:10:56</view>
+        </view>
+        <view class="yh-presc-col"> 
+          <view>配药药师签名：<text></text></view>
+          <view class="yh-presc-title">2019-10-26  21:10:56</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="yh-presc-ga">注意: <text>本处方筏仅限于本院指定药店配送，自行配药不具有处方效力，为确保用药安全，本处方3日内有效。</text></view>
+</view>

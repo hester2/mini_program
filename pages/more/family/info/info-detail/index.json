@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#49a0ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "信息明细",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-modal": "../../../../../../dist/modal/index",
+    "i-button": "../../../../../../dist/button/index"
+  }
+}

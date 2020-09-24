@@ -1,0 +1,65 @@
+<view class="gn-instruct-wrap">
+  <view class="gn-instruct-items gn-app-fs28">
+    <view class="gn-instruct-item" bindtap='showModal' data-id="1">
+      <text>定位周期</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-instruct-right-icon"></image>
+    </view>
+    <view class="gn-instruct-item" bindtap='showModal' data-id="2">
+      <text>工作模式</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-instruct-right-icon"></image>
+    </view>
+    <view class="gn-instruct-item" bindtap='showLocationModal'>
+      <text>立即定位</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-instruct-right-icon"></image>
+    </view>
+    <view class="gn-instruct-item" bindtap='showShutdownModal'>
+      <text>远程关机</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-instruct-right-icon"></image>
+    </view>
+    <!-- <view class="gn-instruct-item" bindtap='showRebootModal'>
+      <text>远程重启</text>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-instruct-right-icon"></image>
+    </view> -->
+  </view>
+
+  <!-- 指令 -->
+  <view wx:if="{{locationFrequencyModal}}">
+    <view bindtap="hideModal" class="gn-mask" wx:if="{{locationFrequencyModal}}"></view>
+    <view class="gn-instruct-setting-wrap gn-app-fs28">
+      <view>定位周期</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="gn-instruct-setting-item">
+          当前选择：{{array[index]}} 分钟
+        </view>
+      </picker>
+      <view class="gn-time-modal-button" bindtap='doLocationFrequency'>确定</view>
+    </view>
+
+  </view>
+  <view wx:if="{{workPatternModal}}">
+    <view bindtap="hideModal" class="gn-mask" wx:if="{{workPatternModal}}"></view>
+    <view class="gn-instruct-setting-wrap gn-app-fs28">
+      <view>设置工作模式</view>
+      <view class="gn-instruct-setting-item">
+        <text>正常模式</text>
+        <i-cell>
+          <i-switch value="{{isOpen1}}" slot="footer" bindtap='changeSwitch' data-id="1"></i-switch>
+        </i-cell>
+      </view>
+      <view class="gn-instruct-setting-item">
+        <text>省电模式</text>
+        <i-cell>
+          <i-switch value="{{isOpen2}}" slot="footer" bindtap='changeSwitch' data-id="2"></i-switch>
+        </i-cell>
+      </view>
+      <view class="gn-instruct-setting-item">
+        <text>紧急模式</text>
+        <i-cell>
+          <i-switch value="{{isOpen3}}" slot="footer" bindtap='changeSwitch' data-id="3"></i-switch>
+        </i-cell>
+      </view>
+      <view class="gn-time-modal-button" bindtap='doWorkPattern'>确定</view>
+    </view>
+
+  </view>
+</view>

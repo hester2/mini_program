@@ -1,0 +1,9 @@
+<view class="gn-page">
+  <view class="gn-add-member-main">
+    <view class="gn-app-fs28 gn-add-member-title">请完善关注者信息</view>
+    <input placeholder='手机：' placeholder-class="gn-app-placeholder" name="phone" bindinput="toGetFollowerPhone" type="number" maxlength="11"></input>
+    <view class="gn-app-fs28 gn-add-member-title">请完善关注者与佩戴者关系</view>
+    <input placeholder-class="gn-app-placeholder" type="text" placeholder="请完善关注者与佩戴者关系" bindinput="enterRelation" name="relation" maxlength="6" />
+  </view>
+  <view class="gn-add-icon" bindtap='doAddFollower'>增加</view>
+</view>

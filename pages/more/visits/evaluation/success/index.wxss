@@ -1,0 +1,47 @@
+/* pages/more/visits/evaluation/success/index.wxss */
+.yh-visits-card {
+  box-shadow: 3rpx 3rpx 16rpx #f1f1f1;
+  box-sizing: border-box;
+  margin: 35rpx 35rpx;
+  padding: 80rpx 30rpx;
+  margin-bottom: 25rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.yh-success-ma{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yh-success-ma image{
+  width: 51rpx;
+  height:51rpx;
+  display: block
+}
+.yh-success-ma text{
+  display: block;
+  font-size: 46rpx;
+  color: #4D4D4D;
+  margin-left: 20rpx;
+}
+.yh-success-le{
+  margin-top: 40rpx;
+  color: #49A0FF;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.yh-success-le image{
+  width: 29rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+button{
+  width: 50%;
+  background-color: #49a0ff !important;
+  border-radius:47rpx;
+  margin-top: 588rpx;
+}

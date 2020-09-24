@@ -1,0 +1,201 @@
+<view class='container'>
+  <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <!--Tab布局-->
+    <view class='yh-visits-title' id="grace-filter-header">
+      <view class="yh-visits-nav" class="{{0 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='0'>
+        <text>全部</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{1 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}} yh-visits-nav" bindtap='titleClick' data-idx='1'>
+        <text>待支付</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{2 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='2'>
+        <text>问诊中</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{3 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='3'>
+        <text>已完成</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{4 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='4'>
+        <text>评价/售后</text>
+        <hr class="line-style" />
+      </view>
+    </view>
+    <!--内容布局-->
+    <swiper bindchange='pagechange' current='{{currentIndex}}' style="height:{{filterHeight}}; width:100%" class='yh-swiper'>
+      <swiper-item class='yh-swiper'>
+        <view class='yh-visits-main'>
+          <view class="yh-visits-card" wx:for="{{doctor}}" wx:key="index">
+            <view class="yh-visits-text">￥{{item.price}}</view>
+            <view class="yh-visits-items">
+              <view class="yh-visits-com">
+                <image src="{{item.doctorInfo.avatar}}"></image>
+              </view>
+              <view class="yh-visits-coms">
+                <view class="yh-visits-lc">
+                  <text>{{item.doctorInfo.firstName}}{{item.doctorInfo.lastName}}</text>
+                  <text class="yh-visits-titles"> {{item.section}} · {{item.doctorInfo.title}}</text>
+                </view>
+                <view class="yh-visits-le">
+                  <text>{{item.doctorInfo.organizationName}}</text>
+                  <text>{{item.doctorInfo.organizationTitle}}</text>
+                </view>
+                <view class="yh-visits-lr">
+                  {{item.condition}}
+                </view>
+              </view>
+            </view>
+            <view class="yh-visits-row">
+              <text>{{item.type}}</text>
+              <text>{{item.realTime}}</text>
+            </view>
+            <view class="yh-visits-rows">
+              <button data-id="{{item.doctorInfo.id}}">结束问诊</button>
+              <button data-id="{{item.doctorInfo.id}}">继续问诊</button>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class='yh-visits-main'>
+          <view class="yh-visits-card" wx:for="{{doctor}}" wx:key="index">
+            <view class="yh-visits-text">￥{{item.price}}待支付</view>
+            <view class="yh-visits-items">
+              <view class="yh-visits-com">
+                <image src="{{item.doctorInfo.avatar}}"></image>
+              </view>
+              <view class="yh-visits-coms">
+                <view class="yh-visits-lc">
+                  <text>{{item.doctorInfo.firstName}}{{item.doctorInfo.lastName}}</text>
+                  <text class="yh-visits-titles"> {{item.section}} · {{item.doctorInfo.title}}</text>
+                </view>
+                <view class="yh-visits-le">
+                  <text>{{item.doctorInfo.organizationName}}</text>
+                  <text>{{item.doctorInfo.organizationTitle}}</text>
+                </view>
+                <view class="yh-visits-lr">
+                  {{item.condition}}
+                </view>
+              </view>
+            </view>
+            <view class="yh-visits-row">
+              <text>{{item.type}}</text>
+              <text>{{item.realTime}}</text>
+            </view>
+            <view class="yh-visits-rows">
+              <button data-id="{{item.orderId}}" bindtap="handleCancel" >取消订单</button>
+              <button>立即支付</button>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class='yh-visits-main'>
+          <view class="yh-visits-card" wx:for="{{doctor}}" wx:key="index">
+            <view class="yh-visits-text">￥{{item.price}}</view>
+            <view class="yh-visits-items">
+              <view class="yh-visits-com">
+                <image src="{{item.doctorInfo.avatar}}"></image>
+              </view>
+              <view class="yh-visits-coms">
+                <view class="yh-visits-lc">
+                  <text>{{item.doctorInfo.firstName}}{{item.doctorInfo.lastName}}</text>
+                  <text class="yh-visits-titles"> {{item.section}} · {{item.doctorInfo.title}}</text>
+                </view>
+                <view class="yh-visits-le">
+                  <text>{{item.doctorInfo.organizationName}}</text>
+                  <text>{{item.doctorInfo.organizationTitle}}</text>
+                </view>
+                <view class="yh-visits-lr">
+                  {{item.condition}}
+                </view>
+              </view>
+            </view>
+            <view class="yh-visits-row">
+              <text>{{item.type}}</text>
+              <text>{{item.realTime}}</text>
+            </view>
+            <view class="yh-visits-rows">
+              <button>结束问诊</button>
+              <button>继续问诊</button>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class='yh-visits-main'>
+          <view class="yh-visits-card" wx:for="{{doctor}}" wx:key="index">
+            <view class="yh-visits-text">￥{{item.price}}</view>
+            <view class="yh-visits-items">
+              <view class="yh-visits-com">
+                <image src="{{item.doctorInfo.avatar}}"></image>
+              </view>
+              <view class="yh-visits-coms">
+                <view class="yh-visits-lc">
+                  <text>{{item.doctorInfo.firstName}}{{item.doctorInfo.lastName}}</text>
+                  <text class="yh-visits-titles"> {{item.section}} · {{item.doctorInfo.title}}</text>
+                </view>
+                <view class="yh-visits-le">
+                  <text>{{item.doctorInfo.organizationName}}</text>
+                  <text>{{item.doctorInfo.organizationTitle}}</text>
+                </view>
+                <view class="yh-visits-lr">
+                  {{item.condition}}
+                </view>
+              </view>
+            </view>
+            <view class="yh-visits-row">
+              <text>{{item.type}}</text>
+              <text>{{item.realTime}}</text>
+            </view>
+            <view class="yh-visits-rows">
+              <button>重新问诊</button>
+              <button>我要追问</button>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class='yh-visits-main'>
+          <view class="yh-visits-card" wx:for="{{doctor}}" wx:key="index">
+            <view class="yh-visits-text">￥{{item.price}}</view>
+            <view class="yh-visits-items">
+              <view class="yh-visits-com">
+                <image src="{{item.doctorInfo.avatar}}"></image>
+              </view>
+              <view class="yh-visits-coms">
+                <view class="yh-visits-lc">
+                  <text>{{item.doctorInfo.firstName}}{{item.doctorInfo.lastName}}</text>
+                  <text class="yh-visits-titles"> {{item.section}} · {{item.doctorInfo.title}}</text>
+                </view>
+                <view class="yh-visits-le">
+                  <text>{{item.doctorInfo.organizationName}}</text>
+                  <text>{{item.doctorInfo.organizationTitle}}</text>
+                </view>
+                <view class="yh-visits-lr">
+                  {{item.condition}}
+                </view>
+              </view>
+            </view>
+            <view class="yh-visits-row">
+              <text>{{item.type}}</text>
+              <text>{{item.realTime}}</text>
+            </view>
+            <view class="yh-visits-rows">
+              <button data-name="{{item}}" wx:if="{{item.commentState=='0'?true:false}}" bindtap="hanldeClick">评价</button>
+              <button data-name="{{item}}" wx:if="{{item.commentState=='1'?true:false}}" bindtap="hanldeClick">我的评价</button>
+              <button data-id="{{item.doctorInfo.id}}">售后</button>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <view class="yh-null" wx:if="{{false}}">
+        <image src="{{imgServer}}icon-visits_1.png"></image>
+        <text>暂无订单</text>
+        <button>在线问诊</button>
+      </view>
+    </swiper>
+  </scroll-view>
+</view>

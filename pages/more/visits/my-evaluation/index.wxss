@@ -1,0 +1,100 @@
+/* pages/more/visits/my-evaluation/index.wxss */
+.yh-visits-card {
+  box-shadow: 3rpx 3rpx 16rpx #f1f1f1;
+  box-sizing: border-box;
+  margin: 35rpx 35rpx;
+  padding: 30rpx 30rpx;
+  margin-bottom: 25rpx;
+  border-radius: 10rpx;
+}
+
+.yh-visits-items {
+  display: flex;
+  border-bottom: 2rpx solid #f1f1f1;
+  box-sizing: border-box;
+   padding: 30rpx 0rpx;
+}
+
+.yh-visits-com {
+  flex: 2;
+}
+
+.yh-visits-coms {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.yh-visits-com image {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+
+.yh-visits-lc {
+  display: flex;
+  align-items: center;
+  color: #4d4d4d;
+}
+
+.yh-visits-lc text {
+  display: block;
+  margin-top: 0px;
+  margin-right: 20rpx;
+}
+
+.yh-visits-lc text:nth-of-type(1) {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.yh-visits-titles {
+  font-size: 22rpx;
+  text-align: center;
+  border: 1px solid #49a0ff;
+  border-radius: 18rpx;
+  color: #49a0ff;
+  line-height: 32rpx;
+  height: 32rpx;
+  padding: 0px 20rpx;
+}
+.yh-visits-le {
+  display: flex;
+  align-items: center;
+  color: #4d4d4d;
+  margin-top: 15rpx;
+}
+
+.yh-visits-le text:nth-of-type(1) {
+  font-size: 28rpx;
+  display: block;
+}
+
+.yh-visits-le text:nth-of-type(2) {
+  font-size: 22rpx;
+  display: block;
+  color: #f3cf33;
+  border-radius: 5rpx;
+  border: 1px solid #f3cf33;
+  margin-left: 10rpx;
+  box-sizing: border-box;
+  padding: 0px 10rpx;
+}
+.yh-evalu-star {
+  display: flex;
+  align-items: center;
+  color: #4d4d4d;
+  margin-top: 25rpx;
+}
+
+.yh-evalu-stars {
+  padding: 0px;
+  height: 63rpx;
+  margin-left: 20rpx;
+}
+
+.fl {
+  margin: 10rpx 0px;
+  color: #B3B3B3;
+  line-height: 50rpx;
+}

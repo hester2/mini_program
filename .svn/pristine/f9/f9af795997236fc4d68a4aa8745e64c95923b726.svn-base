@@ -1,0 +1,14 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "信息查看",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-modal": "../../../../../../dist/modal/index",
+    "i-button": "../../../../../dist/button/index",
+    "i-tabs": "../../../../../dist/tabs/index",
+    "i-tab": "../../../../../dist/tab/index",
+    "i-panel": "../../../../../dist/panel/index"
+  }
+}

@@ -1,0 +1,7 @@
+<view class="gn-page">
+  <view class="gn-guidance-wrap" style="height:{{winheight}}px;" bindtap="getCode">
+    <image src="{{content.imgUrl}}" mode="aspectFit" class="gn-guidance-image"></image>
+    <view class="gn-guidance-conten gn-app-fs46">{{content.title}}</view>
+    <view class="gn-guidance-button gn-app-fs28">马上体验</view>
+  </view>
+ </view>

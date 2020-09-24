@@ -1,0 +1,41 @@
+<!--pages/home/live/makeList/index.wxml-->
+<view class="yh-mast-pl">
+  <view class="yh-mast-pm">
+    <image class="yh-mast-img-x" src="{{imgServer}}icon-live_6.png"></image>
+    <view class="yh-live-right">
+      <view class="yh-live-hote">王华健教授：糖尿病及并发症的防治
+        <view class="yh-live-text-t" bindtap="handleMake">
+          <image class="yh-live-mg" src="{{imgServer}}icon-live_7.png"></image>
+          已预约
+        </view>
+      </view>
+      <view class="yh-live-ys">
+        <text class="yh-live-hs">王华健 </text>
+        <text class="yh-live-hs">主任医师</text>
+        <text class="yh-live-hs">北京协和第一医院 </text>
+
+      </view>
+      <view class="yh-live-ys yh-live-yw">
+        <text class="yh-live-hb">开播时间：2019-12-10  19:00 </text>
+        <text class="yh-live-hb">5.9k次预约</text>
+      </view>
+    </view>
+  </view>
+  <view class="yh-mast-pm">
+    <image class="yh-mast-img-x" src="../../../../assets/icon-live_6.png"></image>
+    <view class="yh-live-right">
+      <view class="yh-live-hote">王华健教授：糖尿病及并发症的防治
+        <text class="yh-live-text-t">免费预约</text>
+      </view>
+      <view class="yh-live-ys">
+        <text class="yh-live-hs">王华健 </text>
+        <text class="yh-live-hs">主任医师</text>
+        <text class="yh-live-hs">北京协和第一医院 </text>
+      </view>
+      <view class="yh-live-ys yh-live-yw">
+        <text class="yh-live-hb">开播时间：2019-12-10  19:00 </text>
+        <text class="yh-live-hb">5.9k次预约</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/chat/cancel_success/index.wxss */
+.yh-pay-main {
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  box-sizing: border-box;
+  padding: 28rpx 28rpx;
+  margin: 28rpx 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 359rpx;
+}
+
+.yh-pay-col {
+  display: flex;
+  justify-content: center;
+}
+
+.yh-pay-col image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 6rpx;
+  margin-right: 20rpx;
+}
+
+.yh-pay-col text {
+  font-size: 46rpx;
+  color: #4d4d4d;
+}
+
+.yh-pay-btn{
+  color: #fff;
+  background-color: #49a0ff !important;
+  margin-top: 500rpx;
+  height: 81rpx;
+  line-height: 81rpx;
+  width: 42%;
+  
+  border-radius: 60rpx;
+  font-size: 36rpx;
+}

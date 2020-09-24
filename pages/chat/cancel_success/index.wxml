@@ -1,0 +1,8 @@
+<!--pages/chat/cancel_success/index.wxml-->
+<view class="yh-pay-main">
+  <view class="yh-pay-col">
+    <image src="{{imgServer}}icon-evaluation_1.png"></image>
+    <text>订单取消成功</text>
+  </view>
+</view>
+<button class="yh-pay-btn" bindtap="handleHome">返回首页</button>

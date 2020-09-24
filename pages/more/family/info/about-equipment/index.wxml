@@ -1,0 +1,103 @@
+<view class="gn-page">
+  <view class="gn-medical-record-taps gn-app-fs28">
+    <view class="gn-medical-record-tap {{currentTab==0?'gn-medical-record-tap-active':''}}" data-current="0" bindtap="doGetDeviceInfo" data-id="0">
+      <text>设备信息</text>
+      <view class="gn-medical-record-tap-line {{currentTab==0?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==1?'gn-medical-record-tap-active':''}}" data-current="1" bindtap="doGetDeviceFollower" data-id="1">
+      <text>成员管理</text>
+      <view class="gn-medical-record-tap-line {{currentTab==1?'gn-line-active':''}}"></view>
+    </view>
+  </view>
+  <view class="{{currentTab == 0 ? 'show':'hidden'}}">
+    <view class="gn-info-header gn-app-fs28">
+      <view class="gn-info-header-data">
+        <view class="gn-info-header-data-title">{{deviceInfos.deviceName}}</view>
+        <view class="gn-info-header-data-time">
+          <image class="gn-info-icon" src="{{imgTime}}" mode="aspectFit"></image>
+          <text>{{deviceInfos.lastConnectTime}}</text>
+        </view>
+        <view class="gn-info-header-data-main">
+          <view class="gn-info-header-data-main-deadline">
+            <image class="gn-info-icon" src="{{imgWatch}}" mode="aspectFit"></image>
+            <text>{{deviceInfos.dueAlert}}</text>
+          </view>
+          <view>
+            <image class="gn-info-icon" src="{{imgBattery}}" mode="aspectFit"></image>
+            <text>{{deviceInfos.electric}}</text>
+          </view>
+        </view>
+
+      </view>
+      <image class="gn-about-equipment-watch-picture" src="{{imgWatchBig}}" mode="aspectFit"></image>
+    </view>
+    <view class="gn-info-main gn-app-fs28">
+      <view class="gn-info-main-item-wrap">
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">设备号</text>
+          <text class="gn-app-fs20">{{deviceInfos.imei}}</text>
+        </view>
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">售后电话</text>
+          <text class="gn-app-fs20">{{deviceInfos.servePhone}}</text>
+        </view>
+      </view>
+      <view class="gn-info-main-item-wrap">
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">SIM卡号</text>
+          <text class="gn-app-fs20">{{deviceInfos.sim}}</text>
+        </view>
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">供应商</text>
+          <text class="gn-app-fs20">{{deviceInfos.supplier}}</text>
+        </view>
+      </view>
+      <view class="gn-info-main-item-wrap">
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">服务到期</text>
+          <text class="gn-app-fs20">{{deviceInfos.serviceDue}}</text>
+        </view>
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">维保期限</text>
+          <text class="gn-app-fs20">{{deviceInfos.maintenanceDue}}</text>
+        </view>
+      </view>
+      <view class="gn-info-main-item-wrap">
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">公司地址</text>
+          <text class="gn-app-fs20">{{deviceInfos.companyAddress}}</text>
+        </view>
+        <view class="gn-info-main-item">
+          <text class="gn-info-main-item-title">官网链接</text>
+          <text class="gn-app-fs20">{{deviceInfos.officialWeb}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="{{currentTab == 1 ? 'show':'hidden'}}">
+    <block wx:for="{{membersInfo}}" wx:for-index="membersInfoIndex">
+      <view class="gn-member-info-wrap gn-app-fs20" bindlongtap='doDeleteMember' data-id="{{membersInfoIndex}}">
+        <image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-member-photo"></image>
+        <view class="gn-member-info">
+          <view>
+            <image src="{{imgPerson}}" mode="aspectFit" class="gn-member-icon"></image>
+            <text class="gn-app-fs24" class="gn-member-name">{{item.name}}</text>
+          </view>
+          <view class="gn-member-number-wrap gn-app-fs22">
+            <view class="gn-member-number">
+              <image src="{{imgPhone}}" mode="aspectFit" class="gn-member-icon"></image>
+              <text>{{item.phone}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="gn-member-role-wrap">
+          <image src="{{imgSetting}}" mode="aspectFit" class="gn-member-role-icon"></image>
+          <text class="gn-app-fs20 gn-member-role">关注者</text>
+        </view>
+      </view>
+      <!-- <view class="gn-member-button gn-app-fs28" bindtap='doDeleteMember' data-id="{{membersInfoIndex}}">取消关注</view> -->
+    </block>
+    <image bindtap="clickToAddMember" class="gn-member-add-icon" src="{{imgAdd}}" mode="aspectFit"></image>
+  </view>
+</view>

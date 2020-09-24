@@ -1,0 +1,383 @@
+<view class="gn-page">
+  <!--顶部滑动切换健康指数区域 -->
+  <view class="gn-health-data-taps-wrap">
+    <view class="gn-health-data-tab-mask-left" wx:if="{{maskLeft}}"></view>
+    <view class="gn-health-data-tab-mask-right" wx:if="{{maskRight}}"></view>
+    <scroll-view scroll-x="true" class="gn-health-data-taps" bindscrolltoupper="touchLeft" bindscrolltolower="touchRight">
+      <view class="gn-health-data-tap {{healthType==1?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="1">
+        <text>血压</text>
+        <view class="gn-health-data-tap-line {{healthType==1?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==2?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="2">
+        <text>心率</text>
+        <view class="gn-health-data-tap-line {{healthType==2?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==3?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="3">
+        <text>血氧</text>
+        <view class="gn-health-data-tap-line {{healthType==3?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==4?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="4">
+        <text>血糖</text>
+        <view class="gn-health-data-tap-line {{healthType==4?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==5?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="5">
+        <text>房颤</text>
+        <view class="gn-health-data-tap-line {{healthType==5?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==6?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="6">
+        <text>体温</text>
+        <view class="gn-health-data-tap-line {{healthType==6?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==7?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="7">
+        <text>计步</text>
+        <view class="gn-health-data-tap-line {{healthType==7?'gn-line-active':''}}"></view>
+      </view>
+      <view class="gn-health-data-tap {{healthType==8?'gn-health-data-tap-active':''}}" bindtap="onClickChangeData" data-id="8">
+        <text>睡眠</text>
+        <view class="gn-health-data-tap-line {{healthType==8?'gn-line-active':''}}"></view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="{{healthType == 1 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-1" canvas-id="mychart-line-1"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 2 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-2" canvas-id="mychart-line-2"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 3 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-3" canvas-id="mychart-line-3"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 4 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-4" canvas-id="mychart-line-4"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 5 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-5" canvas-id="mychart-line-5"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 6 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-6" canvas-id="mychart-line-6"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{healthType == 7 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-7" canvas-id="mychart-line-7"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap" wx:for="{{healthDatas}}">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{item.para}}</text>
+            <text class="gn-data-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="{{healthType == 8 ? 'show':'hidden'}}">
+    <scroll-view>
+      <!--健康指数折线图区域 -->
+      <view class="gn-data-figure">
+        <ec-canvas id="mychart-dom-line-8" canvas-id="mychart-line-8"></ec-canvas>
+        <view class="gn-data-canvas-dateRange">
+          <image src="{{imgLeft}}" mode="aspectFit" bindtap="getLastDateData" />
+          <view>{{echartXname}}</view>
+          <image src="{{imgRight}}" mode="aspectFit" bindtap="getNextDateData" />
+        </view>
+      </view>
+      <!--健康指数列表区域 -->
+      <view class="gn-data-detail">
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <view class="gn-data-number">{{healthDatas[0].paraHour}}
+              <text class="gn-app-fs20">时</text> {{healthDatas[0].paraMin}}
+              <text class="gn-app-fs20"> 分</text>
+            </view>
+            <text class="gn-data-name">{{healthDatas[0].name}}</text>
+          </view>
+        </view>
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <view class="gn-data-number">{{healthDatas[1].paraHour}}
+              <text class="gn-app-fs20">时</text> {{healthDatas[1].paraMin}}
+              <text class="gn-app-fs20"> 分</text>
+            </view>
+            <text class="gn-data-name">{{healthDatas[1].name}}</text>
+          </view>
+        </view>
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <view class="gn-data-number">{{healthDatas[2].paraHour}}
+              <text class="gn-app-fs20">时</text> {{healthDatas[2].paraMin}}
+              <text class="gn-app-fs20"> 分</text>
+            </view>
+            <text class="gn-data-name">{{healthDatas[2].name}}</text>
+          </view>
+        </view>
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <view class="gn-data-number">{{healthDatas[3].paraHour}}
+              <text class="gn-app-fs20">时</text> {{healthDatas[3].paraMin}}
+              <text class="gn-app-fs20"> 分</text>
+            </view>
+            <text class="gn-data-name">{{healthDatas[3].name}}</text>
+          </view>
+        </view>
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <text class="gn-data-number">{{healthDatas[4].para}}</text>
+            <text class="gn-data-name">{{healthDatas[4].name}}</text>
+          </view>
+        </view>
+        <view class="gn-data-item-wrap">
+          <view class="gn-data-item gn-app-fs24">
+            <view class="gn-data-number">{{healthDatas[5].para}}
+              <text class="gn-app-fs20">分</text>
+            </view>
+            <text class="gn-data-name">{{healthDatas[5].name}}</text>
+          </view>
+        </view>
+
+      </view>
+      <!--健康建议区域 -->
+      <view class="gn-app-fs24 gn-health-suggestion">
+        <text>{{healthComment[0]}}</text>
+        <text>{{healthComment[1]}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <image src="{{imgCal}}" class="gn-health-calendar-icon" bindtap="showDatesModal"></image>
+  <!--遮罩 + 浮层 -->
+  <cover-view class='gn-health-dates-front' wx:if="{{showDates}}">
+    <cover-view bindtap="doHideDate" class="gn-health-data-mask" bindtap="doHideDate"></cover-view>
+    <cover-view class="gn-health-calendar-wrap">
+      <cover-view class="gn-health-calendar-tab">
+        <cover-view bindtap="doChangeDateType" data-date="0">月
+           <cover-image src="{{imgLine}}" wx:if="{{dateStatus[0]}}"></cover-image>
+        </cover-view>
+        <cover-view bindtap="doChangeDateType" data-date="1">周
+          <cover-view class="gn-calendar-tab-active" ></cover-view>
+           <cover-image src="{{imgLine}}" wx:if="{{dateStatus[1]}}"></cover-image>
+        </cover-view>
+        <cover-view bindtap="doChangeDateType" data-date="2">日
+         <cover-image src="{{imgLine}}" wx:if="{{dateStatus[2]}}"></cover-image>
+           
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-health-calendar" wx:if="{{dateStatus[0]}}">
+        <cover-view class="gn-health-calendar-title">
+          <cover-image src="{{imgicon1}}" class="gn-health-calendar-change-icon" bindtap="goLastMonth"></cover-image>
+          <cover-view>{{calendarYear[0]}}年</cover-view>
+          <cover-image src="{{imgicon2}}" class="gn-health-calendar-change-icon" bindtap="goNextMonth"></cover-image>
+        </cover-view>
+        <cover-view class="gn-health-calendar-content">
+          <cover-view class="gn-health-calendar-items gn-health-month" wx:for="{{calendarDayList[0]}}" wx:for-item="calendarMonth">
+            <cover-view wx:for="{{calendarMonth}}" data-date="{{item}}" class="{{dateActive[0]==item ? 'active':''}} {{year < calendarYear[0]? 'unactive':''}}" bindtap="chooseDate">{{item}}</cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="gn-health-calendar-button gn-health-month-button" data-dateRange="30" bindtap="getNewHealthData">确定</cover-view>
+      </cover-view>
+      <cover-view class="gn-health-calendar" wx:if="{{dateStatus[1]}}">
+        <cover-view class="gn-health-calendar-title">
+          <cover-image src="{{imgicon1}}" class="gn-health-calendar-change-icon" bindtap="goLastMonth"></cover-image>
+          <cover-view wx:if="{{dateStatus[1]}}">{{calendarYear[1]}}年{{calendarMonth[1]}}月</cover-view>
+          <cover-image src="{{imgicon2}}" class="gn-health-calendar-change-icon" bindtap="goNextMonth"></cover-image>
+        </cover-view>
+        <cover-view wx:if="{{dateStatus[1]}}" class="gn-health-calendar-content">
+          <cover-view class="gn-health-calendar-items">
+            <cover-view>日</cover-view>
+            <cover-view>一</cover-view>
+            <cover-view>二</cover-view>
+            <cover-view>三</cover-view>
+            <cover-view>四</cover-view>
+            <cover-view>五</cover-view>
+            <cover-view>六</cover-view>
+          </cover-view>
+          <cover-view class="gn-health-calendar-items" wx:for="{{calendarDayList[1]}}" wx:for-item="calendarItem">
+            <cover-view wx:for="{{calendarItem}}" data-date="{{item}}" class="{{dateActive[1]==item||dateActive[1] ==item+1||dateActive[1] ==item+2||dateActive[1] ==item+3||dateActive[1] ==item+4||dateActive[1] ==item+5||dateActive[1] ==item+6 ? 'active':''}} {{item =='' ? 'white-date':''}} {{year < calendarYear[1]? 'unactive':''}} {{year == calendarYear[1]&&month < calendarMonth[1]? 'unactive':''}} {{year==calendarYear[1]&&month==calendarMonth[1] && today < item ? 'unactive':''}}"
+              bindtap="chooseDate">{{item}}</cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="gn-health-calendar-button" data-dateRange="7" bindtap="getNewHealthData">确定</cover-view>
+      </cover-view>
+      <cover-view class="gn-health-calendar" wx:if="{{dateStatus[2]}}">
+        <cover-view class="gn-health-calendar-title">
+          <cover-image src="{{imgicon1}}" class="gn-health-calendar-change-icon" bindtap="goLastMonth"></cover-image>
+          <cover-view wx:if="{{dateStatus[2]}}">{{calendarYear[2]}}年{{calendarMonth[2]}}月</cover-view>
+          <cover-image src="{{imgicon2}}" class="gn-health-calendar-change-icon" bindtap="goNextMonth"></cover-image>
+        </cover-view>
+        <cover-view wx:if="{{dateStatus[2]}}" class="gn-health-calendar-content">
+          <cover-view class="gn-health-calendar-items">
+            <cover-view>日</cover-view>
+            <cover-view>一</cover-view>
+            <cover-view>二</cover-view>
+            <cover-view>三</cover-view>
+            <cover-view>四</cover-view>
+            <cover-view>五</cover-view>
+            <cover-view>六</cover-view>
+          </cover-view>
+          <cover-view class="gn-health-calendar-items" wx:for="{{calendarDayList[2]}}" wx:for-item="calendarItem">
+            <cover-view wx:for="{{calendarItem}}" data-date="{{item}}" class="{{dateActive[2]==item ? 'active':''}} {{year < calendarYear[2]? 'unactive':''}} {{year == calendarYear[2]&&month < calendarMonth[2]? 'unactive':''}} {{year==calendarYear[2]&&month==calendarMonth[2] && today < item ? 'unactive':''}}"
+              bindtap="chooseDate">{{item}}</cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="gn-health-calendar-button" data-dateRange="1" bindtap="getNewHealthData">确定</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</view>

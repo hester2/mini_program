@@ -1,0 +1,501 @@
+var app = getApp()
+const config = require('../../utils/config.js')
+const util = require('../../utils/util.js')
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    toMemberId: '',
+    imei: '',
+    toMemberPhone: '',
+    noticeStatus: false,
+    currentTab: 0,
+    // 数据包含轮播图片和广告链接
+    swiperImgs: [{
+      "imgUrl": "https://health-mini.xmgoldnet.com/health/file/download?filepath=9877d05b-4238-4b56-b346-2ad78bc18cfe",
+      "id": 1,
+      "url": "http://pic37.nipic.com/20140113/8800276_184927469000_2.png"
+    }, {
+      "imgUrl": "https://health-mini.xmgoldnet.com/health/file/download?filepath=4c44c110-023a-443d-8b62-ef90f6c5f4f8",
+      "id": 2,
+      "url": "http://pic37.nipic.com/20140113/8800276_184927469000_2.png"
+    }, {
+      "imgUrl": "https://health-mini.xmgoldnet.com/health/file/download?filepath=354aa508-b3f3-4a2c-81ab-24c6975620f9",
+      "id": 3,
+      "url": "http://pic37.nipic.com/20140113/8800276_184927469000_2.png"
+    }],
+    indicatorDots: false,
+    swiperCurrent: 0,
+    notices: [{
+      "datetime": "2019-09-19",
+      "id": 0,
+      "detailUrl": "",
+      "title": "关于系统维护的公告",
+      "content": "尊敬的用户，为了给您带来更加优质的服务，带来更好的用户体验，“星联守护”将于2019年......"
+    }, {
+      "datetime": "2019-09-18",
+      "id": 1,
+      "detailUrl": "",
+      "title": "关于系统维护的公告",
+      "content": "尊敬的用户，为了给您带来更加优质的服务，带来更好的用户体验，“星联守护”将于2019年......"
+    }, {
+      "datetime": "2019-09-17",
+      "id": 2,
+      "detailUrl": "",
+      "title": "关于系统维护的公告",
+      "content": "尊敬的用户，为了给您带来更加优质的服务，带来更好的用户体验，“星联守护”将于2019年......"
+    }, {
+      "id": 15,
+      "title": "健康管理平台微信小程序公测通告",
+      "content": "健康管理平台微信小程序公测通告",
+      "url": "http://pic37.nipic.com/20140113/8800276_184927469000_2.png"
+    }, {
+      "id": 16,
+      "title": "健康管理平台微信小程序公测通告",
+      "content": "健康管理平台微信小程序公测通告",
+      "url": "http://pic37.nipic.com/20140113/8800276_184927469000_2.png"
+    }],
+    articles: [],
+    healthArticles: [],
+    imgBind1: app.globalData.imgServer + 'home/icon/bind1.png',
+    imgLocationCurrent1: app.globalData.imgServer + 'home/icon/locationCurrent1.png',
+    imgBind: app.globalData.imgServer + 'home/icon/bind.png',
+    imgLocationCurrent: app.globalData.imgServer + 'home/icon/locationCurrent.png',
+    imgOnlineAppointment: app.globalData.imgServer + 'home/icon/onlineAppointment.png',
+    imgService: app.globalData.imgServer + 'home/icon/service.png',
+    imgShopping: app.globalData.imgServer + 'home/icon/shopping.png',
+    imgDoctor: app.globalData.imgServer + 'home/icon/doctor.png',
+    imgAnnouncement: app.globalData.imgServer + 'home/icon/announcement.png',
+    imgHot: app.globalData.imgServer + 'home/icon/hot.png',
+    imgTime: app.globalData.imgServer + 'home/icon/time.png',
+    imgReading: app.globalData.imgServer + 'home/icon/reading.png',
+    myWatch: ''
+  },
+  /**
+   * 获取当前轮播图片
+   */
+  swiperChange(e) {
+    let current = e.detail.current;
+    let that = this;
+    this.setData({
+      swiperCurrent: current,
+    });
+  },
+  /**
+   * 展示正在开发 modal
+   */
+  showModal: function() {
+    app.showModal();
+  },
+  //公告详情开关
+  showNotice: function() {
+    this.setData({
+      noticeStatus: true
+    });
+  },
+  hideNotice: function() {
+    this.setData({
+      noticeStatus: false
+    });
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {},
+
+  /**
+   * 进入资讯详情
+   */
+  goNews: function(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'detail/index?id=' + id,
+    });
+  },
+
+  /**
+   * 进入扫码页面
+   */
+  bindDevice: function() {
+    if (app.globalData.login === false) {
+      wx.showModal({
+        title: '提示',
+        content: '您还未登陆，请先进行登陆以获得更好的服务体验。',
+        success(res) {
+          if (res.confirm) {
+            that.goNextPage()
+          } else if (res.cancel) {};
+        },
+      });
+    } else {
+      wx.navigateTo({
+        url: '../health/scan-type/index',
+      });
+    };
+  },
+  //进入地图页面
+  goMap: function() {
+    wx.navigateTo({
+      url: '../health/map/index?imei=' + this.data.imei + '&toMemberPhone=' + this.data.toMemberPhone + '&toMemberId=' + this.data.toMemberId + '&change=' + true + '&myWatch=' + this.data.myWatch,
+    });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
+  },
+  /**
+   * 点击轮播图片，跳转页面或外链
+   */
+  onClickGoDetail: function() {},
+  /**
+   * 点击获取资讯数据
+   */
+  onClickGoCircle: function(e) {
+    let that = this;
+    //设置refresh参数用于判断刷新资讯或家庭医生内容
+    let refresh = 2;
+    if (that.data.currentTab === e.currentTarget.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.currentTarget.dataset.current,
+      });
+    };
+    that.getCircle(refresh);
+  },
+  /**
+   * 点击获取家庭医生数据
+   */
+  onClickGoHotNews: function(e) {
+    let that = this;
+    let refresh = 2;
+    if (that.data.currentTab === e.currentTarget.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.currentTarget.dataset.current,
+      });
+    };
+    that.getHotNews(refresh);
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    let refresh = 2;
+    if (this.data.currentTab == 0) {
+      this.getHotNews(refresh);
+    } else if (this.data.currentTab == 1) {
+      this.getCircle(refresh);
+    }
+    this.getSwiperPicture();
+    this.getHotNotice();
+    this.getInfo();
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+  /**
+   * 下拉刷新事件的处理函数
+   */
+  onPullDownRefresh() {
+    this.getSwiperPicture();
+    this.getHotNotice();
+    this.getInfo();
+    let refresh = 1;
+    if (this.data.currentTab == 0) {
+      this.getHotNews(refresh);
+    } else if (this.data.currentTab == 1) {
+      this.getCircle(refresh);
+    }
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+    wx.showToast({
+      title: '到底了...',
+      icon: 'success',
+      duration: 2000
+    });
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {},
+  /**
+   * 获取轮播图
+   */
+  getSwiperPicture: function() {
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+    } else {
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      });
+    };
+    app.http.postRequest(config.postGetCarousel, {}).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      };
+      if (res.data.code === 'GN00000') {
+        this.setData({
+          swiperImgs: res.data.data.imgs
+        });
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        });
+      };
+
+    });
+  },
+  /**
+   * 获取公告
+   */
+  getHotNotice: function() {
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+    } else {
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      });
+    };
+    app.http.postRequest(config.postGetNotice, {}).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        this.setData({
+          notices: res.data.data
+        });
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        });
+      };
+    });
+  },
+  /**
+   * 获取家庭医生数据
+   */
+  getHotNews: function(refresh) {
+    let that = this
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+    } else {
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      });
+    };
+    app.http.postRequest(config.postGetHotNews, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        let articles = res.data.data
+        for (let i = 0; i < articles.length; i++) {
+          let imgs = [];
+          if (articles[i].imgUrls) {
+            imgs = articles[i].imgUrls.split("|");
+          } else {};
+          articles[i].imgUrls = imgs;
+          articles[i].createTime = util.formatTimeTwo(articles[i].createTime, 'Y/M/D');
+          switch (imgs.length) {
+            case 0:
+              articles[i].status = 0
+              break;
+            case 1:
+              articles[i].status = 1
+              break;
+            case 2:
+              articles[i].status = 2
+              break;
+            case 3:
+              articles[i].status = 3
+              break;
+            default:
+              
+          };
+        };
+        that.setData({
+          articles: articles
+        });
+        if (refresh === 1) {
+          wx.stopPullDownRefresh({
+            complete(res) {
+              wx.showToast({
+                title: '刷新成功！',
+              });
+            },
+          });
+        };
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        });
+      };
+    });
+  },
+  /**
+   * 获取健康资讯
+   */
+  getCircle: function(refresh) {
+    let that = this;
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+    } else {
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      });
+    };
+    app.http.postRequest(config.postGetGroupNews, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        let articles = res.data.data
+        for (let i = 0; i < articles.length; i++) {
+          let imgs = [];
+          if (articles[i].imgUrls) {
+            imgs = articles[i].imgUrls.split("|");
+          } else {};
+          articles[i].imgUrls = imgs;
+          articles[i].createTime = util.formatTimeTwo(articles[i].createTime, 'Y/M/D');
+          switch (imgs.length) {
+            case 0:
+              articles[i].status = 0
+              break;
+            case 1:
+              articles[i].status = 1
+              break;
+            case 2:
+              articles[i].status = 2
+              break;
+            case 3:
+              articles[i].status = 3
+              break;
+            default:
+            
+          };
+        };
+        that.setData({
+          articles: articles
+        });
+        if (refresh === 1) {
+          wx.stopPullDownRefresh({
+            complete(res) {
+              wx.showToast({
+                title: '刷新成功！',
+              });
+            },
+          });
+        }
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        });
+      };
+    });
+  },
+  //获取跳转到地图页需要的参数，通过调用健康接口
+  getInfo: function() {
+    let that = this;
+    app.http.postRequest(config.postGetMyAllFamily, {
+      userId: app.globalData.userId
+    }).then(res => {
+      if (res.data.code === 'GN00000') {
+        if (res.data.data.myDevices[0]) {
+          that.setData({
+            imei: res.data.data.myDevices[0].imei,
+            toMemberPhone: res.data.data.myDevices[0].toMemberPhone,
+            toMemberId: res.data.data.myDevices[0].toMemberId,
+            myWatch: 1
+          })
+        } else if (res.data.data.myWatches[0]) {
+          that.setData({
+            imei: res.data.data.myWatches[0].imei,
+            toMemberPhone: res.data.data.myWatches[0].toMemberPhone,
+            toMemberId: res.data.data.myWatches[0].toMemberId,
+            myWatch: 2
+          })
+        } else {
+          that.setData({
+            imei: '',
+            toMemberPhone: '',
+            toMemberId: ''
+          });
+        };
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        });
+      };
+
+    });
+  },
+})

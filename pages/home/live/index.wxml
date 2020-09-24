@@ -1,0 +1,220 @@
+<!--pages/home/live/index.wxml-->
+<view class="yh-message-fo">
+  <view class="yh-message-left" bindtap="handleBack">
+    <i-icon type="return" size="20" color="#4D4D4D" />
+  </view>
+  <view class="yh-message-center">直播讲堂</view>
+  <view class="yh-message-right">
+    <image class="yh-message-img" src="{{imgServer}}icon-live_1.png"></image>
+    <image bindtap="handleList" class="yh-message-img" src="{{imgServer}}icon-live_2.png"></image>
+  </view>
+</view>
+<view class='container'>
+  <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <!--Tab布局-->
+    <view class='yh-visits-title' id="grace-filter-header">
+      <view class="yh-visits-nav" class="{{0 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='0'>
+        <text>直播</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{1 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}} yh-visits-nav" bindtap='titleClick' data-idx='1'>
+        <text>回放</text>
+        <hr class="line-style" />
+      </view>
+      <view class="{{2 == currentIndex ? 'yh-title-sel-selected' : 'yh-title-sel'}}" bindtap='titleClick' data-idx='2'>
+        <text>收藏</text>
+        <hr class="line-style" />
+      </view>
+    </view>
+    <!--内容布局-->
+    <swiper bindchange='pagechange' current='{{currentIndex}}' style="height:{{filterHeight}}; width:100%" class='yh-swiper'>
+      <swiper-item class='yh-swiper'>
+        <view class="yh-live-main">
+          <image class="yh-live-img-b" src="{{imgServer}}icon-live_3.png"></image>
+          <view class="yh-mast-qm">
+            <text></text>
+            <text>问诊科室</text>
+            <view class="yh-live-do">
+              <image class="yh-live-img-c" src="{{imgServer}}icon-live_4.png"></image>换一组</view>
+          </view>
+          <view class="yh-live-row">
+            <view class="yh-live-col" bindtap="handleClick">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">1.3w次观看</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">1.3w次观看</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">1.3w次观看</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">1.3w次观看</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+          </view>
+          <view class="yh-mast-qm">
+            <text></text>
+            <text>直播预告</text>
+            <view class="yh-live-do"></view>
+          </view>
+          <view class="yh-mast-pl">
+            <view class="yh-mast-pm">
+              <image class="yh-mast-img-x" src="{{imgServer}}icon-live_6.png"></image>
+              <view class="yh-live-right">
+                <view class="yh-live-hote">王华健教授：糖尿病及并发症的防治
+                  <text class="yh-live-text-t" bindtap="handleMake">免费预约</text>
+                </view>
+                <view class="yh-live-ys">
+                  <text class="yh-live-hs">王华健 </text>
+                  <text class="yh-live-hs">主任医师</text>
+                  <text class="yh-live-hs">北京协和第一医院 </text>
+
+                </view>
+                <view class="yh-live-ys yh-live-yw">
+                  <text class="yh-live-hb">开播时间：2019-12-10  19:00 </text>
+                  <text class="yh-live-hb">5.9k次预约</text>
+                </view>
+              </view>
+            </view>
+            <view class="yh-mast-pm">
+              <image class="yh-mast-img-x" src="{{imgServer}}icon-live_6.png"></image>
+              <view class="yh-live-right">
+                <view class="yh-live-hote">王华健教授：糖尿病及并发症的防治
+                  <text class="yh-live-text-t">会员预约</text>
+                </view>
+                <view class="yh-live-ys">
+                  <text class="yh-live-hs">王华健 </text>
+                  <text class="yh-live-hs">主任医师</text>
+                  <text class="yh-live-hs">北京协和第一医院 </text>
+                </view>
+                <view class="yh-live-ys yh-live-yw">
+                  <text class="yh-live-hb"> </text>
+                  <text class="yh-live-hb"></text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class="yh-live-main">
+          <view class="yh-live-row">
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class='yh-swiper' class='yh-swiper'>
+        <view class="yh-live-main">
+          <view class="yh-live-row">
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+            <view class="yh-live-col">
+              <view class="yh-live-img-o">
+                <image src="http://img1.imgtn.bdimg.com/it/u=2136140174,2789674605&fm=26&gp=0.jpg"></image>
+                <view class="yh-live-title">精彩回放</view>
+              </view>
+              <view class="yh-live-desc">
+                胃癌联合治疗模式的现状及探索
+                <text class="yh-live-text">王宇    副主任医师</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </scroll-view>
+</view>

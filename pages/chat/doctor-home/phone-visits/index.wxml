@@ -1,0 +1,74 @@
+<!--pages/chat/doctor-home/figure-visits/index.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="yh-figure-main">
+      <view class="yh-figure-ma">您需要为谁咨询</view>
+      <view class="yh-figure-card">
+        <view class="yh-figure-item {{index==idx?'_left':'left'}}" bindtap='goIndex' data-index="{{index}}" wx:for="{{list}}" wx:key="list">
+          <image src="{{item.img}}"></image>
+          <view class="yh-figure-te {{index==idx?'_left':'left'}}" data-index="{{index}}">{{item.name}}</view>
+          <view class="yh-figure-su {{index==idx?'_left':'left'}}" data-index="{{index}}">{{item.tex}} {{item.age}}岁</view>
+        </view>
+        <view class="yh-figure-item" bindtap="handleAdd">
+          <image class="img" src="{{imgServer}}icon-figure_3.png"></image>
+        </view>
+      </view>
+      <view class="yh-figure-ma yh-figure-mt">描述病情</view>
+      <view class="yh-evalu-tex">
+        <textarea placeholder-class="place-holder" placeholder="请详细描述病情： 疾病发生的部位、主要症状、持续时间、已就诊的信息和主治医生的用药建议，您也可以上传症状部位照片或者检查报告，完整的病历资料。 " name="introduction" maxlength='300' bindinput='handleLimit' value="{{text}}" style="font-size: 14px;" />
+
+        <text>{{current}} / {{max}}</text>
+      </view>
+      <view class="yh-figure-photo">
+
+        <view class="yh-figure-left" wx:for="{{previewImageArr}}" wx:key="{{item.id}}" wx:if="{{previewImageArr==''?false:true}}">
+          <image bindtap="previewImg" data-src="{{item}}" src="{{item}}"></image>
+          <image class="ot-tem-del" data-index="{{index}}" catchtap="deleteImage" src="{{imgServer}}icon-figure_5.png"></image>
+        </view>
+
+        <view class="yh-figure-left" bindtap="handleUpload">
+          <image src="{{imgServer}}icon-figure_4.png"></image>
+
+        </view>
+        <view class="yh-figure-right" wx:if="{{previewImageArr==''?true:false}}">
+          <text>上传检查报告或患处照片</text>
+          <text>照片仅自己和医生可见</text>
+        </view>
+      </view>
+    </view>
+    <view class="yh-figure-main">
+      <view class="yh-figure-hj">
+        <view class="yh-figure-hr">是否就该病情到医院就诊过？</view>
+        <view class="yh-figure-hl">
+          <text class=" yh-figure-btn {{login?'active':''}}" catchtap='handleYes'>是</text>
+          <text class=" yh-figure-btn {{login?'':'active'}}" catchtap='handleNo'>否</text>
+        </view>
+      </view>
+      <view class="yh-figure-items">
+        <view class="section__title">就诊时间</view>
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+          <view class="tui-picker-detail">
+            {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+          </view>
+        </picker>
+      </view>
+      <view class="yh-figure-items">
+        <view class="section__title">就诊医院</view>
+        <picker bindchange="bindHosChange" value="{{hosIndex}}" range="{{hos}}">
+          <view class="picker">
+            {{hos[hosIndex]}}
+          </view>
+        </picker>
+      </view>
+
+    </view>
+    <view class="yh-figure-vw">
+      <i-radio value="{{animal}}" disabled="{{disabled}}" checked="{{checked}}" bindchange="handleAnimalChange">
+      </i-radio>
+      <view style="display:flex;color:#B3B3B3">已阅读并同意
+        <text class="yh-figure-zhi">《知情同意书》</text>
+      </view>
+    </view>
+    <button type="primary" class="yh-figure-button" form-type="submit">￥19.00 开始问诊</button>
+  </form>
+</view>

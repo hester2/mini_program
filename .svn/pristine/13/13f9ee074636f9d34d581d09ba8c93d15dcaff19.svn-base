@@ -1,0 +1,428 @@
+page {
+  color: #4d4d4d;
+}
+
+canvas {
+  width: 320rpx;
+  height: 320rpx;
+  margin-right: 13rpx;
+}
+
+.gn-health-header-wrap {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  margin-bottom: 27rpx;
+  border-radius: 10rpx;
+}
+
+.gn-header {
+  width: 100%;
+  height: 311rpx;
+  background: linear-gradient(to right, #49a0ff 0%, #7f85ff 70%, #bf64ff 100%);
+  border-bottom-right-radius: 116.9rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32rpx;
+}
+
+.gn-user-info {
+  display: flex;
+  flex-direction: row;
+  margin-left: 64rpx;
+  margin-top: 56rpx;
+  align-items: center;
+  margin-bottom: 50rpx;
+}
+
+.gn-user-icon {
+  width: 117rpx;
+  height: 117rpx;
+  border: 1rpx solid #fff;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.gn-user-name-map {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gn-user-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.gn-user-map {
+  width: 433rpx;
+  margin-top: 21rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20rpx;
+  padding: 5rpx 0;
+}
+
+.gn-map-icon {
+  height: 28rpx;
+  width: 21rpx;
+  margin-right: 5rpx;
+  margin-left: 25rpx;
+}
+
+.gn-map-address {
+  width: 366rpx;
+  text-align: left;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gn-user-chats-notification {
+  display: flex;
+  flex-direction: row;
+  margin: 0 113rpx;
+}
+
+.gn-chat-icon {
+  height: 38rpx;
+  width: 39rpx;
+  margin-right: 18rpx;
+}
+
+.gn-chat-notice-icon {
+  height: 17rpx;
+  width: 17rpx;
+  position: absolute;
+  left: 28rpx;
+  top: 1rpx;
+}
+
+.gn-chat-text {
+  color: #fff;
+}
+
+.gn-separation-line {
+  border-left: 1rpx solid white;
+  border-radius: 20%;
+  height: 40rpx;
+  margin-left: 110rpx;
+  margin-right: 110rpx;
+}
+
+.gn-user-notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gn-notification-icon {
+  height: 38rpx;
+  width: 39rpx;
+  margin-right: 15rpx;
+}
+
+.gn-notification-text {
+  color: #fff;
+}
+
+.gn-equipment-info-wrap {
+  display: flex;
+  flex-direction: row;
+  margin: 0 115rpx 27rpx 115rpx;
+  justify-content: space-between;
+  width: 520;
+}
+
+.gn-equipment-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gn-equipment-time {
+  margin-bottom: 34rpx;
+}
+
+.gn-time-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+
+.gn-time-text {
+  white-space: nowrap;
+}
+
+.gn-equipment-parameters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gn-equipment-parameter-online {
+  display: flex;
+  align-items: center;
+  margin-right: 60rpx;
+}
+
+.gn-equipment-parameter-battery {
+  display: flex;
+  align-items: center;
+}
+
+.gn-online-icon {
+  width: 19rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}
+
+.gn-battery-icon {
+  width: 14rpx;
+  height: 25rpx;
+  margin-right: 8rpx;
+}
+
+.gn-equipment-measure {
+  margin-top: 26rpx;
+}
+
+.gn-equipment-measure-text {
+  width: 167rpx;
+  height: 56rpx;
+  background-color: #49a0ff;
+  border-radius: 32rpx;
+  padding: 18rpx 36rpx 18rpx 36rpx;
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0px 0px 2px 2px rgba(137, 137, 137, 0.05);
+}
+
+.gn-health-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.gn-current-health-data {
+  width: 693rpx;
+  height: 530rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  margin-bottom: 27rpx;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  padding-bottom: 32rpx;
+  padding-top: 32rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.gn-measured-time {
+  margin-left: 36rpx;
+  display: inline-block;
+  color: #808080;
+  margin-bottom:38rpx;
+}
+
+.gn-measured-correct {
+  font-size: 24rpx;
+  width: 107rpx;
+  height: 58rpx;
+  background: #bf64ff;
+  border-radius: 28rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: #fff;
+  position: absolute;
+  top: 32rpx;
+  right: 30rpx;
+}
+
+.gn-measured-score-wrap {
+  width: 100%;
+  height: 220rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rpx auto;
+}
+
+.gn-measured-score {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.gn-score-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 64rpx;
+  left: 94rpx;
+}
+
+.gn-score {
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.gn-measured-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+  margin-top:50rpx;
+}
+
+.gn-measured-data-detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22rpx;
+  white-space: nowrap;
+  align-items: flex-start;
+}
+
+.gn-measured-data-number {
+  font-weight: bold;
+}
+
+.gn-text-width210 {
+  width: 210rpx;
+}
+
+.gn-text-width120 {
+  width: 120rpx;
+  margin-left: 76rpx;
+  margin-right: 86rpx;
+}
+
+.gn-text-width150 {
+  width: 150rpx;
+  align-items: flex-end;
+}
+
+/** 血压，心率，血氧等字样式**/
+
+.gn-measured-data-name {
+  background-color: #49a0ff;
+  width: 66rpx;
+  height: 35rpx;
+  color: white;
+  border-radius: 10rpx;
+  line-height: 35rpx;
+  text-align: center;
+  margin-bottom: 14rpx;
+}
+
+.gn-measured-sleep-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gn-sleep-square {
+  height: 16rpx;
+  width: 16rpx;
+  background-color: #bf64ff;
+  margin-left: 6rpx;
+}
+
+.gn-health-data-detail-cal-text {
+  color: #808080;
+}
+
+.gn-health-mask {
+  width: 100%;
+  height: 1974rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.gn-change-user {
+  z-index: 9999;
+  position: fixed;
+  right: 60rpx;
+  bottom: 297rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-height: 500rpx;
+  overflow-y: scroll;
+}
+
+.gn-health-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 32rpx;
+  height: 80rpx;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.gn-change-name {
+  font-size: 24rpx;
+  color: #fff;
+  background: #49a0ff;
+  white-space: nowrap;
+  padding: 14rpx 23rpx;
+  border-radius: 27rpx;
+  margin-right: 16rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-user-photo {
+  height: 76rpx;
+  width: 76rpx;
+  border: 1rpx solid #49a0ff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-hide-icon {
+  height: 74rpx;
+  width: 74rpx;
+  z-index: 9999;
+  position: fixed;
+  right: 60rpx;
+  bottom: 198rpx;
+}
+
+.gn-scan-icon {
+  height: 74rpx;
+  width: 74rpx;
+  margin-bottom: 44rpx;
+}
+
+.gn-open-icon {
+  height: 74rpx;
+  width: 74rpx;
+}
+
+.gn-health-opt {
+  position: fixed;
+  right: 62rpx;
+  bottom: 198rpx;
+  z-index: 9999;
+}
+
+.gn-health-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 1974rpx;
+}

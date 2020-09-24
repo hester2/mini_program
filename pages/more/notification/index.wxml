@@ -1,0 +1,48 @@
+<view class="gn-page">
+
+<view class="gn-notification-taps gn-app-fs28">
+    <view class="gn-notification-tap {{currentTab==0?'gn-notification-tap-active':''}}" data-current="0" bindtap="goWarning" data-id="1">
+      <text>报警提醒</text>
+      <view class="gn-notification-tap-line {{currentTab==0?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-notification-tap {{currentTab==1?'gn-notification-tap-active':''}}" data-current="1" bindtap="goAnnouncement" data-id="2">
+      <text>系统公告</text>
+      <view class="gn-notification-tap-line {{currentTab==1?'gn-line-active':''}}"></view>
+    </view>
+</view>
+
+<view class="{{currentTab == 0 ? 'show':'hidden'}}">
+  <scroll-view>
+  <view wx:for="{{warnings}}">
+      <view class="gn-notification-wrap" bindtap="showModal">
+      <view class="gn-app-fs24 gn-notification-time">
+        <text>{{item.title}}</text>
+        <text decode='true'>{{item.datetime}}</text>
+      </view>
+      <text class="gn-app-fs24 gn-notification-content">{{item.content}}</text>
+      <view class="gn-notification-check-detail">
+        <image src="{{imgWarning}}" mode="aspectFit" class="gn-notification-check-icon"></image>
+        <text class="gn-app-fs20">查看详情</text>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>
+<view class="{{currentTab == 1 ? 'show':'hidden'}}">
+  <scroll-view>
+  <view  wx:for="{{notifications}}">
+      <view class="gn-notification-wrap" bindtap="showModal">
+      <view class="gn-app-fs24 gn-notification-time">
+        <text>{{item.title}}</text>
+        <text decode='true'>{{item.datetime}}</text>
+      </view>
+      <text class="gn-app-fs24 gn-notification-content">{{item.content}}</text>
+      <view class="gn-notification-check-detail">
+        <image src="{{imgWarning}}" mode="aspectFit" class="gn-notification-check-icon"></image>
+        <text class="gn-app-fs20">查看详情</text>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>
+</view>

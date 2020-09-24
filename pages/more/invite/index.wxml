@@ -1,0 +1,44 @@
+<view class="gn-page">
+<view class="gn-invite-header gn-app-fs86">
+  <text class="gn-header-text">
+邀请好友
+</text>
+  <text>
+获星币
+</text>
+</view>
+<view class="gn-invite-main">
+  <text class="gn-main-title gn-app-fs36">分享健康，有一种爱叫守护</text>
+  <view class="gn-main-invite-share-wrap">
+    <view class="gn-invite-share" style="margin-right:172rpx;" bindtap="showModal">
+      <image src="{{imgWechat}}" mode="aspectFit" class="gn-invite-icon">
+      </image>
+      <text class="gn-app-fs20 gn-invite-way">微信好友</text>
+    </view>
+    <view class="gn-invite-share" bindtap="showModal">
+      <image src="{{imgMessage}}" mode="aspectFit" class="gn-invite-icon">
+      </image>
+      <text class="gn-app-fs20  gn-invite-way">短信邀请</text>
+    </view>
+  </view>
+</view>
+<view class="gn-invite-footer gn-app-fs28">
+  <text class="gn-footer-title">—— 已获星币 ——</text>
+  <view class="gn-footer-content">已成功邀请
+    <text class="gn-footer-content-number">{{totalInvite}}个</text>好友，共获得
+    <text class="gn-footer-content-number">{{totalGetCoin}}枚</text>星币</view>
+  <view class="gn-footer-user-wrap" wx:for="{{inviteInfo}}">
+    <view class="gn-footer-user">
+      <image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-footer-user-photo"></image>
+      <view class="gn-footer-user-name-wrap">
+        <text class="gn-footer-user-name gn-app-fs28">{{item.name}}</text>
+        <text class="gn-app-fs20">{{item.date}}</text>
+      </view>
+    </view>
+    <view class="gn-footer-invite-money">
+      <text class="gn-app-fs28">{{item.award}}</text>
+      <image src="{{imgMoney}}" mode="aspectFit" class="gn-footer-money"></image>
+    </view>
+  </view>
+</view>
+</view>

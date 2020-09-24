@@ -1,0 +1,142 @@
+/* pages/chat/pay-success/index.wxss */
+
+.yh-pay-main {
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  box-sizing: border-box;
+  padding: 28rpx 28rpx;
+  margin: 28rpx 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.yh-pay-col {
+  display: flex;
+  justify-content: center;
+  margin-top: 70rpx;
+}
+
+.yh-pay-col image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 6rpx;
+  margin-right: 20rpx;
+}
+
+.yh-pay-col text {
+  font-size: 46rpx;
+  color: #4d4d4d;
+}
+
+.yh-pay-cols {
+  margin-top: 79rpx;
+  width: 100%;
+}
+
+.yh-pay-cols button {
+  height: 81rpx;
+  line-height: 81rpx;
+  width: 42%;
+  border-radius: 60rpx;
+  font-size: 36rpx;
+}
+
+.yh-pay-cols button:nth-of-type(1) {
+  color: #49a0ff;
+  background-color: transparent !important;
+  border: 2rpx solid #49a0ff;
+}
+.yh-pay-cols button:nth-of-type(2) {
+  color: #fff;
+  background-color: #49a0ff !important;
+}
+.yh-pay-btn{
+  color: #fff;
+  background-color: #49a0ff !important;
+  margin-top: 500rpx;
+  height: 81rpx;
+  line-height: 81rpx;
+  width: 42%;
+  
+  border-radius: 60rpx;
+  font-size: 36rpx;
+}
+/* 弹框 */
+.yh-modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+ 
+.yh-modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+ 
+.yh-modal-title {
+  padding-top: 50rpx;
+  font-size: 28rpx;
+  color: #808080;
+  text-align: center;
+}
+ 
+.yh-modal-content {
+  padding: 50rpx 32rpx;
+  padding-bottom: 20rpx;
+}
+ 
+.yh-modal-input {
+  color: #49A0FF;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+ 
+ 
+
+ 
+.yh-modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  font-size: 34rpx;
+  line-height: 86rpx;
+  margin-top: 50rpx;
+}
+ 
+.yh-btn-cancel {
+  width: 50%;
+  color: #49a0ff;
+  text-align: center;
+  border:1px solid #49a0ff;
+  border-radius: 30rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  margin-right: 20rpx;
+}
+ 
+.yh-btn-confirm {
+  width: 50%;
+  color: #fff;
+  text-align: center;
+  background-color: #49a0ff;
+  border-radius: 30rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  margin-left: 20rpx;
+}

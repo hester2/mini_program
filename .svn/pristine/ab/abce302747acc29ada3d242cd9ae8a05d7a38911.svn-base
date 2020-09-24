@@ -1,0 +1,15 @@
+<view class="gn-page">
+  <view class="gn-feedback-input-wrap gn-app-fs28">
+    <input placeholder="{{contacts}}" class="gn-number-input" value="{{inputValue}}" placeholder-class="gn-app-placeholder" name="phone" bindinput="enterFeedbackPhone" maxlength="11" type="number"></input>
+    <textarea placeholder="{{content}}" class="gn-feedback-input" value="{{inputValue}}" maxlength="300" type="text" placeholder-class="gn-app-placeholder" name="content" bindinput="enterFeedbackContent"></textarea>
+    <view class="gn-add-imgs-wrap">
+      <view wx:for="{{imgs}}">
+        <image src="{{item}}" data-imgsrc="{{item}}" bindtap="doImgWay" bindtouchstart="mytouchstart" bindtouchend="mytouchend" mode="aspectFit" class="gn-add-img" data-id="{{index}}"></image>
+      </view>
+      <view class="gn-camera-wrap" bindtap='usingAlbum'>
+        <image src="{{imgCamera}}" mode="aspectFit" class="gn-camera-icon"></image>
+      </view>
+    </view>
+  </view>
+  <view class="gn-feedback-submit gn-app-fs36" bindtap='doUpLoadFeedback'>提交</view>
+</view>

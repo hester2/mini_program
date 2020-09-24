@@ -1,0 +1,65 @@
+<view class="gn-track-wrap">
+  <map id="trackMap" longitude="{{centre.longitude}}" latitude="{{centre.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" show-scale="true" show-location>
+  </map>
+  <cover-view class="gn-track-time-wrap">
+    <cover-image src="{{imgTrackTime}}" mode="aspectFit" class="gn-track-time" bindtap='getTrackTime'></cover-image>
+  </cover-view>
+  <cover-view class="gn-track-paly-item-wrap gn-app-fs24 {{showDetailModal==true?'gn-track-paly-active':''}}">
+    <cover-view class="gn-track-paly-speed-buttons" wx:if="{{speedStatus}}">
+      <cover-view class="gn-track-paly-speed" bindtap='inSlowSpeed'>慢速</cover-view>
+      <cover-view class="gn-track-paly-speed" bindtap='inNormalSpeed'>正常</cover-view>
+      <cover-view class="gn-track-paly-speed" bindtap='inFastSpeed'>快速</cover-view>
+    </cover-view>
+    <cover-view class="gn-track-play-wrap">
+      <cover-image src="{{imgPlay}}" mode="aspectFit" wx:if="{{!isPlay}}" class="gn-track-play" bindtap='palyTrack'></cover-image>
+      <cover-image src="{{imgStop}}" mode="aspectFit" wx:if="{{isPlay}}" class="gn-track-play" bindtap='stopTrack'></cover-image>
+      <cover-view class="gn-track-paly-line"></cover-view>
+      <cover-view class="gn-track-paly-speed current-speed" bindtap='showSpeed'>{{currentSpeed}}</cover-view>
+    </cover-view>
+
+  </cover-view>
+
+
+  <cover-view class="gn-mask-detail-wrap" wx:if="{{showDetailModal}}">
+    <cover-view class="gn-detial-wrap gn-app-fs24">
+      <cover-view class="gn-detial-items-wrap">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgSpeed}}" mode="aspectFit" class="gn-map-speed-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.speed}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgBattery}}" mode="aspectFit" class="gn-map-high-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.battery}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap gn-detial-items-wrap-bg">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgSpeed}}" mode="aspectFit" class="gn-map-speed-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.mileage}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgDirection}}" mode="aspectFit" class="gn-map-direction-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.direction}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap">
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgClock}}" mode="aspectFit" class="gn-map-clock-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.lastConnectTime}}</cover-view>
+        </cover-view>
+        <cover-view class="gn-detial-item">
+          <cover-image src="{{imgClock}}" mode="aspectFit" class="gn-map-clock-icon"></cover-image>
+          <cover-view class="gn-detial-content">{{details.lastConnectTime}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap gn-detial-items-wrap-bg">
+        <cover-image src="{{imgStatus}}" mode="aspectFit" class="gn-map-status-icon"></cover-image>
+        <cover-view class="gn-detial-content gn-detial-content-address">{{details.status}}</cover-view>
+      </cover-view>
+      <cover-view class="gn-detial-items-wrap">
+        <cover-image src="{{imgAddress}}" mode="aspectFit" class="gn-map-address-icon"></cover-image>
+        <cover-view class="gn-detial-content gn-detial-content-address">{{details.address}}</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</view>

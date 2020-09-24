@@ -1,0 +1,94 @@
+/* pages/more/message/index.wxss */
+.yh-message-fo{
+  background-color:#49A0FF;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px 20rpx;
+
+}
+.yh-message-left{
+  flex: 1
+}
+.yh-message-center{
+  flex: 10;
+  color: #fff;
+  text-align: center;
+}
+.yh-message-right{
+  flex: 1;
+  color: #fff;
+}
+.yh-message-home{
+  display: flex;
+  overflow-x: hidden;
+  height: 308rpx;
+}
+.grace-card-do{
+  width: 47rpx;
+  height:100%;
+  margin-left: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grace-card-view{
+  width: 100%;
+  margin: 28rpx 28rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  padding: 28rpx;
+
+}
+.grace-border-b image{
+  width: 73rpx;
+  height: 74rpx;
+}
+.grace-card-name{
+  font-weight: bold;
+  color: #4D4D4D
+}
+.grace-card-text{
+  font-size: 22rpx;
+  color: #B3B3B3;
+  line-height: 31rpx;
+
+}
+.grace-card-footer{
+  justify-content: space-between;
+  display: flex;
+}
+.grace-card-l{
+  color: #4D4D4D;
+
+}
+.grace-card-r{
+  color: #B3B3B3;
+  
+}
+.yh-message-fexd{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 125rpx;
+  box-sizing: border-box;
+  padding: 0px 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  background-color: #fff;
+}
+.yh-message-fexd view{
+  color: #4D4D4D;
+  align-items: center;
+  display: flex;
+}
+.yh-message-fexd .text{
+  display: block;
+}
+.container{
+  box-sizing: border-box;
+  padding-bottom: 150rpx;
+}

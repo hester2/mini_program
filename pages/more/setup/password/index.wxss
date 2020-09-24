@@ -1,0 +1,58 @@
+/* pages/more/setup/password/index.wxss */
+.yh-chives-main{
+  box-sizing: border-box;
+  margin: 28rpx 28rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  padding: 0px 28rpx;
+  border-radius: 10rpx;
+}
+.yh-holder{
+  font-size: 28rpx;
+}
+.grace-form-label{
+  color: #4D4D4D
+}
+.grace-form-body{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #808080
+}
+.grace-form-body .text{
+  width: 92rpx;
+  height: 38rpx;
+  border:1px solid #49A0FF;
+  border-radius: 18rpx;
+  color: #49A0FF;
+  font-size: 22rpx;
+  text-align: center;
+}
+.grace-border-b{
+  border-bottom: 1px solid #F8F8F8;
+  color: #808080
+}
+.grace-border-b:last-of-type{
+  border-bottom: 0px solid #eee
+}
+.grace-button{
+    height: 100%;
+
+  width: 30%;
+
+  background-color: #49A0FF !important;
+
+  color: white;
+
+  align-self: center;
+
+  font-size: 13px;
+
+  border-radius: 60rpx;
+
+  margin-top: 200rpx;
+}
+.grace-form-color{
+  color: #49A0FF;
+  text-align: right;
+  margin-right: 25rpx;
+}

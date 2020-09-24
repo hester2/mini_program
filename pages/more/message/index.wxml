@@ -1,0 +1,44 @@
+<!--pages/more/message/index.wxml-->
+<view class="yh-message-fo">
+  <view class="yh-message-left" bindtap="handleBack">
+    <i-icon type="return" size="20" color="#fff" />
+  </view>
+  <view class="yh-message-center">系统消息</view>
+  <view class="yh-message-right" bindtap="handleEdit">
+    <i-icon wx:if="{{to_hide}}" type="editor" size="20" color="#fff" />
+    <text catchtap="handleCle">{{title}}</text>
+  </view>
+</view>
+<view class="container">
+  <view class="yh-message-home" wx:for="{{message}}" wx:key="index">
+    <view class="grace-card-do" wx:if="{{deletes}}">
+      <i-radio value="{{animal}}" data-index="{{index}}" disabled="{{disabled}}" checked="{{item.checked}}" bindchange="handleAnimalChange">
+      </i-radio>
+    </view>
+    <view class="grace-card-view">
+      <view class="grace-card-body grace-border-b">
+        <image src="{{item.img}}"></image>
+        <view class="grace-card-desc">
+          <view class="grace-card-title">
+            <text class="grace-card-name">{{item.names}}</text>
+          </view>
+          <text class="grace-card-text">{{item.desc}}</text>
+        </view>
+      </view>
+      <view class="grace-card-footer">
+        <view class="grace-card-l" data-index="{{index}}" bindtap="handleClick">查看详情</view>
+        <view class="grace-card-r">{{item.time}}
+          <i-icon type="enter" size="20" color="#ccc" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="yh-message-fexd" wx:if="{{to_fixed}}">
+    <i-radio value="{{titles}}" disabled="{{disableds}}" checked="{{checkeds}}" bindchange="handleAnimalChanges">
+    </i-radio>
+    <view>
+      <i-icon type="trash" size="20" color="#49A0FF" />
+      <text class="text" bindtap="handleDelete">删除</text>
+    </view>
+  </view>
+</view>

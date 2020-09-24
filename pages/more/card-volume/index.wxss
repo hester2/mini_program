@@ -1,0 +1,49 @@
+/* pages/more/cardVolume/index.wxss */
+.yh-card-main{
+  margin: 0rpx 28rpx;
+  margin-top: 30rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 28rpx 25rpx;
+  margin-top: 28rpx;
+}
+.yh-card-col-s{
+  flex: 2;
+  color: #49A0FF;
+}
+.yh-card-col-c{
+  flex: 8;
+  margin-left: 20rpx;
+}
+.yh-card-col-b{
+  flex: 2
+}
+.yh-card-desc{
+  color: #49A0FF;
+  font-size: 55rpx;
+  font-weight: bold;
+}
+.yh-card-hj{
+  color: #49A0FF;
+  text-align: center;
+}
+.yh-card-bird{
+  color: #4D4D4D
+}
+.yh-card-sc{
+  font-size: 22rpx;
+  color: #B3B3B3;
+  margin-top: 10rpx;
+}
+.yh-card-qu{
+  width: 113rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  background-color: #49A0FF;
+  color: #fff;
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+}

@@ -1,0 +1,11 @@
+<view class="gn-page">
+  <view class="gn-wrap gn-app-fs28">
+    <view class="gn-scan-wrap" bindtap="doScan">
+      <image src="{{imgScan}}" mode="aspectFit" class="gn-scan-icon"></image>
+      <text>扫码绑定</text>
+    </view>
+    <input class="gn-enter-code" placeholder="输入设备号绑定" placeholder-class="input-placeholder" bindinput="enterCode" type="number" value="{{code}}"/>
+  </view>
+
+<button class="gn-app-fs36 gn-button" bindtap = "doBing">绑定</button>
+</view>

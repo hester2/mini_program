@@ -1,0 +1,25 @@
+<view class="gn-page">
+<image class="gn-about-logo" src="{{imgLogo}}" mode="aspectFit"></image>
+<view class="gn-about-main">
+  <text class="gn-app-fs28 gn-main-title">产品介绍</text>
+  <text class="gn-app-fs24 gn-main-content">{{aboutDatas.introduction}}</text>
+</view>
+<view class="gn-about-footer">
+  <view class="gn-about-footer-item">
+    <text class="gn-app-fs28 gn-footer-item-name">{{aboutDatas.wechat}}</text>
+    <text class="gn-app-fs24 gn-footer-item-content">金网星联</text>
+  </view>
+  <view class="gn-about-footer-item">
+    <text class="gn-app-fs28 gn-footer-item-name">客服电话</text>
+    <text class="gn-app-fs24 gn-footer-item-content">{{aboutDatas.servicePhone}}</text>
+  </view>
+  <view class="gn-about-footer-item">
+    <text class="gn-app-fs28 gn-footer-item-name">联系邮箱</text>
+    <text class="gn-app-fs24 gn-footer-item-content">{{aboutDatas.email}}</text>
+  </view>
+  <view class="gn-about-footer-item gn-about-footer-name">
+    <text class="gn-app-fs28 gn-footer-item-name">公司地址</text>
+    <text class="gn-app-fs24 gn-footer-item-content">{{aboutDatas.company}}</text>
+  </view>
+</view>
+</view>

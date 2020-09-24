@@ -1,0 +1,62 @@
+.gn-scan-container {
+  width: 693rpx;
+  background-color: #fff;
+  margin: 49rpx 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  padding-bottom: 51rpx;
+}
+
+.gn-scan-relation {
+  margin-top: 40rpx;
+  padding-top: 44rpx;
+}
+
+.gn-scan-bind-device-num {
+  margin: 40rpx 36rpx 43rpx 36rpx;
+  color: #49a0ff;
+}
+
+.gn-scan-bind-info {
+  color: #4d4d4d;
+  margin-bottom: 3rpx;
+  margin-left: 36rpx;
+}
+
+.gn-scan-input {
+  margin: 39rpx 36rpx 0 36rpx;
+  height: 76rpx;
+  width: 600rpx;
+}
+
+view.gn-scan-input {
+  line-height: 76rpx;
+  padding-left:24rpx;
+  border: 1rpx solid #a6d6fc;
+  color: #d4d4de;
+  background: #f2f2f2;
+  border-radius: 10rpx;
+}
+picker{
+  padding-left: 24rpx;
+border: 1rpx solid #a6d6fc;
+color: #808080;
+background: #f2f2f2;
+border-radius: 10rpx;
+opacity: 0.8;
+letter-spacing: 0rpx;
+line-height: 76rpx;
+}
+.gn-scan-bind-button {
+  width: 300rpx;
+  height: 81rpx;
+  line-height: 81rpx;
+  margin-top: 182rpx;
+  background-color: #49a0ff;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  color: #fff;
+  letter-spacing: 0rpx;
+}

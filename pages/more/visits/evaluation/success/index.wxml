@@ -1,0 +1,13 @@
+<!--pages/more/visits/evaluation/success/index.wxml-->
+<view class="container">
+   <view class="yh-visits-card">
+       <view class="yh-success-ma">
+       <image src="{{imgServer}}icon-evaluation_1.png"></image>
+       <text>评价成功</text>
+       </view>
+       <view class="yh-success-le">获得8星币奖励<image src="{{imgServer}}icon-evaluation_2.png"></image></view>
+   </view>
+       <view style="padding:22rpx 0;">
+      <button class="grace-button" bindtap="handleClick" style="line-height:80rpx;" formType="submit" type="primary">返回首页</button>
+    </view>
+</view>

@@ -1,0 +1,382 @@
+.gn-page {
+  position: relative;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.gn-health-data-taps-wrap {
+  background: #fff;
+}
+
+.gn-health-data-tab-mask-left {
+  width: 180rpx;
+  height: 106rpx;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8) 10%, rgb(255, 255, 255) 100%);
+  z-index: 9000;
+}
+
+.gn-health-data-tab-mask-right {
+  width: 170rpx;
+  height: 106rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.8) 10%, rgb(255, 255, 255) 100%);
+  z-index: 9000;
+}
+
+.gn-health-data-taps {
+  width: 550rpx;
+  background: #fff;
+  color: #bbb;
+  height: 106rpx;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+  overflow: hidden;
+}
+
+.gn-health-data-tap {
+  padding-top: 20rpx;
+  padding-right: 20rpx;
+  display: inline-block;
+  width: 92rpx;
+}
+
+.gn-health-data-tap-active {
+  color: #a6d6fc;
+}
+
+.gn-health-data-tap-line {
+  border: 1rpx solid #fff;
+  width: 42rpx;
+  height: 4rpx;
+  border-radius: 3rpx;
+  background: #fff;
+  margin-top: 13rpx;
+  margin-left: 6rpx;
+}
+
+.gn-line-active {
+  border: 1rpx solid #a6d6fc;
+  background: #a6d6fc;
+}
+
+.gn-data-figure {
+  width: 694rpx;
+  /* height: 520rpx; */
+  background: #fff;
+  margin: 38rpx 28rpx 0 28rpx;
+  border-radius: 10rpx;
+  padding: 40rpx 28rpx 13rpx 28rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  box-sizing: border-box;
+}
+
+.gn-data-canvas-dateRange {
+  height: 68rpx;
+  width:446rpx;
+  border: 1rpx solid #a6d6fc;
+  margin:5rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius:10rpx;
+}
+.gn-data-canvas-dateRange image{
+  width:20rpx;
+  height:35rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+.gn-data-canvas-dateRange view{
+  color:#4d4d4d;
+  font-size: 24rpx;
+  height:38rpx;
+  line-height:38rpx;
+}
+.gn-data-detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 722rpx;
+  margin: 0 14rpx;
+}
+
+.gn-data-item-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 333rpx;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 28rpx 14rpx;
+}
+
+.gn-data-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  width: 100%;
+  height: 140rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.gn-data-number {
+  color: #49a0ff;
+  margin-bottom: 19rpx;
+  font-weight: bold;
+}
+
+.gn-data-name {
+  color: #808080;
+}
+
+.gn-health-suggestion {
+  color: #49a0ff;
+  margin: 49rpx 65rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 42rpx;
+}
+
+.gn-health-data-mask {
+  width: 100%;
+  height: 1974rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.gn-health-change-date {
+  z-index: 9999;
+  display: flex;
+  position: fixed;
+  right: 62rpx;
+  bottom: 198rpx;
+  align-items: flex-end;
+}
+
+.gn-dates-wrap {
+  display: flex;
+  align-items: center;
+  padding-bottom: 55rpx;
+}
+
+.gn-health-data-dates-wrap {
+  width: 528rpx;
+  height: 176rpx;
+  padding: 0 4rpx 29rpx 23rpx;
+  display: flex;
+  background: #fff;
+  border-radius: 10rpx;
+  flex-wrap: wrap;
+  color: #49a0ff;
+}
+
+.gn-health-date-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: 35rpx;
+  margin-bottom: 19rpx;
+}
+
+.gn-date-line {
+  border-right: 1rpx solid #49a0ff;
+  padding-right: 25rpx;
+  padding-left: 25rpx;
+}
+
+.gn-health-dates-opt {
+  position: fixed;
+  right: 62rpx;
+  bottom: 198rpx;
+  z-index: 9999;
+}
+
+.gn-health-dates-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 1974rpx;
+}
+
+.gn-data-figure >ec-canvas {
+  width: 582rpx;
+  height: 418rpx;
+}
+
+.gn-health-calendar-icon {
+  width: 76rpx;
+  height: 76rpx;
+  position: fixed;
+  right: 62rpx;
+  bottom: 292rpx;
+  z-index: 9999;
+}
+
+.gn-health-calendar-wrap {
+  width: 588rpx;
+  /* height: 779rpx; */
+  z-index: 99999;
+  position: fixed;
+  top: 200rpx;
+  left: 81rpx;
+}
+
+.gn-health-calendar-tab {
+  width: 100%;
+  height: 115rpx;
+  background: #49a0ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.gn-health-calendar-tab cover-view {
+  width: 60rpx;
+  height: 115rpx;
+  text-align: center;
+  line-height: 115rpx;
+}
+
+.gn-health-calendar-tab cover-view:nth-child(2) {
+  margin-left: 77rpx;
+  margin-right: 77rpx;
+}
+
+.gn-health-calendar-tab cover-image {
+  width: 58rpx;
+  height: 4rpx;
+  position: absolute;
+  top: 92rpx;
+  border-radius: 2rpx;
+}
+
+.gn-health-calendar {
+  box-sizing: border-box;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  width: 100%;
+  /* height: 664rpx; */
+  background: #fff;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.gn-health-calendar-title {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #4d4d4d;
+  font-size: 28rpx;
+  margin-top:38rpx;
+  margin-bottom:56rpx;
+}
+.gn-health-calendar-title cover-view{
+  width:300rpx;
+  text-align: center;
+ }
+
+.gn-health-calendar-change-icon {
+  width: 22rpx;
+  height: 39rpx;
+}
+
+.gn-health-calendar-content {
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gn-health-calendar-items {
+  width: 100%;
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 28rpx;
+  margin-bottom:20rpx;
+  justify-content: space-between;
+}
+
+.gn-health-calendar-items cover-view {
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 65rpx;
+}
+.gn-health-calendar-items cover-view:last-child{
+  margin-right:0;
+}
+
+.gn-health-calendar-items cover-view.active {
+  background: #49a0ff;
+  color: #fff;
+}
+
+.gn-health-calendar-items cover-view.unactive {
+  color: #bbb;
+}
+.gn-health-month.gn-health-calendar-items{
+  margin-top:0;
+  margin-bottom:0;
+}
+.gn-health-month.gn-health-calendar-items cover-view {
+  width: 115rpx;
+  height: 65rpx;
+  border-radius: 32rpx;
+  margin-top:52rpx;
+  margin-bottom:52rpx;
+}
+
+.gn-health-calendar-button {
+  width: 189rpx;
+  height: 65rpx;
+  background: #49a0ff;
+  border-radius: 32rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 65rpx;
+  margin: 18rpx auto 54rpx auto;
+}
+.gn-health-month-button.gn-health-calendar-button{
+  margin-top:68rpx;
+}
+
+.gn-health-calendar-items cover-view.white-date {
+  background: #fff !important;
+}

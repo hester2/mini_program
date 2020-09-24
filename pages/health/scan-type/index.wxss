@@ -1,0 +1,72 @@
+.yh-mast-qm {
+  display: flex;
+  margin-top: 35rpx;
+}
+
+.yh-mast-qm text:nth-of-type(1) {
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #48a0ff;
+  border-radius: 30rpx;
+}
+
+.yh-mast-qm text:nth-of-type(2) {
+  font-weight: bold;
+  color: #303030;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-left: 15rpx;
+  flex: 10;
+}
+
+.yh-mast-qm text:nth-of-type(3) {
+  color: #ccc;
+  flex: 2;
+  text-align: right;
+}
+.container{
+  box-sizing: border-box;
+  padding: 0px 28rpx;
+}
+.yh-scan-main{
+  width: 100%;
+  margin: 28rpx 0px;
+   box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+   box-sizing: border-box;
+   padding: 82rpx 0px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.yh-scan-main image{
+  width: 193rpx;
+  height: 193rpx;
+}
+.yh-scan-main view{
+  color: #48a0ff;
+  margin-top: 10rpx;
+}
+.grace-form-item{
+  display: flex;
+  box-sizing: border-box;
+  padding: 0px 30rpx;
+   box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+   border-radius: 10rpx;
+   margin-top: 28rpx;
+}
+.grace-form-input{
+  font-size: 28rpx;
+}
+.yh-holder{
+   font-size: 28rpx;
+}
+.grace-button{
+  background-color: #48a0ff !important;
+  color: #fff;
+  width: 40%;
+  line-height: 80rpx;
+  height: 80rpx;
+  border-radius: 60rpx;
+  margin-top: 120rpx;
+}

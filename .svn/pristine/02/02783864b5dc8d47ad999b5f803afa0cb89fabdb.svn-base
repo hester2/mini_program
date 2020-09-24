@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#49a0ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "个人信息",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-modal": "../../../dist/modal/index",
+    "i-button": "../../../dist/button/index"
+  }
+}

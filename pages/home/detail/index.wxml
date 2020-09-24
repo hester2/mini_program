@@ -1,0 +1,11 @@
+<view class="gn-page">
+  <view class="gn-notification-wrap">
+    <view class="gn-notification-title gn-app-fs46">{{article.title}}</view>
+    <view class="gn-notification-time gn-fs24">
+      <text>{{article.author}}</text>
+      <text class="gn-notification-time-date">{{article.createTime}}</text>
+    </view>
+    <rich-text nodes="{{article.content}}"></rich-text>
+    <view class="gn-notification-line"></view>
+  </view>
+</view>

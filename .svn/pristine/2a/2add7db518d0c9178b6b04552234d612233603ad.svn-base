@@ -1,0 +1,38 @@
+<view class="gn-scroll">
+  <scroll-view scroll-y="true" scroll-into-view="{{toView}}" style="height:{{height}}px;width:100%;margin-bottom:23px;">
+    <block wx:for="{{userData}}" wx:for-index="index">
+      <view class="gn-srcoll-item clearfix" id="id{{index}}">
+        <view class="gn-srcoll-time">{{item.createTime}}</view>
+        <view class="{{item.memberId==userId?'float-right':'float-left'}}" style="width:100%;">
+          <view class="gn-srcoll-user-wrap {{item.memberId==userId?'float-right':'float-left'}}">
+            <image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-srcoll-avatar"></image>
+            <view class="gn-srcoll-user">
+              <view class="gn-app-fs20">{{item.name}}</view>
+              <view class="gn-srcoll-paly" wx:if="{{item.memberId==userId}}" bindtap="playchat" data-index="{{index}}">
+                <image wx:if="{{item.type==type&&item.id==imgId}}" src="{{playImg21}}" mode="aspectFit" class="gn-srcoll-paly-icon"></image>
+                <image src="{{playImg2}}" mode="aspectFit" class="gn-srcoll-paly-icon {{item.type==type&&item.id==imgId?'gn-hide':''}}"></image>
+                <view>{{item.len}}"</view>
+              </view>
+              <view class="gn-srcoll-paly" wx:elif="!{{item.memberId==userId}}" bindtap="playchat" data-index="{{index}}">
+                <image wx:if="{{item.type==type&&item.id==imgId}}" src="{{playImg11}}" mode="aspectFit" class="gn-srcoll-paly-icon"></image>
+                <image src="{{playImg1}}" mode="aspectFit" class="gn-srcoll-paly-icon {{item.type==type&&item.id==imgId?'gn-hide':''}}"></image>
+                <view>{{item.len}}"</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="gn-chat-button-wrap">
+    <view class="gn-chat-button {{showModal===true?'active':''}}" bindtouchstart="startChat" bindtouchend="endChat">
+      {{chat}}
+    </view>
+  </view>
+  <view wx:if="{{showModal}}">
+    <view class="gn-chat-wrap">
+      <view>{{time}}s</view>
+      <view class="gn-app-fs28">正在录音...</view>
+    </view>
+  </view>
+</view>

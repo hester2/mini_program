@@ -1,0 +1,330 @@
+var app = getApp()
+const config = require('../../../utils/config.js')
+
+Page({
+  data: {
+    imgServer: app.globalData.imgPath,
+    myDevices: [],
+    myWatches: [],
+    myDeviceModal: false,
+    myDeviceModal2: false,
+    members: [],
+    toMemberId: '',
+    toMemberPhone: '',
+    imei: '',
+    imgPerson: app.globalData.imgServer + 'more/icon/person.png',
+    imgPhone: app.globalData.imgServer + 'more/icon/phone.png',
+    imgClock: app.globalData.imgServer + 'more/icon/clock.png',
+    imgSetting: app.globalData.imgServer + 'more/icon/setting.png',
+    imgFollower: app.globalData.imgServer + 'more/icon/follower.png',
+    imgAdd: app.globalData.imgServer + 'more/icon/add.png',
+    touchStart: '',
+    touchEnd: ''
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function() {
+
+  },
+  onShow: function() {
+    this.getPageInfo()
+  },
+  // 获取我的家人列表
+  getPageInfo: function() {
+    if (wx.showLoading) {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+    } else {
+      wx.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      });
+    };
+    let userId = app.globalData.userId
+    app.http.postRequest(config.postGetMyAllFamily, {
+      userId: userId
+    }).then(res => {
+      if (wx.hideLoading) {
+        wx.hideLoading();
+      } else {
+        wx.hideToast();
+      }
+      if (res.data.code === 'GN00000') {
+        let myDevices = res.data.data.myDevices
+        let myWatches = res.data.data.myWatches
+        if (myDevices[0]) {
+          for (let i = 0; i < myDevices.length; i++) {
+            if (app.globalData.imei === myDevices[i].imei) {
+
+            } else {
+              if (myWatches[0]) {
+                for (let i = 0; i < myWatches.length; i++) {
+                  if (app.globalData.imei === myWatches[i].imei) {
+
+                  } else {
+                    app.globalData.imei = ''
+                  }
+                }
+              } else {
+                app.globalData.imei = ''
+              }
+            }
+          }
+        } else {
+          if (myWatches[0]) {
+            for (let i = 0; i < myWatches.length; i++) {
+              if (app.globalData.imei === myWatches[i].imei) {
+
+              } else {
+                app.globalData.imei = ''
+              }
+            }
+          } else {
+            app.globalData.imei = ''
+          }
+        }
+        this.setData({
+          myDevices: res.data.data.myDevices,
+          myWatches: res.data.data.myWatches
+        });
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+
+    })
+  },
+  //隐藏解绑或转让管理 modal
+  hideMyDeviceModal: function() {
+    this.setData({
+      myDeviceModal: false,
+      myDeviceModal2: false
+    })
+  },
+  //按下事件开始
+  mytouchstart: function(e) {
+    let that = this;
+    that.setData({
+      touchStart: e.timeStamp
+    })
+  },
+  //按下事件结束
+  mytouchend: function(e) {
+    let that = this;
+    that.setData({
+      touchEnd: e.timeStamp
+    })
+  },
+  doDevice: function(e) {
+    //长按解绑，短按进入详情
+    let index = e.currentTarget.dataset.id
+    let touchTime = this.data.touchEnd - this.data.touchStart;
+    if (touchTime > 350) {
+      this.getDeviceFollower(index)
+    } else {
+      this.goToMyDevicesDetail(index)
+    }
+  },
+  // 判断设备是否有关注者
+  getDeviceFollower: function(index) {
+    this.setData({
+      imei: this.data.myDevices[index].imei,
+      toMemberPhone: this.data.myDevices[index].toMemberPhone
+    });
+    if (this.data.myDevices[index].toMemberId) {
+      this.setData({
+        toMemberId: this.data.myDevices[index].toMemberId,
+      })
+    }
+    let imei = this.data.myDevices[index].imei
+    let userId = app.globalData.userId
+    app.http.postRequest(config.postGetDeviceFollower, {
+      imei: imei,
+      userId: userId
+    }).then(res => {
+      if (res.data.code === "GN00000") {
+        this.setData({
+          myDeviceModal: true,
+          members: res.data.data.members
+        })
+      } else if (res.data.code === "GN60006") {
+        this.setData({
+          myDeviceModal2: true
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      }
+    })
+  },
+  // 转让设备
+  onclickChangeRight: function(e) {
+    let that = this
+    let index = e.currentTarget.dataset.id
+    let fromMemberId = app.globalData.userId
+    let imei = that.data.imei
+    let newFromMemberId = that.data.members[index].fromMemberId
+    let toMemberPhone = that.data.members[index].toMemberPhone
+    app.http.postRequest(config.postTransfer, {
+      fromMemberId: fromMemberId,
+      imei: imei,
+      newFromMemberId: newFromMemberId,
+      toMemberPhone: toMemberPhone
+    }).then(res => {
+      if (res.data.code === 'GN00000') {
+        wx.showToast({
+          title: '转让成功!',
+          duration: app.globalData.duration
+        });
+        that.getPageInfo()
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      };
+      that.setData({
+        myDeviceModal: false
+      });
+    });
+  },
+  // 直接解绑
+  onClickUnbinding: function(e) {
+    let that = this
+    let fromMemberId = app.globalData.userId
+    let imei = that.data.imei
+    let toMemberPhone = that.data.toMemberPhone
+    app.http.postRequest(config.postRemove, {
+      fromMemberId: fromMemberId,
+      imei: imei,
+      toMemberPhone: toMemberPhone
+    }).then(res => {
+      if (res.data.code === 'GN00000') {
+        wx.showToast({
+          title: '解绑成功!',
+          duration: app.globalData.duration
+        });
+        that.setData({
+          myDeviceModal: false,
+          myDeviceModal2: false
+        });
+        that.getPageInfo()
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: app.globalData.duration
+        })
+      };
+    });
+
+  },
+  doMyWatch: function (e) {
+    //长按取消关注，短按进入详情
+    let index = e.currentTarget.dataset.id
+    let touchTime = this.data.touchEnd - this.data.touchStart;
+    if (touchTime > 350) {
+      this.onclickClearFollow(index)
+    } else {
+      this.goToMyWatchDetail(index)
+    }
+  },
+  // 取消关注
+  onclickClearFollow: function (index) {
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定取消关注？',
+      success(res) {
+        if (res.confirm) {
+          that.setData({
+            imei: that.data.myWatches[index].imei
+          })
+          let imei = that.data.myWatches[index].imei
+          let fromMemberId = app.globalData.userId
+          let toMemberPhone = that.data.myWatches[index].toMemberPhone
+          app.http.postRequest(config.postUnbinding, {
+            imei: imei,
+            fromMemberId: fromMemberId,
+            toMemberPhone: toMemberPhone
+          }).then(res => {
+            if (res.data.code === 'GN00000') {
+              wx.showToast({
+                title: '取消关注成功!',
+                duration: app.globalData.duration
+              });
+              that.getPageInfo()
+            } else {
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                duration: app.globalData.duration
+              })
+            }
+          })
+        } else if (res.cancel) {
+
+        }
+      }
+    })
+
+  },
+
+  // 添加我的家人,扫描设备码，绑定或关注设备
+  goAddMyFamily: function() {
+    if (app.globalData.login === false) {
+      wx.showModal({
+        title: '提示',
+        content: '您还未登陆，请先进行登陆以获得更好的服务体验。',
+        success(res) {
+          if (res.confirm) {
+            that.goNextPage()
+          } else if (res.cancel) {}
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '../../health/scan-type/index',
+      })
+    }
+  },
+  //点击单个管理的家人进入单个家人详情页面
+  goToMyDevicesDetail: function(index) {
+    // 将 id 和 phone 及 imei 传到我的单个家人页面
+    let fromMemberId = app.globalData.userId
+    let toMemberId = this.data.myDevices[index].toMemberId
+    let toMemberPhone = this.data.myDevices[index].toMemberPhone
+    let imei = this.data.myDevices[index].imei
+    let familyId = this.data.myWatches[index].familyId
+    let myWatchOrMyDevice = '1'
+    wx.navigateTo({
+      url: 'info/index?fromMemberId=' + fromMemberId + "&toMemberId=" + toMemberId + "&toMemberPhone=" + toMemberPhone + "&imei=" + imei + "&myWatchOrMyDevice=" + myWatchOrMyDevice + '&familyId=' + familyId,
+    })
+  },
+
+  //点击单个关注的家人进入单个家人详情页面
+  goToMyWatchDetail: function(index) {
+    // 将 id 和 phone 及 imei 传到我的单个家人页面
+    let fromMemberId = app.globalData.userId
+    let toMemberId = this.data.myWatches[index].toMemberId
+    let toMemberPhone = this.data.myWatches[index].toMemberPhone
+    let imei = this.data.myWatches[index].imei
+    let familyId = this.data.myWatches[index].familyId
+    let myWatchOrMyDevice = '2'
+    wx.navigateTo({
+      url: 'info/index?fromMemberId=' + fromMemberId + "&toMemberId=" + toMemberId + "&toMemberPhone=" + toMemberPhone + "&imei=" + imei + "&myWatchOrMyDevice=" + myWatchOrMyDevice + '&familyId=' + familyId,
+    })
+  }
+})

@@ -1,0 +1,26 @@
+import Http from './utils/http.js'
+
+App({
+  showModal: function() {
+    wx.showModal({
+      title: '提示',
+      content: '功能开发中，敬请期待！',
+    })
+  },
+  globalData: {
+    imei:'',
+    show:false,
+    duration: 2000,
+    //  uploadHost: 'http://192.168.1.80:9021',
+    uploadHost: 'https://health-mini.xmgoldnet.com',
+    login: false,
+    code: '',
+    userId: '',
+    openId: '',
+    unionId: '',
+    sessionKey: '',
+    token: '',
+    imgServer: 'https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/'
+  },
+  http: new Http()
+})

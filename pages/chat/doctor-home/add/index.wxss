@@ -1,0 +1,45 @@
+/* pages/chat/doctor-home/add/index.wxss */
+.yh-figure-main{
+  margin: 30rpx 28rpx;
+  box-shadow: 2rpx 2rpx 12rpx #EAF4FF;
+  box-sizing: border-box;
+  padding: 0rpx 28rpx;
+}
+.yh-add-item{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 20rpx 0px;
+  height: 120rpx;
+}
+.yh-add-item:last-of-type{
+  border-bottom: 0rpx solid #ccc;
+}
+.yh-add-name{
+  color: #4D4D4D
+}
+.yh-add-right input{
+  height: 35rpx;
+  line-height:35rpx;
+  text-align: right;
+  border:none;
+  font-size: 28rpx;
+  background-color: transparent;
+}
+.yh-add-right picker{
+  color: #808080;
+
+}
+.yh-holder{
+  font-size: 28rpx;
+}
+.yh-button{
+  height: 81rpx;
+  line-height: 81rpx;
+  width: 299rpx;
+  background-color: #49A0FF !important;
+  margin-top: 367rpx;
+  border-radius: 40rpx;
+}

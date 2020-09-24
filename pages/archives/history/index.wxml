@@ -1,0 +1,14 @@
+<!--pages/archives/history/index.wxml-->
+<view class="yh-cation-main">
+  <text class="word-class">过敏史</text>
+  <view class="yh-evalu-tex">
+    <textarea placeholder-class="place-holder" placeholder="请详细填写既往史 " name="introduction" maxlength='300' bindinput='handleLimit' value="{{text}}" style="font-size: 14px;" />
+
+    <text>{{current}} / {{max}}</text>
+  </view>
+</view>
+<view class="UploadBtnarea">
+
+  <button class="UploadBtnclass" bindtap="UploadBtntap">确定</button>
+
+</view>

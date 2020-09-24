@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#49a0ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "扫码绑定",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-modal": "../../../dist/modal/index"
+  }
+}

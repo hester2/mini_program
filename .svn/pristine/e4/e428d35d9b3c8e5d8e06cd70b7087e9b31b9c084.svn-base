@@ -1,0 +1,124 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/more/family/info/medical-record/index",
+    "pages/chat/pay-success/index",
+    "pages/health/scan/index",
+    "pages/health/follow-device/index",
+    "pages/health/scan/add/index",
+    "pages/home/scan/scan_to/index",
+    "pages/more/family/index",
+    "pages/home/index",
+    "pages/more/visits/index",
+    "pages/message/index",
+    "pages/chat/doctor-home/index",
+    "pages/home/visits/index",
+    "pages/more/index",
+    "pages/home/live/liveDetail/index",
+    "pages/home/live/index",
+    "pages/home/live/makeList/index",
+    "pages/home/live/make/index",
+    "pages/more/cardVolume/index",
+    "pages/more/message/messageDetail/index",
+    "pages/more/message/index",
+    "pages/more/collectibles/index",
+    "pages/home/scan/index",
+    "pages/more/setup/index",
+    "pages/more/setup/editAddress/index",
+    "pages/more/setup/address/index",
+    "pages/more/setup/addAddress/index",
+    "pages/more/setup/bindPhone/index",
+    "pages/more/setup/bindToPhone/index",
+    "pages/more/setup/password/index",
+    "pages/archives/PrescDetail/index",
+    "pages/archives/index",
+    "pages/archives/casesDetail/index",
+    "pages/archives/history/index",
+    "pages/archives/certification/index",
+    "pages/loginUp/index",
+    "pages/chat/doctor-home/add/index",
+    "pages/chat/doctor-home/phone-visits/index",
+    "pages/chat/doctor-home/figure-visits/index",
+    "pages/more/visits/my-evaluation/index",
+    "pages/more/visits/evaluation/success/index",
+    "pages/more/visits/evaluation/index",
+    "pages/chat/index",
+    "pages/guidance/index",
+    "pages/health/chats/index",
+    "pages/demo/index",
+    "pages/login/index",
+    "pages/health/map/user-info/index",
+    "pages/more/family/info/info-detail/index",
+    "pages/health/map/track/index",
+    "pages/health/map/index",
+    "pages/health/map/instruct/index",
+    "pages/health/map/time/index",
+    "pages/more/family/info/telecontrol/index",
+    "pages/more/feedback/index",
+    "pages/more/user-info/index",
+    "pages/health/scan-type/index",
+    "pages/home/detail/index",
+    "pages/more/family/info/about-equipment/index",
+    "pages/more/family/info/index",
+    "pages/more/about/index",
+    "pages/health/health-data/index",
+    "pages/health/index",
+    "pages/more/family/info/medical-record/add/index",
+    "pages/more/notification/index",
+    "pages/more/user-info/user-info-detail/index",
+    "pages/more/invite/index",
+    "pages/more/wallet/index",
+    "pages/more/family/info/telecontrol/newTimingReminder1/index",
+    "pages/more/family/info/telecontrol/newTimingReminder2/index",
+    "pages/more/family/info/telecontrol/change1/index",
+    "pages/more/family/info/telecontrol/change2/index",
+    "pages/more/family/info/about-equipment/add-member/index",
+    "pages/more/user-info/user-info-identification/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAFDFF"
+  },
+  "tabBar": {
+    "color": "#4d4d4d",
+    "selectedColor": "#49A0FF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "tabbar-icon/icon-home.png",
+        "selectedIconPath": "tabbar-icon/icon-home-selected.png"
+      },
+      {
+        "pagePath": "pages/health/index",
+        "text": "健康",
+        "iconPath": "tabbar-icon/icon-health.png",
+        "selectedIconPath": "tabbar-icon/icon-health-selected.png"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "消息",
+        "iconPath": "tabbar-icon/icon-message.png",
+        "selectedIconPath": "tabbar-icon/icon-message-selected.png"
+      },
+      {
+        "pagePath": "pages/more/index",
+        "text": "我的",
+        "iconPath": "tabbar-icon/icon-more.png",
+        "selectedIconPath": "tabbar-icon/icon-more-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 50000
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": " "
+    }
+  }
+}

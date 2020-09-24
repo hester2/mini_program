@@ -1,0 +1,291 @@
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+.gn-medical-record-taps {
+  background: #fff;
+  color: #bbb;
+  width: 100%;
+  display: flex;
+  margin-bottom: 27rpx;
+  padding: 28rpx 32rpx;
+  align-items: center;
+}
+
+.gn-medical-record-tap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+
+.gn-medical-record-tap-active {
+  color: #a6d6fc;
+}
+
+.gn-medical-record-tap-line {
+  border: 1rpx solid #fff;
+  width: 42rpx;
+  height: 4rpx;
+  border-radius: 3rpx;
+  background: #fff;
+  margin-top: 13rpx;
+  margin-left: 6rpx;
+}
+.gn-line-active {
+  border: 1rpx solid #a6d6fc;
+  background: #a6d6fc;
+}
+
+
+page {
+  position: relative;
+}
+
+i-tab {
+  margin-left: 50rpx;
+}
+
+.gn-telecontrol-contacts {
+  margin-left: 28rpx;
+  margin-right: 278rpx;
+  margin-top: 27rpx;
+  background: #fff;
+  border: 1rpx solid #ffffff;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  width: 694rpx;
+}
+
+.gn-contacts-search {
+  display: flex;
+  align-items: center;
+  width: 587rpx;
+  border: 1rpx solid #a6d6fc;
+  margin: 41rpx auto;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+  justify-content: center;
+  color: #a6d6fc;
+   box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+}
+
+.gn-contacts-search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+
+.gn-telecontrol-contacts-main, page {
+  width: 100%;
+  height: 100%;
+}
+
+.gn-contacts-wrap {
+  margin-left: 53rpx;
+}
+
+.noshow {
+  display: none;
+}
+
+.gn-contacts-item {
+  display: flex;
+  align-items: center;
+  padding-top: 26rpx;
+  padding-bottom: 26rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+.gn-contacts-photo {
+  width: 73rpx;
+  height: 73rpx;
+  margin-right: 53rpx;
+  border: 1rpx solid #49a0ff;
+  border-radius: 50%;
+}
+
+.gn-contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.gn-contact-name {
+  color: #4d4d4d;
+  margin-bottom: 18rpx;
+}
+
+.gn-contact-number {
+  color: #808080;
+}
+
+.gn-telecontrol-reminder {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  margin: 28rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-reminder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 29rpx 36rpx 24rpx 36rpx;
+  width:100%;
+}
+
+.gn-reminder-item-content {
+  color: #4d4d4d;
+  padding-bottom: 18rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.gn-reminder-item-main {
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  justify-content: space-between;
+}
+
+.gn-reminder-item-time {
+  margin-top: 18rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  color: #808080;
+  width: 260rpx;
+}
+.gn-reminder-item-time text{
+  white-space: nowrap;
+}
+.gn-telecontrol-time-icon {
+  width: 21rpx;
+  height: 21rpx;
+  margin-right: 14rpx;
+}
+
+.gn-telecontrol-person-icon {
+  width: 19rpx;
+  height: 22rpx;
+  margin-right: 14rpx;
+}
+
+.gn-telecontrol-switch {
+  margin-left: 226rpx;
+}
+
+.gn-telecontrol-sos {
+  color: #808080;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05),
+                0px 0px 4px 4px rgba(137, 137, 137, 0.05),
+                0px 0px 4px 4px rgba(137, 137, 137, 0.05),
+                3px 0px 0px 0px rgba(166, 214, 252, 1);
+  margin: 26rpx 28rpx;
+  padding: 26rpx 53rpx;
+}
+
+.gn-sos-title {
+  border-bottom: 2rpx solid #f2f2f2;
+  padding-bottom: 18rpx;
+  padding-right: 394rpx;
+  margin-bottom: 17rpx;
+}
+
+.gn-sos-phone-number {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19rpx;
+}
+
+.gn-sos-person-name {
+  display: flex;
+  align-items: center;
+}
+
+.gn-telecontrol-phone-icon {
+  width: 16rpx;
+  height: 23rpx;
+  margin-right: 18rpx;
+}
+
+.gn-telecontrol-icon-person {
+  width: 19rpx;
+  height: 22rpx;
+  margin-right: 16rpx;
+}
+
+.gn-telecontrol-add-icon {
+  width: 74rpx;
+  height: 74rpx;
+  position: absolute;
+  right: 62rpx;
+  bottom: 198rpx;
+  z-index: 9000;
+}
+
+.gn-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+.gn-user-info-modal{
+  width: 587rpx;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 32rpx;
+  z-index: 9999;
+  position: fixed;
+  margin-left: 81rpx;
+  margin-right: 81rpx;
+  top: 380rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #49a0ff;
+  padding-bottom: 49rpx;
+  padding-top: 53rpx;
+}
+.gn-modal-title{
+  color: #808080;
+  margin-bottom: 18rpx;
+}
+.gn-modal-content{
+  margin-bottom:68rpx;
+  margin-top:40rpx;
+}
+.gn-mask-link-button{
+  text-align: center;
+  color: #ffffff;
+  width: 188rpx;
+  height: 66rpx;
+  background: #49a0ff;
+  border-radius: 32rpx;
+  line-height: 66rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-link-modal-input{
+  width: 457rpx;
+  margin-top: 40rpx;
+  margin-bottom: 53rpx;
+  border:none;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding-bottom: 11rpx; 
+  background: #ffffff;
+}

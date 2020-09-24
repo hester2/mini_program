@@ -1,0 +1,17 @@
+<!--pages/more/setup/bindToPhone/index.wxml-->
+<form bindsubmit="formSubmit" class="grace-form ">
+<view class="grace-form-colors">已向    <text class="grace-form-color">152****4222</text>  发送了短信验证码</view>
+  <view class="yh-chives-main">
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">验证码</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+      </view>
+    </view>
+
+
+  </view>
+  <view style="padding:22rpx 0;">
+    <button class="grace-button" formType="submit" type="primary">确定</button>
+  </view>
+</form>

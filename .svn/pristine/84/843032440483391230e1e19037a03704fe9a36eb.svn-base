@@ -1,0 +1,32 @@
+
+.gn-guidance-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.gn-guidance-image {
+  width: 608rpx;
+  height: 590rpx;
+  margin: 120rpx 65rpx 0 77rpx;
+}
+
+.gn-guidance-conten {
+  color: #49a0ff;
+  text-align: center;
+}
+
+.gn-guidance-button {
+  display: inline-block;
+  margin: 0 290rpx 80rpx 290rpx;
+  border: 1rpx solid #49a0ff;
+  border-radius: 26rpx;
+  height:55rpx;
+  line-height: 55rpx;
+  padding:0;
+  width:170rpx;
+  text-align: center;
+  color: #49a0ff;
+}
+

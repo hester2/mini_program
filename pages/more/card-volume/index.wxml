@@ -1,0 +1,16 @@
+<!--pages/more/cardVolume/index.wxml-->
+<view class="yh-card-main">
+  <view class="yh-card-row">
+    <view class="yh-card-col-s">￥<text class="yh-card-desc">100</text>
+    </view>
+    <view class="yh-card-hj">优惠券</view>
+  </view>
+  <view class="yh-card-col-c">
+    <view class="yh-card-bird">生日月特权优惠券</view>
+    <view class="yh-card-sc">使用范围：全平台可用（含健康商城）</view>
+    <view class="yh-card-sc">有效期至：2019-12-27</view>
+  </view>
+  <view class="yh-card-col-b">
+    <view class="yh-card-qu">去使用</view>
+  </view>
+</view>

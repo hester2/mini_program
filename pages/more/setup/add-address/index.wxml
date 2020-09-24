@@ -1,0 +1,38 @@
+<!--pages/more/setup/addAddress/index.wxml-->
+<form bindsubmit="formSubmit" class="grace-form ">
+  <view class="yh-chives-main">
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">收货人</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+        <image src="{{imgServer}}icon-archives_1.png"></image>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">手机号码</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">所在地区</text>
+      <view class="grace-form-body">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">
+            {{region[0]}}-{{region[1]}}-{{region[2]}}
+            <text class="grace-icons icon-arrow-right" style="margin-left:10rpx;"></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">详细地址</text>
+      <view class="grace-form-body">
+        <input type="text" placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"></input>
+      </view>
+    </view>
+  </view>
+  <view style="padding:22rpx 0;">
+    <button class="grace-button" formType="submit" type="primary">确定</button>
+  </view>
+</form>

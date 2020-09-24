@@ -1,0 +1,77 @@
+<view class="gn-page">
+  <view class="gn-medical-record-taps gn-app-fs28">
+    <view class="gn-medical-record-tap {{currentTab==1?'gn-medical-record-tap-active':''}}" bindtap="goMedicalRecord" data-id="1">
+      <text>病历卡</text>
+      <view class="gn-medical-record-tap-line {{currentTab==1?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==2?'gn-medical-record-tap-active':''}}" bindtap="goMedicalRecord" data-id="2">
+      <text>报告单</text>
+      <view class="gn-medical-record-tap-line {{currentTab==2?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==3?'gn-medical-record-tap-active':''}}" bindtap="goMedicalRecord" data-id="3">
+      <text>既往病史</text>
+      <view class="gn-medical-record-tap-line {{currentTab==3?'gn-line-active':''}}"></view>
+    </view>
+  </view>
+
+  <view class="{{currentTab == 1 ? 'show':'hidden'}}" wx:for="{{pageInfo}}" wx:for-item="it" wx:for-index="itemIndex">
+    <view class="gn-medical-record-main" bindlongpress="showDeleteModal" data-id="{{it.id}}">
+      <view class="gn-app-fs28 gn-main-title">
+        <text>{{it.title}}</text>
+        <text>{{it.beginDate}}</text>
+      </view>
+      <view class="gn-main-content">
+        <text class="gn-app-fs24">{{it.content}}</text>
+        <view class="gn-main-reports">
+          <view wx:for="{{it.imgs}}">
+            <image class="gn-main-report" mode="aspectFit" src="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" bindtap='showImgs' data-imgsrc="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" data-id="{{itemIndex}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="{{currentTab == 2 ? 'show':'hidden'}}" wx:for="{{pageInfo}}" wx:for-item="it" wx:for-index="itemIndex">
+    <view class="gn-medical-record-main" bindlongpress="showDeleteModal" data-id="{{it.id}}">
+      <view class="gn-app-fs28 gn-main-title">
+        <text>{{it.title}}</text>
+        <text>{{it.beginDate}}</text>
+      </view>
+      <view class="gn-main-content">
+        <text class="gn-app-fs24">{{it.content}}</text>
+        <view class="gn-main-reports">
+          <view wx:for="{{it.imgs}}">
+            <image class="gn-main-report" mode="aspectFit" src="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" bindtap='showImgs' data-imgsrc="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" data-id="{{itemIndex}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="{{currentTab == 3 ? 'show':'hidden'}}" wx:for="{{pageInfo}}" wx:for-item="it" wx:for-index="itemIndex">
+    <view class="gn-medical-record-main" bindlongpress="showDeleteModal" data-id="{{it.id}}">
+      <view class="gn-app-fs28 gn-main-title">
+        <text>{{it.title}}</text>
+        <text>{{it.endDate}}</text>
+        <text>{{it.beginDate}}</text>
+      </view>
+      <view class="gn-main-content">
+        <text class="gn-app-fs24">{{it.content}}</text>
+        <view class="gn-main-reports">
+          <view wx:for="{{it.imgs}}">
+            <image class="gn-main-report" mode="aspectFit" src="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" bindtap='showImgs' data-imgsrc="https://health-mini.xmgoldnet.com/health/file/download?filepath={{item}}" data-id="{{itemIndex}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <image class="gn-medical-record-add-button" src="{{imgAdd}}" bindtap='goToAddMedicalRecord'>
+  </image>
+  <!-- 删除遮罩 -->
+  <view>
+    <view bindtap="hideDeleteModal" class="gn-mask" wx:if="{{deleteModalStatus}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{deleteModalStatus}}">
+      <view class="gn-modal-title">提示</view>
+      <view class="gn-modal-content">确定删除该内容吗？</view>
+      <view class="gn-mask-link-button" bindtap="deleteMedicalRecord">删除</view>
+    </view>
+  </view>
+</view>

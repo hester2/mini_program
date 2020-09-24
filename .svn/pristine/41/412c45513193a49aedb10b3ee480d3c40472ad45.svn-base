@@ -1,0 +1,87 @@
+<view class="gn-page">
+    <block wx:for="{{myDevices}}" wx:for-index="myDevicesIndex">
+      <view class="gn-family-person-wrap" data-id="{{myDevicesIndex}}" bindtap='doDevice' bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+        <view class="gn-person-info-wrap gn-app-fs20">
+          <image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-person-photo"></image>
+          <view class="gn-person-info">
+            <view class="gn-person-name-wrap">
+              <image src="{{imgPerson}}" mode="aspectFit" class="gn-person-icon"></image>
+              <text class="gn-app-fs24" class="gn-person-name">{{item.relationship}}-{{item.toMemberName}}</text>
+            </view>
+            <view class="gn-person-number-time-wrap  gn-app-fs20">
+              <view class="gn-person-number">
+                <image src="{{imgPhone}}" mode="aspectFit" class="gn-phone-icon"></image>
+                <text class="gn-app-fs22">{{item.toMemberPhone}}</text>
+              </view>
+              <view class="gn-person-time">
+                <image src="{{imgClock}}" mode="aspectFit" class="gn-time-icon"></image>
+                <text class="gn-app-fs22">{{item.lastConnectedTime}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="gn-person-role-wrap">
+            <image src="{{imgSetting}}" mode="aspectFit" class="gn-person-role-icon"></image>
+            <text class="gn-app-fs20 gn-person-role-name">管理</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:for="{{myWatches}}" wx:for-index="myWatchesIndex">
+      <view class="gn-family-person-wrap" bindtap="doMyWatch" data-id="{{myWatchesIndex}}" bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+        <view class="gn-person-info-wrap gn-app-fs20" >
+          <image src="{{item.avatarUrl}}" mode="aspectFit" class="gn-person-photo"></image>
+          <view class="gn-person-info">
+            <view class="gn-person-name-wrap">
+              <image src="{{imgPerson}}" mode="aspectFit" class="gn-person-icon"></image>
+              <text class="gn-app-fs24" class="gn-person-name">{{item.relationship}}-{{item.toMemberName}}</text>
+            </view>
+            <view class="gn-person-number-time-wrap">
+              <view class="gn-person-number">
+                <image src="{{imgPhone}}" mode="aspectFit" class="gn-person-icon gn-app-fs20"></image>
+                <text class="gn-app-fs22">{{item.toMemberPhone}}</text>
+              </view>
+              <view class="gn-person-time">
+                <image src="{{imgClock}}" mode="aspectFit" class="gn-person-icon"></image>
+                <text class="gn-app-fs22">{{item.lastConnectedTime}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="gn-person-role-wrap">
+            <image src="{{imgFollower}}" mode="aspectFit" class="gn-person-role-icon"></image>
+            <text class="gn-app-fs20 gn-person-role-name">已关注</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+
+    <!-- <view class="gn-person-button gn-app-fs28" bindtap='onclickClearFollow' data-id="{{myWatchesIndex}}">取消关注</view> -->
+  <image class="gn-family-add-icon" src="{{imgAdd}}" mode="aspectFit" bindtap='goAddMyFamily'></image>
+
+
+  <!--管理转让 OR 解绑遮罩 -->
+  <view>
+    <view bindtap="hideMyDeviceModal" class="gn-mask" wx:if="{{myDeviceModal}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{myDeviceModal}}">
+      <view class="gn-modal-title">请选择解绑或者转让设备</view>
+      <scroll-view scroll-y class="gn-my-family-scroll">
+        <view class="gn-my-family-wrap" wx:for="{{members}}" wx:for-index="changeRightIndex">
+          <image class="gn-my-family-photo" mode='aspectFit' src="{{item.avatarUrl}}"></image>
+          <view class="gn-app-fs28">{{item.name}}</view>
+          <view class="gn-app-fs24 gn-my-family-change-button" bindtap='onclickChangeRight' data-id="{{changeRightIndex}}">转让</view>
+        </view>
+      </scroll-view>
+      <view class="gn-my-family-button" bindtap='onClickUnbinding'>直接解绑</view>
+    </view>
+  </view>
+
+  <!--管理直接解绑遮罩 -->
+  <view>
+    <view bindtap="hideMyDeviceModal" class="gn-mask" wx:if="{{myDeviceModal2}}"></view>
+    <view class="gn-user-info-modal gn-app-fs28" wx:if="{{myDeviceModal2}}">
+      <view class="gn-modal-title">该设备无关注者，请直接解绑</view>
+      <view class="gn-my-family-button" bindtap='onClickUnbinding'>直接解绑</view>
+    </view>
+  </view>
+</view>

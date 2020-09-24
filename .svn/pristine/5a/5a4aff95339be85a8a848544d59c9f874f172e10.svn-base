@@ -1,0 +1,79 @@
+.gn-wallet-header {
+  background: #46a0ff;
+  padding: 76rpx 107rpx 35rpx 107rpx;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.gn-header-money {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.gn-header-icon {
+  width: 91rpx;
+  height: 82rpx;
+  margin-bottom: 19rpx;
+}
+
+.gn-header-use-of-money {
+  background: #fff;
+  color: #46a0ff;
+  padding-top: 21rpx;
+  padding-bottom: 21rpx;
+  border-radius: 36rpx;
+  text-align: center;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-header-use-of-money-text {
+  border-right: 1rpx solid #46a0ff;
+  padding-right: 54rpx;
+  margin-right: 54rpx;
+}
+
+.gn-wallet-login-wrap {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  margin: 30rpx 28rpx 30rpx 28rpx;
+}
+
+.gn-login-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+.gn-login-info {
+  display: flex;
+  flex-direction: column;
+}
+.gn-login-info-load-text {
+  color: #4d4d4d;
+  padding-top: 33rpx;
+  padding-bottom: 18rpx;
+}
+
+.gn-login-info-load-date {
+  color: #808080;
+  padding-bottom: 20rpx;
+}
+
+
+
+.gn-login-add-ten {
+  color: #4d4d4d;
+  margin-right: 17rpx;
+}
+
+.gn-login-add-ten-icon {
+  width: 29rpx;
+  height: 30rpx;
+}

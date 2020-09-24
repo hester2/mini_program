@@ -1,0 +1,9 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#49A0FF",
+    "navigationBarTitleText": "添加就诊人",
+    "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "i-icon": "../../dist/icon/index"
+  }
+}

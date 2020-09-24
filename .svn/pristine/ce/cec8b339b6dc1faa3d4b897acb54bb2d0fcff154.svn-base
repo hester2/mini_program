@@ -1,0 +1,56 @@
+<view class="gn-page">
+  <view class="gn-new-timing-reminder gn-app-fs28">
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">标题</text>
+      <input class="gn-reminder-time-title gn-long-input" placeholder="{{clock.title}}" bindinput="entertitle" maxlength="10" />
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">内容</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        {{array[index]}}
+      </picker>
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">时间</text>
+      <view class="gn-time">
+        <picker mode="time" value="{{clock.nextDatetime}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+          {{clock.nextDatetime}}
+        </picker>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+    <view class="gn-reminder-time">
+      <text class="gn-reminder-time-title">结束日期</text>
+      <view class="gn-time">
+        <picker mode="date" value=" {{clock.endDatetime}}" start="1995-01-01" end="2050-12-01" bindchange="bindDateChange">
+          {{clock.endDatetime}}
+        </picker>
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+    <view class="gn-reminder-time gn-reminder-time-last-item" bindtap="showRegular">
+      <text class="gn-reminder-time-title">重复</text>
+      <view class="gn-time">
+        {{clock.weekName}}
+        <image src="{{imgRight}}" mode="aspectFit" class="gn-right-icon"></image>
+      </view>
+    </view>
+  </view>
+  <text class="gn-new-timing-reminder-button" bindtap='doChangeSingleDistanceClock'>修改</text>
+  <!-- 重复时间 -->
+  <view>
+    <view bindtap="hideRegularModal" class="gn-mask" wx:if="{{showRegular}}"></view>
+    <view class="gn-user-info-modal gn-regular gn-app-fs28" wx:if="{{showRegular}}">
+      重复
+      <checkbox-group bindchange="checkboxChange" class="gn-regular-wrap">
+        <label class="gn-regular-checkbox" wx:for="{{items}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+      <view class="gn-regular-buttons">
+        <view bindtap="cancelRegular">取消</view>
+        <view bindtap="hideRegularModal">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

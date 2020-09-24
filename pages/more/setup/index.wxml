@@ -1,0 +1,85 @@
+<!--pages/more/setup/index.wxml-->
+<view class="yh-chives-main">
+  <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+    <view class="grace-form-item grace-border-b" bindtap="handlePsw">
+      <text class="grace-form-label">修改密码</text>
+      <view class="grace-form-body">
+        <text class="grace-icons icon-arrow-right" style="margin-left:10rpx;"></text>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b" bindtap="handlePhone">
+      <text class="grace-form-label">绑定手机</text>
+      <view class="grace-form-body">
+        180****5986
+        <text class="grace-icons icon-arrow-right" style="margin-left:10rpx;"></text>
+      </view>
+    </view>
+  </form>
+</view>
+
+<view class="yh-chives-main">
+  <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">消息通知</text>
+      <view class="grace-form-body">
+        <view class="section section">
+          <text class="title"></text>
+          <view class="body-view">
+            <switch data-id="index" checked style="zoom:.7" color="#4EA3FF" bindchange="switch1Change" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">声音提醒</text>
+      <view class="grace-form-body">
+        <view class="section section">
+          <text class="title"></text>
+          <view class="body-view">
+            <switch data-id="index" checked style="zoom:.7" color="#4EA3FF" bindchange="switch1Change" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="grace-form-item grace-border-b">
+      <text class="grace-form-label">振动提醒</text>
+      <view class="grace-form-body">
+        <view class="section section">
+          <text class="title"></text>
+          <view class="body-view">
+            <switch data-id="index" checked="{{false}}" style="zoom:.7" color="#4EA3FF" bindchange="switch1Change" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
+
+<view class="yh-chives-main">
+  <form bindsubmit="formSubmit" class="grace-form grace-margin-top">
+    <view class="grace-form-item grace-border-b" bindtap="handleAdress">
+      <text class="grace-form-label">地址管理</text>
+      <view class="grace-form-body">
+        <text class="grace-icons icon-arrow-right" style="margin-left:10rpx;"></text>
+      </view>
+    </view>
+  </form>
+</view>
+
+<view class="UploadBtnarea">
+
+  <button class="UploadBtnclass" bindtap="showDialogBtn">确定</button>
+
+</view>
+
+
+<view class="yh-modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="yh-modal-dialog" wx:if="{{showModal}}">
+  <view class="yh-modal-title">提示</view>
+  <view class="yh-modal-content">
+    <view class="yh-modal-color">是否退出当前账号</view>
+    <view class="yh-modal-footer" bindtap="onConfirm" data-status="confirm">
+    确定
+    </view>
+  </view>
+</view>

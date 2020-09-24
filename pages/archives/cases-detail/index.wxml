@@ -1,0 +1,69 @@
+<!--pages/archives/casesDetail/index.wxml-->
+<view class="container">
+  <view class="yh-cases-main">
+    <view class="yh-cases-hl">NO.248420261625</view>
+    <view class="yh-cases-hl">
+      <view class="yh-cases-left">类型：
+        <text>{{cases.consultType}}</text>
+      </view>
+      <view class="yh-cases-right">时间：
+        <text>{{cases.realDate}}</text>
+      </view>
+    </view>
+    <view class="yh-cases-hl">
+      <view class="yh-cases-left">科室：
+        <text>{{cases.section}}</text>
+      </view>
+      <view class="yh-cases-right">医生：
+        <text>{{cases.firstName}}{{cases.lastName}}</text>
+      </view>
+    </view>
+    <view class="yh-cases-hl">
+      <view class="yh-cases-left">医院：
+        <text>{{cases.organizationName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="yh-cases-main yh-cases-main-b">
+    <view class="yh-cases-items">
+      <view>既往史</view>
+      <view class="view" bindtap="showDialog">{{cases.pastMedicalRecord}}
+        <text class=" grace-icons icon-arrow-right " style="margin-left:5px; "></text>
+      </view>
+    </view>
+    <view class="yh-cases-items ">
+      <view>过敏史</view>
+      <view class="view ">{{cases.allergicRecord}}
+      </view>
+    </view>
+  </view>
+  <view class="yh-cases-main ">
+    <view class="yh-cases-title ">病情描述</view>
+    <view class="yh-cases-title-s ">{{cases.diseaseDescription}}</view>
+    <view class="yh-cases-phone ">
+     <view class="yh-cases-phone-item " wx:for="{{cases.imgs}}">
+       <image src="{{item}}"></image>
+     </view>
+    </view>
+  </view>
+  <view class="yh-cases-main ">
+    <view class="yh-cases-title ">患者就该病情到医院就诊过</view>
+    <view class="yh-cases-title ">就诊时间：<text>{{cases.treatmentTime}}</text></view>
+    <view class="yh-cases-title ">科室：<text>{{cases.treatmentSection}}</text></view>
+    <view class="yh-cases-title ">就诊医院：<text>{{cases.treatmentHospital}}</text></view>
+  </view>
+    <view class="yh-cases-main ">
+    <view class="yh-cases-title-c "><text>初步诊断</text><text>问诊过程</text></view>
+    <view class="yh-cases-title "><text>{{cases.pastMedicalRecord}}</text></view>
+  </view>
+</view>
+<!--  -->
+
+<view class="yh-modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="yh-modal-dialog" wx:if="{{showModal}}">
+  <view class="yh-modal-title">既往史</view>
+  <view class="yh-modal-content">
+    糖尿病、高血压、冠心病、过敏性哮喘、
+心律失常、心肌梗塞
+  </view>
+</view>

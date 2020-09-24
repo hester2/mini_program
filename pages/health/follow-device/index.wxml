@@ -1,0 +1,24 @@
+<view class="gn-page">
+  <view class="yh-follw-col">
+    <text class="gn-follow-device-number gn-app-fs28">设备号：{{imei}}</text>
+    <text class="gn-follow-device-text1 gn-app-fs28">该设备已被{{priName}}（手机：{{priPhone}}）绑定</text>
+  </view>
+  <!-- <view class="gn-follow-device">
+    <text class="gn-follow-device-text2 gn-app-fs28">请输入{{priName}}完整手机号</text>
+    <input placeholder="手机：" placeholder-class="gn-app-placeholder" class="gn-follow-device-input gn-app-fs28" type='number' name="fromMemberPhone" bindinput='enterFromMemberPhone' maxlength="13"></input>
+  </view> -->
+  <view class="grace-form-item">
+    <text class="grace-form-label">请输入{{priName}}完整手机号</text>
+    <view class="grace-form-body">
+      <input  class="grace-form-input" placeholder="手机：" placeholder-class="gn-app-placeholder yh-holder" type='number' name="fromMemberPhone" bindinput='enterFromMemberPhone' maxlength="13" placeholder="请输入"></input>
+    </view>
+  </view>
+  <!-- <view class="gn-follow-device gn-follow-device-relation">
+  <text class="gn-follow-device-text2 gn-app-fs28">请完善佩戴者与您的关系</text>
+  <input placeholder-class="gn-app-placeholder" type="text" class="gn-follow-device-input gn-app-fs28" placeholder="请完善佩戴者与您的关系" bindinput="enterRelation" name="relation" maxlength="6"/>
+</view> -->
+  <!-- <button bindtap='onClickToFollow' class="gn-follow-device-button">关注</button> -->
+  <view style="padding:22rpx 0;">
+      <button class="grace-button" bindtap='onClickToFollow'  type="primary">关注</button>
+    </view>
+</view>

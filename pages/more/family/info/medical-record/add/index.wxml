@@ -1,0 +1,76 @@
+<view class="gn-page">
+  <view class="gn-medical-record-taps gn-app-fs28">
+    <view class="gn-medical-record-tap {{currentTab==1?'gn-medical-record-tap-active':''}}" bindtap="goOtherPart" data-id="1">
+      <text>病历卡</text>
+      <view class="gn-medical-record-tap-line {{currentTab==1?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==2?'gn-medical-record-tap-active':''}}" bindtap="goOtherPart" data-id="2">
+      <text>报告单</text>
+      <view class="gn-medical-record-tap-line {{currentTab==2?'gn-line-active':''}}"></view>
+    </view>
+    <view class="gn-medical-record-tap {{currentTab==3?'gn-medical-record-tap-active':''}}" bindtap="goOtherPart" data-id="3">
+      <text>既往病史</text>
+      <view class="gn-medical-record-tap-line {{currentTab==3?'gn-line-active':''}}"></view>
+    </view>
+  </view>
+
+  <view class="{{currentTab == 1 ? 'show':'hidden'}}">
+    <view class="gn-add-input-wrap gn-app-fs28">
+      <input placeholder="病历名称：" class="gn-add-name-input" placeholder-class="gn-app-placeholder" name="reportName" bindinput="doGetTitle" value="{{inputValue}}"></input>
+      <picker mode="date" value="{{date}}" start="1995-01-01" end="2050-12-25" bindchange="doGetDate">
+        <view class="gn-add-name-view {{color === true ? 'color':''}}">{{date}}</view>
+      </picker>
+      <input placeholder="病历描述：" class="gn-add-content-input" placeholder-class="gn-app-placeholder" name="reportName" bindinput="doGetContent" value="{{inputValue}}"></input>
+      <view class="gn-add-imgs-wrap">
+        <view wx:for="{{imgs}}">
+          <image src="{{item}}" data-imgsrc="{{item}}" bindtap="doImgWay" bindtouchstart="mytouchstart" bindtouchend="mytouchend" mode="aspectFit" class="gn-add-img" data-id="{{index}}"></image>
+        </view>
+        <view class="gn-add-camera-wrap" bindtap='usingAlbum'>
+          <image src="{{imgCamera}}" mode="aspectFit" class="gn-camera-icon"></image>
+        </view>
+      </view>
+    </view>
+    <view class="gn-upload-submit gn-app-fs36" bindtap='doAddMedicalRecord'>提交</view>
+
+  </view>
+
+  <view class="{{currentTab == 2 ? 'show':'hidden'}}">
+    <view class="gn-add-input-wrap gn-app-fs28">
+      <input placeholder="报告名称：" class="gn-add-name-input" bindinput="doGetTitle" value="{{inputValue}}"></input>
+      <picker mode="date" value="{{date}}" start="1995-01-01" end="2050-12-25" bindchange="doGetDate">
+        <view class="gn-add-name-view {{color === true ? 'color':''}}">{{date}}</view>
+      </picker>
+      <input placeholder="报告描述：" class="gn-add-content-input" bindinput="doGetContent" value="{{inputValue}}"></input>
+      <view class="gn-add-imgs-wrap">
+        <view wx:for="{{imgs}}">
+          <image src="{{item}}" data-imgsrc="{{item}}" bindtap="doImgWay" bindtouchstart="mytouchstart" bindtouchend="mytouchend" mode="aspectFit" class="gn-add-img" data-id="{{index}}"></image>
+        </view>
+        <view class="gn-add-camera-wrap" bindtap='usingAlbum'>
+          <image src="{{imgCamera}}" mode="aspectFit" class="gn-camera-icon"></image>
+        </view>
+      </view>
+    </view>
+    <view class="gn-upload-submit gn-app-fs36" bindtap='doAddMedicalRecord'>提交</view>
+
+  </view>
+
+  <view class="{{currentTab == 3 ? 'show':'hidden'}}">
+    <view class="gn-add-input-wrap gn-app-fs28">
+      <input placeholder="病史名称：" class="gn-add-name-input" bindinput="doGetTitle" value="{{inputValue}}"></input>
+      <picker mode="date" value="{{date}}" start="1995-01-01" end="2050-12-25" bindchange="doGetDate">
+        <view class="gn-add-name-view {{color === true ? 'color':''}}">{{date}}</view>
+      </picker>
+      <input placeholder="病史描述：" class="gn-add-content-input" bindinput="doGetContent" value="{{inputValue}}"></input>
+      <view class="gn-add-imgs-wrap">
+        <view wx:for="{{imgs}}">
+          <image src="{{item}}" data-imgsrc="{{item}}" bindtap="doImgWay" bindtouchstart="mytouchstart" bindtouchend="mytouchend" mode="aspectFit" class="gn-add-img" data-id="{{index}}"></image>
+        </view>
+        <view class="gn-add-camera-wrap" bindtap='usingAlbum'>
+          <image src="{{imgCamera}}" mode="aspectFit" class="gn-camera-icon"></image>
+        </view>
+      </view>
+    </view>
+    <view class="gn-upload-submit gn-app-fs36" bindtap='doAddMedicalRecord'>提交</view>
+
+  </view>
+</view>

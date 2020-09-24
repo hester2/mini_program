@@ -1,0 +1,71 @@
+/* pages/home/live/makeList/index.wxss */
+.yh-mast-pl{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  box-sizing: border-box;
+  padding: 10rpx 28rpx;
+}
+.yh-mast-pm{
+  
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+border-radius: 10rpx;
+display: flex;
+height: 242rpx;
+margin-top: 28rpx;
+}
+.yh-mast-img-x{
+  width: 292rpx;
+  height: 100%;
+  border-radius: 10rpx 0rpx 0rpx 10rpx;
+}
+.yh-live-right{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 28rpx 28rpx
+}
+.yh-live-hote{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+   color: #4D4D4D
+}
+.yh-live-text-t{
+  border:1px solid #49A0FF;
+  color: #49A0FF;
+  height: 37rpx;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  line-height: 37rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  font-size: 22rpx;
+  font-weight: normal;
+  display: flex;
+  width: 169rpx;
+  margin-left: 15rpx;
+}
+.yh-live-mg{
+  width: 21rpx;
+  height: 22rpx;
+}
+.yh-live-ys{
+  display: flex;
+  
+  margin-top: 50rpx;
+}
+.yh-live-yw{
+  margin-top: 20rpx;
+  justify-content: space-between;
+}
+.yh-live-hs{
+  margin-right: 30rpx;
+    font-size: 22rpx;
+  color: #4D4D4D;
+}
+.yh-live-hb{
+    font-size: 22rpx;
+  color: #B3B3B3;
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "通知提醒",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-tabs": "../../../../dist/tabs/index",
+    "i-tab": "../../../../dist/tab/index",
+    "i-panel": "../../../../dist/panel/index"
+  }
+} 

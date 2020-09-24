@@ -1,0 +1,120 @@
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.gn-notification-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #4d4d4d;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  padding-top: 20rpx;
+  background: #fff;
+}
+
+.gn-notification-title {
+  width: 644rpx;
+  margin-left:38rpx;
+  margin-right:38rpx;
+}
+
+.gn-notification-time {
+  display: flex;
+  align-items: center;
+  color: #808080;
+  margin:28rpx 38rpx;
+}
+
+.gn-notification-time-date {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+}
+
+.gn-notification-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.gn-notification-line {
+  width: 685rpx;
+  height: 2rpx;
+  background: #f2f2f2;
+}
+
+.gn-notification-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 41rpx;
+}
+
+.gn-notification-comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 39rpx;
+  margin-bottom: 45rpx;
+}
+
+.gn-notification-comment-avatar {
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  background: #49a0ff;
+}
+
+.gn-notification-comment-content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 23rpx;
+  width: 583rpx;
+}
+
+.gn-notification-comment-new {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid #f2f2f2;
+  height: 124rpx;
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.gn-notification-comment-new-content {
+  display: flex;
+  align-items: center;
+  width: 619rpx;
+  height: 70rpx;
+  border-radius: 34rpx;
+  background: #f2f2f2;
+  justify-content: space-between;
+  margin-left: 28rpx;
+}
+
+.gn-notification-comment-new-content > input {
+  width: 500rpx;
+  border: none;
+  background: inherit;
+}
+
+.gn-notification-comment-send {
+  width: 38rpx;
+  height: 35rpx;
+  margin-right: 25rpx;
+}
+
+.gn-notification-comment-share {
+  width: 42rpx;
+  height: 43rpx;
+  margin-left: 26rpx;
+  margin-right: 28rpx;
+}

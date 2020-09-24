@@ -1,0 +1,28 @@
+<!--pages/home/live/make/index.wxml-->
+<view class="container">
+  <view class="grace-list-items">
+    <view class="grace-list-image grace-relative">
+      <image class="grace-list-image" src="{{imgServer}}icon-messageDetail_5.png" mode="widthFix"></image>
+    </view>
+    <view class="grace-list-body">
+      <view class="grace-list-title grace-list-title-s">
+        <text class="grace-list-title-text">王华健</text>
+        <text class="grace-list-title-desc-s">主任医师</text>
+      </view>
+      <view class="grace-list-title grace-list-title-b">
+        <text class="grace-list-title-desc">北京协和第一医院</text>
+        <text class="grace-list-title-desc">直播时间：2019-12-10  19:00</text>
+      </view>
+    </view>
+  </view>
+  <view class="yh-make-main">
+    <view class="yh-make-title">王华健教授：糖尿病及并发症的防治</view>
+    <view class="yh-make-content">
+      <view class="yh-make-le">
+        <image class="yh-make-img" src="../../../../assets/icon-live_5.png "></image>
+        <image class="yh-make-img" src="../../../../assets/icon-live_5.png "></image>
+      </view>
+      黄医生从事糖尿病管理30多年，拥有丰富的糖尿病临床管理经验。拥有自己的糖尿病管理工作室，多年来为全国300多为糖尿病患者带来福音。部分糖尿病患者通过黄医生的血糖管理进行调整后，甚至已经不用依赖于药物治疗，摆脱多年糖尿病的困扰。</view>
+  </view>
+  <button class="yh-make-btn">免费预约</button>
+</view>

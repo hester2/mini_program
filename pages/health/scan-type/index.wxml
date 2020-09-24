@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="yh-mast-qm">
+    <text></text>
+    <text>方式一</text>
+    <text></text>
+  </view>
+  <view class="yh-scan-main" bindtap="doScan">
+    <image src="{{imgServer}}icon-scan_1.png"> </image>
+    <view>扫码绑定</view>
+  </view>
+  <view class="yh-mast-qm">
+    <text></text>
+    <text>方式二</text>
+    <text></text>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class="grace-form-item">
+      <text class="grace-form-label">设备号</text>
+      <view class="grace-form-body">
+        <input  placeholder-class="yh-holder" class="grace-form-input" name="nickname" placeholder="请输入"   bindinput="enterCode" type="number" value="{{code}}"></input>
+      </view>
+    </view>
+    <view style="padding:22rpx 0;">
+      <button class="grace-button" formType="submit" type="primary" bindtap = "doBing">下一步</button>
+    </view>
+  </form>
+</view>
+<!-- <view class="gn-page">
+  <view class="gn-wrap gn-app-fs28">
+    <view class="gn-scan-wrap" bindtap="doScan">
+      <image src="{{imgScan}}" mode="aspectFit" class="gn-scan-icon"></image>
+      <text>扫码绑定</text>
+    </view>
+    <input class="gn-enter-code" placeholder="输入设备号绑定" placeholder-class="input-placeholder" bindinput="enterCode" type="number" value="{{code}}"/>
+  </view>
+
+<button class="gn-app-fs36 gn-button" bindtap = "doBing">绑定</button>
+</view> -->

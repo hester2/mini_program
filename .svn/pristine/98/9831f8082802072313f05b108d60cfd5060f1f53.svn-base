@@ -1,0 +1,399 @@
+.gn-show {
+  display: block;
+}
+
+.gn-hide {
+  display: none;
+}
+
+page {
+  height: 100%;
+}
+
+view {
+  width: 100%;
+  height: 100%;
+}
+
+map {
+  width: 100%;
+  height: 100%;
+}
+
+.gn-map-menu-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 36rpx;
+  bottom: 94rpx;
+}
+
+.gn-map-change-user {
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.gn-map-menu {
+  width: 74rpx;
+  height: 74rpx;
+  margin-top: 20rpx;
+}
+
+.gn-map-menu-wrap.gn-map-modal-active,
+.gn-map-location-refresh-wrap.gn-map-modal-active,
+.gn-map-menu-list.gn-map-menu-list-active {
+  bottom: 430rpx;
+}
+
+.gn-map-location-refresh-wrap {
+  position: fixed;
+  bottom: 94rpx;
+  left: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gn-map-location-wrap, .gn-map-refresh-wrap {
+  width: 74rpx;
+  height: 74rpx;
+  border: 1rpx solid #fff;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gn-map-location-wrap {
+  margin-bottom: 19rpx;
+}
+
+.gn-map-location {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.gn-map-refresh {
+  width: 34rpx;
+  height: 33rpx;
+}
+
+.gn-map-operate-wrap {
+  position: fixed;
+  top: 28rpx;
+  right: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gn-map-change-wrap, .gn-map-button-change {
+  width: 74rpx;
+  height: 74rpx;
+  border: 1rpx solid #fff;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 19rpx;
+}
+
+.gn-map-change {
+  width: 51rpx;
+  height: 31rpx;
+}
+
+.gn-map-operate-items-wrap {
+  width: 74rpx;
+  height: 330rpx;
+  border: 1rpx solid #fff;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10rpx;
+}
+
+.gn-map-dots {
+  width: 59rpx;
+  height: 2rpx;
+  margin-top: 22rpx;
+  margin-bottom: 22rpx;
+}
+
+.gn-map-light {
+  width: 51rpx;
+  height: 23rpx;
+  margin-top: 31rpx;
+}
+
+.gn-map-location-single {
+  width: 25rpx;
+  height: 36rpx;
+}
+
+.gn-map-locations {
+  width: 38rpx;
+  height: 37rpx;
+}
+
+.gn-map-vista {
+  width: 32rpx;
+  height: 38rpx;
+  margin-bottom: 31rpx;
+}
+
+.gn-mask-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 1974rpx;
+}
+
+.gn-map-mask {
+  width: 100%;
+  height: 1974rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.gn-change-map-buttons {
+  z-index: 9999;
+  position: fixed;
+  top: 28rpx;
+  right: 28rpx;
+  display: flex;
+}
+
+.gn-map-change-buttons {
+  border-radius: 10rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  color: #49a0ff;
+  height: 74rpx;
+  margin-right: 28rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.gn-map-change-buttons::after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 18rpx;
+  right: 78rpx;
+  border-top: 18rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-bottom: 18rpx solid transparent;
+  border-left: 20rpx solid #fff;
+}
+
+.gn-map-status {
+  width: 89rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.gn-map-status-active {
+  background: #49a0ff;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.gn-map-line {
+  height: 33rpx;
+  width: 1rpx;
+  background: #49a0ff;
+  margin-left: 18rpx;
+  margin-right: 18rpx;
+}
+
+.gn-map-menu-list {
+  z-index: 9999;
+  position: fixed;
+  right: 36rpx;
+  bottom: 94rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gn-map-menu-icon {
+  width: 74rpx;
+  height: 74rpx;
+  margin-top: 31rpx;
+}
+
+.gn-mask-detail-wrap {
+  position: absolute;
+  bottom: 28rpx;
+  left: 28rpx;
+  z-index: 9999;
+  width: 750rpx;
+  height: 370rpx;
+}
+
+.gn-detial-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 694rpx;
+  background: #fff;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  z-index: 9999;
+  position: fixed;
+  bottom: 94rpx;
+  left: 28rpx;
+}
+
+.gn-detial-items-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 45rpx;
+  padding-right: 45rpx;
+box-sizing: border-box;
+justify-content: space-between;
+
+}
+
+.gn-detial-items-wrap.gn-detial-items-wrap-bg {
+  background: #f1f4fa;
+}
+
+.gn-detial-item {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 59rpx;
+}
+
+.gn-detial-content {
+  margin-top: 14rpx;
+  margin-bottom: 14rpx;
+  margin-left: 17rpx;
+  text-align: left;
+  white-space: normal;
+  width: 280rpx;
+}
+.gn-detial-content-address.gn-detial-content{
+  width:588rpx;
+}
+.gn-map-high-icon {
+  width: 13rpx;
+  height: 24rpx;
+  margin-right: 7rpx;
+}
+
+.gn-map-speed-icon {
+  width: 17rpx;
+  height: 27rpx;
+}
+
+.gn-map-direction-icon, .gn-map-clock-icon {
+  width: 23rpx;
+  height: 23rpx;
+}
+
+.gn-map-status-icon {
+  width: 24rpx;
+  height: 23rpx;
+}
+
+.gn-map-address-icon {
+  width: 20rpx;
+  height: 26rpx;
+}
+
+.gn-health-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 1974rpx;
+}
+
+.gn-health-mask {
+  width: 100%;
+  height: 1974rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.3;
+}
+
+.gn-change-user {
+  z-index: 9999;
+  position: fixed;
+  right: 36rpx;
+  bottom: 288rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-height: 522rpx;
+  overflow-y: scroll;
+}
+
+.gn-change-user.gn-change-user-active {
+  bottom: 612rpx;
+}
+
+.gn-health-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 32rpx;
+  height: 80rpx;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.gn-change-name {
+  font-size: 24rpx;
+  color: #fff;
+  background: #49a0ff;
+  white-space: nowrap;
+  padding: 14rpx 23rpx;
+  border-radius: 27rpx;
+  margin-right: 16rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-user-photo {
+  height: 76rpx;
+  width: 76rpx;
+  border: 1rpx solid #49a0ff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+}
+
+.gn-hide-icon {
+  height: 74rpx;
+  width: 74rpx;
+  z-index: 9999;
+  position: fixed;
+  right: 36rpx;
+  bottom: 186rpx;
+}
+
+.gn-hide-icon.gn-hide-icon-active {
+  bottom: 525rpx;
+}

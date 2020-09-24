@@ -1,0 +1,137 @@
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.gn-medical-record-taps {
+  background: #fff;
+  color: #bbb;
+  width: 100%;
+  display: flex;
+  margin-bottom: 27rpx;
+  padding: 28rpx 0;
+  align-items: center;
+}
+
+.gn-medical-record-tap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.gn-medical-record-tap-active {
+  color: #a6d6fc;
+}
+
+.gn-medical-record-tap-line {
+  border: 1rpx solid #fff;
+  width: 42rpx;
+  height: 4rpx;
+  border-radius: 3rpx;
+  background: #fff;
+  margin-top: 13rpx;
+  margin-left: 6rpx;
+}
+
+.gn-line-active {
+  border: 1rpx solid #a6d6fc;
+  background: #a6d6fc;
+}
+
+.gn-add-header {
+  padding: 0 150rpx;
+}
+
+.gn-add-header-tab {
+  margin-left: 20rpx;
+}
+
+.gn-add-input-wrap {
+  margin: 45rpx 28rpx 61rpx 28rpx;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  padding: 42rpx 36rpx 46rpx 36rpx;
+  color: #bbb;
+  background: #fff;
+}
+
+input {
+  background: #fafdff;
+}
+
+.gn-add-name-input {
+  margin-bottom: 38rpx;
+  padding-top: 25rpx;
+  padding-bottom: 22rpx;
+}
+
+.gn-add-name-view {
+  padding-left: 24rpx;
+  border: 1rpx solid #a6d6fc;
+  background: #f2f2f2;
+  border-radius: 10rpx;
+  opacity: 0.8;
+  letter-spacing: 0rpx;
+  background: #fafdff;
+  margin-bottom: 38rpx;
+  padding-top: 25rpx;
+  padding-bottom: 22rpx;
+  color: #d4d4de;
+}
+
+.gn-add-content-input {
+  padding-top: 25rpx;
+  padding-bottom: 305rpx;
+  margin-bottom: 37rpx;
+  white-space: wrap;
+}
+
+.gn-add-camera-wrap {
+  border: 1rpx dashed #a6d6fc;
+  height: 158rpx;
+  width: 158rpx;
+  margin-top: 12rpx;
+  margin-right: 40rpx;
+}
+
+.gn-camera-icon {
+  width: 74rpx;
+  height: 71rpx;
+  margin: 43rpx 39rpx 43rpx 45rpx;
+}
+
+.gn-add-imgs-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gn-add-img {
+  border: 1rpx solid #a6d6fc;
+  height: 158rpx;
+  width: 158rpx;
+  margin-right: 40rpx;
+  margin-top: 12rpx;
+}
+
+.gn-upload-submit {
+  color: #fff;
+  background: #49a0ff;
+  box-shadow: 0px 0px 4px 4px rgba(137, 137, 137, 0.05);
+  border-radius: 10rpx;
+  text-align: center;
+  width: 298rpx;
+  border: 1rpx solid #49a0ff;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+  margin: 0 auto 99rpx auto;
+}
+.color{
+  color:#808080;
+}

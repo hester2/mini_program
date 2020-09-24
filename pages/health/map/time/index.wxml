@@ -1,0 +1,33 @@
+<view class="gn-playback-time-wrap">
+  <view class="gn-playback-time gn-app-fs28">
+    <view class="gn-playback-time-start">
+      <text class="gn-time-item">开始日期</text>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-12-25" bindchange="bindStartDateChange">
+        <text class="gn-time-date">{{startTime.date}}</text>
+      </picker>
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+        <text>{{startTime.time}}</text>
+      </picker>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-time-right-icon"></image>
+    </view>
+    <view class="gn-playback-time-end">
+      <text class="gn-time-item">结束时间</text>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-12-25" bindchange="bindEndDateChange">
+        <text class="gn-time-date">{{endTime.date}}</text>
+      </picker>
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+        <text>{{endTime.time}}</text>
+      </picker>
+      <image src="{{imgRight}}" mode="aspectFit" class="gn-time-right-icon"></image>
+    </view>
+    <view class="gn-playback-time-switch">
+      <text class="gn-playback-time-switch-title">基站过滤</text>
+      <i-cell>
+        <i-switch value="{{isOpen}}" slot="footer" bindtap='changeSwitch'></i-switch>
+      </i-cell>
+    </view>
+  </view>
+  <view class="gn-playback-time-button gn-app-fs36" bindtap='getPlayback'>
+    查询
+  </view>
+</view>

@@ -1,0 +1,144 @@
+<!--pages/chat/doctor-home/index.wxml-->
+<view class="container">
+  <view class="yh-doctor-home" style="background-image: url('https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-more_1.png');">
+    <view class="yh-doctor-main">
+      <view class="yh-doctor-left">
+        <image src="{{imgServer}}icon-doctor_1.png"></image>
+      </view>
+      <view class="yh-doctor-center">医生主页</view>
+      <view class="yh-doctor-right" bindtap="handleSolid">
+        <image src="{{imgServer}}icon-doctor_2.png" wx:if="{{solid == 1}}"></image>
+        <image src="{{imgServer}}icon-doctor_15.png" wx:if="{{solid == 2}}"></image>
+        <image catchtap="handlePl" src="{{imgServer}}icon-doctor_3.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="yh-doctor-fp">
+    <view class="yh-mast-row">
+      <view class="icons">
+        <image src="{{doctor.avatar}}"></image>
+      </view>
+      <view class="yh-mast-col">
+        <view class="yh-mast-lc">
+          <text>{{doctor.firstName}}{{doctor.lastName}}</text>
+          <text class="yh-mast-titles"> {{doctor.section}} · {{doctor.title}}</text>
+        </view>
+        <view class="yh-mast-lo">
+          <i-cell-group>
+            <i-rate disabled="{{true}}" class="size" value="{{doctor.score}}">
+              {{doctor.score}}分
+            </i-rate>
+          </i-cell-group>
+        </view>
+        <view class="yh-mast-le">
+          <text>{{doctor.name}}</text>
+          <text>{{doctor.title}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="yh-doctor-card">
+      <view class="yh-doctor-col">
+        <image src="{{imgServer}}icon-doctor_6.png"></image>
+        <text>专业擅长</text>
+      </view>
+      <view class="yh-doctor-cols">{{doctor.adept}}</view>
+    </view>
+    <view class="yh-doctor-card ">
+      <view class="yh-doctor-col">
+        <image src="{{imgServer}}icon-doctor_4.png"></image>
+        <text>医生简介</text>
+      </view>
+      <view class="yh-doctor-cols yh-doctor-hide {{isFold?'hide':'show'}}">{{doctor.intro}}</view>
+    </view>
+    <image class="arrow" src="{{isFold?'https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-doctor_9.png':'https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-doctor_0.png'}}" bindtap="showAll"></image>
+  </view>
+  <view class="yh-mast-hom">
+    <view class="yh-mast-qm">
+      <text></text>
+      <text>医生服务</text>
+      <text></text>
+    </view>
+    <view class="yh-mast-grids">
+      <view class="yh-mast-item yh-mast-items" bindtap='showModal'>
+        <image src="{{imgServer}}icon-doctor_7.png" mode="widthFix"></image>
+        <text class="text">在线问诊</text>
+        <text class="texts">265人问诊过</text>
+      </view>
+      <view class="yh-mast-item yh-mast-items">
+        <image src="{{imgServer}}icon-doctor_5.png" mode="widthFix"></image>
+        <text class="text">私人医生</text>
+        <text class="texts">长期定制服务</text>
+      </view>
+      <view class="yh-mast-item yh-mast-items">
+        <image src="{{imgServer}}icon-doctor_8.png"></image>
+        <text class="text">预约挂号</text>
+        <text class="texts">轻松就医</text>
+      </view>
+    </view>
+    <view class="yh-mast-qm">
+      <text></text>
+      <text>医生再说</text>
+      <text></text>
+    </view>
+    <view class="yh-mast-grid ">
+      <view class="yh-mast-row">
+        <view class="icons">
+          <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=153086019,155710187&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="yh-mast-col">
+          <view class="yh-mast-lc">
+            {{doctor.talking}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="yh-mast-qm">
+      <text></text>
+      <text>问诊评价 <text class="text">（{{total}}）</text></text>
+      <text>更多</text>
+    </view>
+    <view class="yh-doctor-me" wx:for="{{common}}" wx:key="index">
+      <view class="yh-doctor-comlun">
+        <view class="yh-doctor-one">{{item.name}}</view>
+        <view class="yh-doctor-two">{{item.consultType}}</view>
+        <view class="yh-doctor-three">
+          <i-cell-group>
+            <i-rate disabled="{{true}}" class="size" value="{{item.commentScore}}">
+            </i-rate>
+          </i-cell-group>
+        </view>
+        <view class="yh-doctor-four">{{item.realDate}}</view>
+      </view>
+      <view class="yh-doctor-bot">
+        {{item.commentContent}}
+      </view>
+    </view>
+  </view>
+  <view class="yh-commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="yh-commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="yh-doctor-hm">
+      <view class="yh-doctor-te">在线问诊</view>
+      <view class="yh-doctor-ok">
+        <block wx:for="{{consult}}" wx:key="index">
+          <view class="yh-doctor-row">
+            <view class="yh-doctor-cor {{item.serviceId == actives?'active':''}}" catchtap='handleTu' data-id="{{item.serviceId}}"> 
+              <image wx:if="{{item.title == '图文问诊'?true:false}}" src="{{item.serviceId == actives?'https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-doctor_11.png':item.imgs}}"></image>
+              <image wx:if="{{item.title == '电话问诊'?true:false}}" src="{{item.serviceId == actives?'https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-doctor_14.png':item.imgs}}"></image>
+              <text class="{{item.serviceId == actives?'active':''}}">{{item.title}}</text>
+              <text class="{{item.serviceId == actives?'active':''}}">￥{{item.priceMarket}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!-- 问诊介绍 -->
+      <view class='yh-doctor-log'>
+        <view>{{list.subTitle}}</view>
+        <view>{{list.description}}</view>
+        <button class="yh-btn" data-name="{{list}}" wx:if="{{list.shelves=='1'||list.restrictions=='0'?true:false}}" bindtap="handleTuSubmit">确定</button>
+        <button class="yh-btn yh-btn-j" data-name="{{list}}" wx:if="{{list.shelves=='0'?true:false}}" bindtap="handleTub">已下架</button>
+        <button class="yh-btn yh-btn-x" data-name="{{list}}" wx:if="{{list.restrictions=='1'?true:false}}" bindtap="handleTub">限购</button>
+      </view>
+      <!-- 问诊介绍End -->
+    </view>
+  </view>
+</view>

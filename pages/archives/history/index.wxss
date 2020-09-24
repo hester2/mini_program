@@ -1,0 +1,65 @@
+/* pages/archives/history/index.wxss */
+.yh-cation-main{
+  margin: 28rpx 28rpx;
+  box-shadow: 3rpx 3rpx 16rpx #f1f1f1;
+  box-sizing: border-box;
+  padding: 28rpx 28rpx;
+}
+.word-class{
+
+  font-size: 14px;
+
+  color: rgb(95, 87, 87);
+
+}
+.yh-evalu-tex {
+  border: 1px solid #49a0ff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 25rpx 25rpx;
+  height: 304rpx;
+  margin-top: 30rpx;
+}
+
+.yh-evalu-tex text {
+  color: #ccc;
+  font-size: 22rpx;
+  float: right;
+}
+.yh-evalu-tex textarea{
+  height: 230rpx;
+}
+.place-holder{
+  color: #D4D4DE;
+}
+.UploadBtnarea{
+
+  width: 100%;
+
+  height: 64rpx;
+
+  margin-top: 60rpx;
+
+  margin-bottom: 20rpx;
+
+}
+
+.UploadBtnclass{
+
+  height: 100%;
+
+  width: 30%;
+
+  background-color: #49A0FF;
+
+  color: white;
+
+  align-self: center;
+
+  font-size: 26rpx;
+
+  border-radius: 60rpx;
+
+  margin-top: 500rpx;
+
+}

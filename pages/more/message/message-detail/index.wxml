@@ -1,0 +1,71 @@
+<!--pages/more/message/messageDetail/index.wxml-->
+<view class="yh-message-fo">
+  <view class="yh-message-left" bindtap="handleBack">
+    <i-icon type="return" size="20" color="#fff" />
+  </view>
+  <view class="yh-message-center">系统消息</view>
+  <view class="yh-message-right" bindtap="handleEdit">
+    <i-icon type="send" size="20" color="#fff" />
+  </view>
+</view>
+<view class="container">
+  <view class="grace-list-items">
+    <view class="grace-list-image grace-relative">
+      <image class="grace-list-image" src="{{imgServer}}icon-messageDetail_5.png" mode="widthFix"></image>
+    </view>
+    <view class="grace-list-body">
+      <view class="grace-list-title grace-list-title-s">
+        <text class="grace-list-title-text">伊好医疗</text>
+        <text class="grace-list-title-desc-s">关注</text>
+      </view>
+      <view class="grace-list-title grace-list-title-b">
+        <text class="grace-list-title-desc">伊好互联网医院</text>
+        <text class="grace-list-title-desc">2019-12-10  19:00</text>
+      </view>
+    </view>
+  </view>
+  <view class="yh-detail-card">
+    <image class="yh-detail-img" src="{{imgServer}}icon-messageDetail_4.png"></image>
+    <text class="yh-detail-text">黄医生从事糖尿病管理30多年，拥有丰富的糖尿病临床管理经验。拥有自己的糖尿病管理工作室，多年来为全国300多为糖尿病患者带来福音。部分糖尿病患者通过黄医生的血糖管理进行调整后，甚至已经不用依赖于药物治疗，摆脱多年糖尿病的困扰。
+
+ <text class="yh-detail-text-s">直播时间：2019-12-10  19:00</text>
+    </text>
+    <view class="yh-detail-row">
+      <image class="yh-detail-imgs" src="{{imgServer}}icon-messageDetail_3.png"></image>
+      <text class="yh-detail-text-b">关注伊好公众号
+了解更多健康小知识</text>
+      <image class="yh-detail-lp" src="{{imgServer}}icon-messageDetail_2.png"></image>
+      <text class="yh-detail-lj">59</text>
+    </view>
+  </view>
+  <view class="yh-mast-qm yh-mast-qm-b">
+    <text></text>
+    <text>评论</text>
+    <text></text>
+  </view>
+  <view class="grace-comments">
+    <view class="grace-comments-items grace-border-b">
+      <view class="grace-comments-body">
+        <view class="grace-comments-header">
+          <text class="grace-comments-header-text">刘***</text>
+          <text class="grace-comments-info-text">2019-12-03</text>
+        </view>
+        <text class="grace-comments-content">上天呀！我渴望与你相知相惜，长存此心永不褪减。</text>
+
+      </view>
+    </view>
+    <view class="grace-comments-items grace-border-b">
+      <view class="grace-comments-body">
+        <view class="grace-comments-header">
+          <text class="grace-comments-header-text">刘***</text>
+          <text class="grace-comments-info-text">2019-12-03</text>
+        </view>
+        <text class="grace-comments-content">上天呀！我渴望与你相知相惜，长存此心永不褪减。</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="yh-message-fexd">
+  <input class="input" type="text" placeholder-class="yh-holder" placeholder="请输入您想说的话…" />
+  <image class="yh-message-mg" src="{{imgServer}}icon-messageDetail_1.png"></image>
+</view>

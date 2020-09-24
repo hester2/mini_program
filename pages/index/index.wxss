@@ -1,0 +1,27 @@
+/* pages/index/index.wxss */
+.container{
+  display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.yh-index-cl{
+  color:#49A0FF;
+  font-size: 46rpx;
+  margin: 50rpx 0px;
+}
+.yh-index-img{
+  width: 608rpx;
+  height: 589rpx;
+}
+.yh-index-btn{
+  margin-top: 186rpx;
+  width: 300rpx;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 82rpx;
+  color: #49A0FF;
+  border-radius: 40rpx;
+  border:2rpx solid #49A0FF;
+  text-align: center;
+}

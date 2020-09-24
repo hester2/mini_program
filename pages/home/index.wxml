@@ -1,0 +1,173 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="yh-mast-fh">
+    <view class="yh-mast-hl" hidden="{{hiddenNamet}}">
+      <view class="yh-mast-img">
+        <i-icon type="coordinates" size="20" color="#fff" />
+      </view>
+      <text class="yh-mast-title">{{province}} {{city}} {{district}}</text>
+      <view class="yh-mast-icon" bindtap="handleScan">
+        <image src="{{imgServer}}icon-search_2.png"></image>
+      </view>
+    </view>
+    <view class="yh-mast-search" style="  background-image: url('https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-search_1.png');" hidden="{{hiden}}">
+      <input type="text" class="input" bindinput="searchChange" bindconfirm="searchNow" bindfocus="inputFocus" placeholder-class="yh-holder" confirm-type="search" placeholder="搜索周边、医院、症状、服务" />
+    </view>
+    <view class="yh-mast-sear" hidden="{{hide}}">
+      <view class="yh-mast-search yh-mast-searchs" style="  background-image: url('https://health-mini-1255700284.cos.ap-chengdu.myqcloud.com/consultation/assets/icon-search_1.png');">
+        <input type="text" class="input" bindinput="searchChange" bindconfirm="searchNow" bindfocus="inputFocus" placeholder-class="yh-holders" confirm-type="search" placeholder="搜索周边、医院、症状、服务" />
+      </view>
+      <view class="yh-mast-canc" bindtap="handleCancle">取消</view>
+    </view>
+  </view>
+  <!-- 内容开始区域  -->
+  <view class="grace-body vf" hidden="{{hiddenName}}">
+    <view class="grace-list">
+      <view class="yh-mast-qm">
+        <text></text>
+        <text>搜索历史</text>
+        <view class="yh-mast-rg yh-mast-rg">
+          <i-icon type="trash" size="20" color="#4EA3FF" /> 删除
+        </view>
+      </view>
+      <view class="yh-mast-fl">
+        <view class="yh-mast-fo">直播讲堂</view>
+        <view class="yh-mast-fo">最新文章</view>
+        <view class="yh-mast-fo">在线问诊</view>
+        <view class="yh-mast-fo">咳嗽</view>
+        <view class="yh-mast-fo">感冒</view>
+        <view class="yh-mast-fo">厦门第一医院</view>
+      </view>
+      <view class="yh-mast-qm">
+        <text></text>
+        <text>搜索历史</text>
+        <view class="yh-mast-rg yh-mast-rg">
+        </view>
+      </view>
+      <view class="yh-mast-fl">
+        <view class="yh-mast-fo">附近医院</view>
+        <view class="yh-mast-fo">直播讲堂</view>
+        <view class="yh-mast-fo">会员服务</view>
+        <view class="yh-mast-fo">宫颈癌</view>
+      </view>
+    </view>
+  </view>
+  <view class="yh-mast-ho" hidden="{{hiddenHo}}">
+    <view class="yh-mast-main">
+      <view class="yh-mast-swiper">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" next-margin="30px" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{carousel}}" wx:key="index" data-id="{{item.id}}">
+            <swiper-item style="width: 95%;">
+              <navigator url="" hover-class="none">
+                <image src="{{item.imgUrl}}"></image>
+              </navigator>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="yh-mast-atnai">
+          <view class="yh-mast-left">
+            <image src="{{imgServer}}icon-search_3.png"></image>
+          </view>
+          <view class="yh-mast-center">
+            <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="3000">
+              <block wx:for="{{title_j}}" wx:key="">
+                <swiper-item>
+                  <view class="swiper_item">{{item.title}}</view>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+          <view class="yh-mast-left" style="text-align:center;">
+            <i-icon type="enter" size="19" color="#49A0FF"></i-icon>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="yh-mast-hom">
+      <view class="yh-mast-grid">
+        <view class="yh-mast-item">
+          <view class="yh-mast-imgs">
+            <image src="{{imgServer}}icon-search_4.png"></image>
+            <text>快速问诊</text>
+          </view>
+          <view class="yh-mast-titles">
+            <text>极速问诊</text>
+            <text></text>
+            <text>3分钟问诊</text>
+          </view>
+        </view>
+        <view class="yh-mast-item" bindtap="handleCop">
+          <view class="yh-mast-imgs">
+            <image src="{{imgServer}}icon-search_5.png"></image>
+            <text>专家问诊</text>
+          </view>
+          <view class="yh-mast-titles">
+            <text>极速问诊</text>
+            <text></text>
+            <text>3分钟问诊</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="yh-mast-hom">
+      <view class="yh-mast-qm">
+        <text></text>
+        <text>问诊科室</text>
+        <text>更多</text>
+      </view>
+      <view class="yh-mast-grid yh-mast-grids">
+        <view class="yh-mast-item yh-mast-items" wx:for="{{sectionList}}" wx:key="index" data-id="{{item.id}}">
+          <image src="{{item.img}}" ></image>
+          <text class="text">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="yh-mast-grid yh-mast-grids fo">
+        <view class="yh-mast-items">
+          <view class="yh-mast-tm">{{adept}}</view>
+          <view class="view">
+            <image src="{{imgServer}}icon-search_14.png"></image>
+            <text>换一组</text>
+          </view>
+        </view>
+        <view class="yh-mast-hide">
+          <view class="yh-mast-row" wx:for="{{doctor}}" wx:key="index" data-id="{{item.id}}" bindtap="handleClick">
+            <view class="icons">
+              <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="yh-mast-col">
+              <view class="yh-mast-lc">
+                <text>{{item.firstName}}{{item.lastName}}</text>
+                <text class="yh-mast-titles"> {{item.section}} · {{item.title}}</text>
+              </view>
+              <view class="yh-mast-lo">
+                <i-cell-group>
+                  <i-rate disabled="{{true}}" class="size" value="{{item.score}}">
+                    {{item.score}}分
+                  </i-rate>
+                </i-cell-group>
+              </view>
+              <view class="yh-mast-le">
+                <text>{{item.organizationName}}</text>
+                <text>{{item.organizationTitle}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="yh-mast-qm yh-mast-top">
+        <text></text>
+        <text>精品推荐</text>
+        <text>更多</text>
+      </view>
+      <view class="yh-mast-grid yh-mast-grids">
+        <view class="yh-mast-cols" wx:for="{{recom}}" wx:key="">
+          <view class="yh-mast-item yh-mast-items">
+            <image src="{{item.goodsImg}}"></image>
+          </view>
+          <view class="text">{{item.goodsName}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
